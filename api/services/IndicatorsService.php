@@ -14,6 +14,28 @@ class IndicatorsService {
     }
   }
 
+  private static function getById(int $id): array {
+    $sql = "
+      SELECT id, name, team, map, status
+      FROM " . self::TABLE . "
+      WHERE id = ?
+    ";
+
+    $item = BaseModel::query($sql, [$id], 'one');
+
+    if (!$item) {
+      throw new NotFoundException('Item not found');
+    }
+
+    return [
+      'id' => (int) $item['id'],
+      'name' => $item['name'],
+      'team' => $item['team'],
+      'map' => $item['map'],
+      'status' => (bool) $item['status'],
+    ];
+  }
+
   private static function insert(array $params): array {
     $insert = BaseModel::setInsert(self::TABLE, $params);
 
@@ -23,7 +45,8 @@ class IndicatorsService {
 
     return [
       'task' => 'saved_item',
-      'id' => $insert['id']
+      // 'id' => $insert['id']
+      'item' => self::getById((int)$insert['id'])
     ];
   }
 
@@ -32,7 +55,8 @@ class IndicatorsService {
 
     return [
       'task' => 'updated_item',
-      'id' => $params['id']
+      // 'id' => $params['id']
+      'item' => self::getById((int)$params['id'])
     ];
   }
 
@@ -75,7 +99,7 @@ class IndicatorsService {
           'name' => $item['name'],
           'team' => $item['team'],
           'map' => $item['map'],
-          'status' => (bool) $item['status'],
+          'status' => (bool) $item['status']
         ],
         $items
       );

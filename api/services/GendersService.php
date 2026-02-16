@@ -13,6 +13,25 @@ class GendersService {
       }
     }
   }
+  private static function getById(int $id): array {
+    $sql = "
+      SELECT id, name, status
+      FROM " . self::TABLE . "
+      WHERE id = ?
+    ";
+
+    $item = BaseModel::query($sql, [$id], 'one');
+
+    if (!$item) {
+      throw new NotFoundException('Item not found');
+    }
+
+    return [
+      'id' => (int) $item['id'],
+      'name' => $item['name'],
+      'status' => (bool) $item['status'],
+    ];
+  }
 
   private static function insert(array $params): array {
     $insert = BaseModel::setInsert(self::TABLE, $params);
@@ -23,7 +42,9 @@ class GendersService {
 
     return [
       'task' => 'saved_item',
-      'id' => $insert['id']
+      // 'id' => $insert['id']
+      'item' => self::getById((int)$insert['id'])
+
     ];
   }
 
@@ -32,7 +53,8 @@ class GendersService {
 
     return [
       'task' => 'updated_item',
-      'id' => $params['id']
+      // 'id' => $params['id']
+      'item' => self::getById((int)$params['id'])
     ];
   }
 

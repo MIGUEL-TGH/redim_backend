@@ -18,8 +18,8 @@ class YearsService {
     $sql = "
       SELECT id, name, status
         FROM " . self::TABLE . "
+        WHERE id = ?
         ORDER BY name DESC
-      WHERE id = ?
     ";
 
     $item = BaseModel::query($sql, [$id], 'one');
