@@ -92,34 +92,18 @@ class StatesService {
   }
 
   //--------------------public access--------------------------------------------
-  public static function getCountriesActive(): array {
-    try {
-      $sql = 
-      " SELECT id, name
-        FROM countries
-        WHERE status = ?
-        ORDER BY id ASC
-      ";
+  public static function setCRUD(array $data): array {
+    self::validate($data);
 
-      $items = BaseModel::query($sql, [1], 'all');
-
-      if (empty($items)) {
-        throw new NotFoundException('Items not found');
-      }
-
-      return array_map(
-        fn($item) => [
-          'id' => (int) $item['id'],
-          'name' => $item['name']
-        ],
-        $items
-      );
-
-    } catch (Throwable $e) {
-      throw new DatabaseException($e->getMessage());
-    }
+    return match ($data['task']) {
+      'insert' => self::insert($data['params']),
+      'update' => self::update($data['params']),
+      'status' => self::changeStatus($data['params']),
+      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
+    };
   }
-  public static function getStates(): array {
+
+  public static function getAllData(): array {
     try {
 
       $sql = 
@@ -152,16 +136,34 @@ class StatesService {
       throw new DatabaseException($e->getMessage());
     }
   }
-  public static function setCRUD(array $data): array {
-    self::validate($data);
 
-    return match ($data['task']) {
-      'insert' => self::insert($data['params']),
-      'update' => self::update($data['params']),
-      'status' => self::changeStatus($data['params']),
-      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
-    };
+  public static function getActiveData(): array {
+    try {
+      $sql = 
+      " SELECT id, name
+        FROM states
+        WHERE status = ?
+        ORDER BY id ASC
+      ";
+
+      $items = BaseModel::query($sql, [1], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name']
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
   }
-
+  
 }
 ?>

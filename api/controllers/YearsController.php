@@ -1,5 +1,4 @@
 <?php
-// require_once 'services/YearsService.php';
 require_once __DIR__ . '/../services/YearsService.php';
 
 class YearsController extends BaseController {
@@ -9,7 +8,8 @@ class YearsController extends BaseController {
       $type = Request::query('type');
       
       return match ($type) {
-        'getdata'    => YearsService::getYears(),
+        'getdata'    => YearsService::getAllData(),
+        'getactive'    => YearsService::getActiveData(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])

@@ -15,11 +15,11 @@ class YearsService {
   }
 
   private static function getById(int $id): array {
-    $sql = "
-      SELECT id, name, status
-        FROM " . self::TABLE . "
-        WHERE id = ?
-        ORDER BY name DESC
+    $sql = 
+    " SELECT id, name, status
+      FROM " . self::TABLE . "
+      WHERE id = ?
+      ORDER BY name DESC
     ";
 
     $item = BaseModel::query($sql, [$id], 'one');
@@ -33,7 +33,7 @@ class YearsService {
       'name' => $item['name'],
       'status' => (bool) $item['status'],
     ];
-  }
+  } 
 
   private static function insert(array $params): array {
     $insert = BaseModel::setInsert(self::TABLE, $params);
@@ -78,10 +78,21 @@ class YearsService {
   }
 
   //--------------------public access--------------------------------------------
-  public static function getYears(): array {
+  public static function setCRUD(array $data): array {
+    self::validate($data);
+
+    return match ($data['task']) {
+      'insert' => self::insert($data['params']),
+      'update' => self::update($data['params']),
+      'status' => self::changeStatus($data['params']),
+      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
+    };
+  }
+
+  public static function getAllData(): array {
     try {
-      $sql = "
-        SELECT id, name, status
+      $sql = 
+      " SELECT id, name, status
         FROM " . self::TABLE . "
         ORDER BY name DESC
       ";
@@ -105,16 +116,38 @@ class YearsService {
       throw new DatabaseException($e->getMessage());
     }
   }
-  public static function setCRUD(array $data): array {
-    self::validate($data);
 
-    return match ($data['task']) {
-      'insert' => self::insert($data['params']),
-      'update' => self::update($data['params']),
-      'status' => self::changeStatus($data['params']),
-      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
-    };
-  }
+  public static function getActiveData(): array {
+    try {
+      $sql = 
+      " SELECT id, name
+        FROM " . self::TABLE . "
+        WHERE status = ?
+        ORDER BY name DESC
+      ";
+
+      $items = BaseModel::query($sql, [1], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name'],
+          // 'status' => (bool) $item['status'],
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+  }  
+  //-----------------------------------------------------------------------------
+
+  
 
 }
 ?>

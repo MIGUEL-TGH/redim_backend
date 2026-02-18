@@ -8,8 +8,8 @@ class StatesController extends BaseController {
       $type = Request::query('type');
       
       return match ($type) {
-        'getdata'         => StatesService::getStates(),
-        'getcountries'    => StatesService::getCountriesActive(),
+        'getdata'         => StatesService::getAllData(),
+        'getactive'    => StatesService::getActiveData(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])

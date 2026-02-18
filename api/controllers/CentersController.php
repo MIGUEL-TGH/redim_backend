@@ -1,15 +1,15 @@
 <?php
-require_once __DIR__ . '/../services/GendersService.php';
+require_once __DIR__ . '/../services/CentersService.php';
 
-class GendersController extends BaseController {
+class CentersController extends BaseController {
   public static function get() {
     self::handle(function () {
       
       $type = Request::query('type');
       
       return match ($type) {
-        'getdata'    => GendersService::getAllData(),
-        'getactive'    => GendersService::getActiveData(),
+        'getdata'         => CentersService::getCenters(),
+        'getstates'    => CentersService::getStatesActive(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])
@@ -24,7 +24,7 @@ class GendersController extends BaseController {
       $body = Request::body();
 
       return match ($type) {
-        'crud' => GendersService::setCRUD($body),
+        'crud' => CentersService::setCRUD($body),
         // 'crud' => $body,
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
