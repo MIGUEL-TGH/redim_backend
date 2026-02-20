@@ -8,7 +8,9 @@ class IndicatorsController extends BaseController {
       $type = Request::query('type');
       
       return match ($type) {
-        'getdata'    => IndicatorsService::getIndicators(),
+        'getdata'    => IndicatorsService::getAllData(),
+        'getactive'    => IndicatorsService::getActiveData(),
+        'getwithdata'    => IndicatorsService::getIndicatorsWithData(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])

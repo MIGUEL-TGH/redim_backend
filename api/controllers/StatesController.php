@@ -25,6 +25,7 @@ class StatesController extends BaseController {
 
       return match ($type) {
         'crud' => StatesService::setCRUD($body),
+        'getactivebyid' => StatesService::getActiveDataById($body),
         // 'crud' => $body,
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'

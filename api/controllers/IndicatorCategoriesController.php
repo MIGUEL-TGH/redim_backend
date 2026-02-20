@@ -8,9 +8,8 @@ class IndicatorCategoriesController extends BaseController {
       $type = Request::query('type');
       
       return match ($type) {
-        'getdata'         => IndicatorCategoriesService::getIndicatorCategories(),
-        'getindicators'    => IndicatorCategoriesService::getIndicatorsActive(),
-        // 'getstates'    => IndicatorCategoriesService::getStatesActive(),
+        'getdata'         => IndicatorCategoriesService::getAllData(),
+        'getactive'       => IndicatorCategoriesService::getAllDataActive(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])
@@ -25,8 +24,8 @@ class IndicatorCategoriesController extends BaseController {
       $body = Request::body();
 
       return match ($type) {
-        'crud' => IndicatorCategoriesService::setCRUD($body),
-        // 'crud' => $body,
+        'crud'      => IndicatorCategoriesService::setCRUD($body),
+        // 'crud'   => $body,
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])

@@ -19,7 +19,6 @@ class StatesService {
       }
     }
   }
-
   private static function getById(int $id): array {
     $sql = "
       SELECT s.id, s.name, s.country_id,
@@ -46,7 +45,6 @@ class StatesService {
       'status' => (bool) $item['status'],
     ];
   }
-
   private static function insert(array $params): array {
     $insert = BaseModel::setInsert(self::TABLE, $params);
 
@@ -60,7 +58,6 @@ class StatesService {
       'item' => self::getById((int)$insert['id'])
     ];
   }
-
   private static function update(array $params): array {
     self::updateInternal($params);
 
@@ -70,7 +67,6 @@ class StatesService {
       'item' => self::getById((int)$params['id'])
     ];
   }
-
   private static function changeStatus(array $params): array {
     self::updateInternal($params);
 
@@ -82,7 +78,6 @@ class StatesService {
       'status' => (bool)$params['status']
     ];
   }
-
   private static function updateInternal(array $params): void {
     $update = BaseModel::setUpdate(self::TABLE, $params);
 
@@ -102,7 +97,6 @@ class StatesService {
       default => throw new ValidationException([], 'Tipo de tarea no encontrado')
     };
   }
-
   public static function getAllData(): array {
     try {
 
@@ -136,7 +130,6 @@ class StatesService {
       throw new DatabaseException($e->getMessage());
     }
   }
-
   public static function getActiveData(): array {
     try {
       $sql = 
@@ -164,6 +157,33 @@ class StatesService {
       throw new DatabaseException($e->getMessage());
     }
   }
-  
+  public static function getActiveDataById($id): array {
+    try {
+      $sql = 
+      " SELECT id, name
+        FROM states
+        WHERE status = ? AND country_id = ?
+        ORDER BY id ASC
+      ";
+
+      $items = BaseModel::query($sql, [1, $id['country_id']], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Elementos no encontrados'); // Items not found
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name']
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+  }
+  //-----------------------------------------------------------------------------
 }
 ?>

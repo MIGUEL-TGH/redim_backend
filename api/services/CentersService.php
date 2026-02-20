@@ -57,7 +57,6 @@ class CentersService {
 
     }
   }
-
   private static function getById(int $id): array {
     $sql = 
     " SELECT c.id, c.name, c.locate, c.state_id, s.name AS state_name, s.status
@@ -81,7 +80,6 @@ class CentersService {
       'status' => (bool) $item['status'],
     ];
   }
-
   private static function insert(array $params): array {
     $insert = BaseModel::setInsert(self::TABLE, $params);
 
@@ -94,7 +92,6 @@ class CentersService {
       'item' => self::getById((int)$insert['id'])
     ];
   }
-
   private static function update(array $params): array {
     self::updateInternal($params);
 
@@ -103,7 +100,6 @@ class CentersService {
       'item' => self::getById((int)$params['id'])
     ];
   }
-
   private static function changeStatus(array $params): array {
     self::updateInternal($params);
 
@@ -113,7 +109,6 @@ class CentersService {
       'status' => (bool)$params['status']
     ];
   }
-
   private static function updateInternal(array $params): void {
     $update = BaseModel::setUpdate(self::TABLE, $params);
 
@@ -123,34 +118,17 @@ class CentersService {
   }
 
   //--------------------public access--------------------------------------------
-  public static function getStatesActive(): array {
-    try {
-      $sql = 
-      " SELECT id, name
-        FROM states
-        WHERE status = ?
-        ORDER BY id ASC
-      ";
+  public static function setCRUD(array $data): array {
+    self::validate($data);
 
-      $items = BaseModel::query($sql, [1], 'all');
-
-      if (empty($items)) {
-        throw new NotFoundException('Items not found');
-      }
-
-      return array_map(
-        fn($item) => [
-          'id' => (int) $item['id'],
-          'name' => $item['name']
-        ],
-        $items
-      );
-
-    } catch (Throwable $e) {
-      throw new DatabaseException($e->getMessage());
-    }
+    return match ($data['task']) {
+      'insert' => self::insert($data['params']),
+      'update' => self::update($data['params']),
+      'status' => self::changeStatus($data['params']),
+      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
+    };
   }
-  public static function getCenters(): array {
+  public static function getAllData(): array {
     try {
 
       $sql =
@@ -182,16 +160,60 @@ class CentersService {
       throw new DatabaseException($e->getMessage());
     }
   }
-  public static function setCRUD(array $data): array {
-    self::validate($data);
+  public static function getActiveData(): array {
+    try {
+      $sql = 
+      " SELECT id, name
+        FROM centers
+        WHERE status = ?
+        ORDER BY id ASC
+      ";
 
-    return match ($data['task']) {
-      'insert' => self::insert($data['params']),
-      'update' => self::update($data['params']),
-      'status' => self::changeStatus($data['params']),
-      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
-    };
+      $items = BaseModel::query($sql, [1], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name']
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
   }
+  public static function getActiveDatataById($id): array {
+    try {
+      $sql = 
+      " SELECT id, name
+        FROM centers
+        WHERE status = ? AND state_id = ?
+        ORDER BY id ASC
+      ";
 
+      $items = BaseModel::query($sql, [1, $id['state_id']], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name']
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+  }
+  //-----------------------------------------------------------------------------
 }
 ?>

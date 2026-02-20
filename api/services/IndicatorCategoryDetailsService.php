@@ -38,7 +38,6 @@ class IndicatorCategoryDetailsService {
       // }
     }
   }
-
   private static function getById(int $id): array {
     $sql = 
     " SELECT 
@@ -85,7 +84,6 @@ class IndicatorCategoryDetailsService {
       'status' => (bool) $item['status']
     ];
   }
-
   private static function insert(array $params): array {
     // -------------------------------------------------------------------------
     // $tz = new DateTimeZone('America/Mexico_City');
@@ -106,7 +104,6 @@ class IndicatorCategoryDetailsService {
       'item' => self::getById((int)$insert['id'])
     ];
   }
-
   private static function update(array $params): array {
     // -------------------------------------------------------------------------
     // $parentId = isset($params['parent_id']) && (int)$params['parent_id'] > 0
@@ -123,7 +120,6 @@ class IndicatorCategoryDetailsService {
       'item' => self::getById((int)$params['id'])
     ];
   }
-
   private static function changeStatus(array $params): array {
     self::updateInternal($params);
 
@@ -133,7 +129,6 @@ class IndicatorCategoryDetailsService {
       'status' => (bool)$params['status']
     ];
   }
-
   private static function updateInternal(array $params): void {
     $update = BaseModel::setUpdate(self::TABLE, $params);
 
@@ -155,30 +150,37 @@ class IndicatorCategoryDetailsService {
   }
   public static function getAllData(): array {
     try {
-      $sql =
-      "SELECT 
-        ic.id,
-        ic.name,
-        
-        i.name AS indicator_name,
-        ic.indicator_id,
+      $sql = 
+        "SELECT
+          icd.category_id AS category_id,
+          ic.name AS category_name,
 
-        parent.name AS parent_name,
-        ic.parent_id,
+          icd.year_id,
+          y.name AS year_name,
 
-        ic.level,
-        ic.status
+          icd.gender_id,
+          g.name AS gender_name,
 
-      FROM indicator_categories AS ic
+          icd.state_id,
+          s.name AS state_name,
 
-      INNER JOIN indicators AS i 
-        ON i.id = ic.indicator_id
+          icd.center_id,
+          -- c.name AS center_name,
+          COALESCE(c.name, 'Sin centro') AS center_name,
 
-      LEFT JOIN indicator_categories AS parent 
-        ON parent.id = ic.parent_id
+          icd.id,
+          icd.PI,
+          icd.PS,
+          icd.status
 
-      ORDER BY ic.indicator_id, ic.level, ic.sort_order;
-      ";
+        FROM indicator_category_details icd
+        INNER JOIN indicator_categories ic ON ic.id = icd.category_id
+        INNER JOIN years y ON y.id = icd.year_id
+        INNER JOIN genders g ON g.id = icd.gender_id
+        INNER JOIN states s ON s.id = icd.state_id
+        LEFT JOIN centers c ON c.id = icd.center_id
+        ";
+      //  WHERE icd.status = 1
 
       $items = BaseModel::query($sql, [], 'all');
 
@@ -189,16 +191,24 @@ class IndicatorCategoryDetailsService {
       return array_map(
         fn($item) => [
           'id' => (int) $item['id'],
-          'name' => $item['name'],
+          'PI' => $item['PI'],
+          'PS' => $item['PS'],
+          'status' => $item['status'],
           
-          'indicator_id' => (int) $item['indicator_id'],
-          'indicator_name' => $item['indicator_name'],
+          'category_id' => (int) $item['category_id'],
+          'category_name' => $item['category_name'],
 
-          'parent_id' => (int) $item['parent_id'],
-          'parent_name' => $item['parent_name'],
+          'year_id' => (int) $item['year_id'],
+          'year_name' => $item['year_name'],
           
-          'level' => $item['level'],
-          'status' => (bool) $item['status']
+          'gender_id' => (int) $item['gender_id'],
+          'gender_name' => $item['gender_name'],
+
+          'state_id' => (int) $item['state_id'],
+          'state_name' => $item['state_name'],
+
+          'center_id' => (int) $item['center_id'],
+          'center_name' => $item['center_name'],
         ],
         $items
       );
@@ -208,62 +218,5 @@ class IndicatorCategoryDetailsService {
     }
   }
   //-----------------------------------------------------------------------------
-
-  // public static function getIndicatorsActive(): array {
-  //   try {
-  //     $sql = 
-  //     " SELECT id, name
-  //       FROM indicators
-  //       WHERE status = ?
-  //       ORDER BY id ASC
-  //     ";
-
-  //     $items = BaseModel::query($sql, [1], 'all');
-
-  //     if (empty($items)) {
-  //       throw new NotFoundException('Items not found');
-  //     }
-
-  //     return array_map(
-  //       fn($item) => [
-  //         'id' => (int) $item['id'],
-  //         'name' => $item['name']
-  //       ],
-  //       $items
-  //     );
-
-  //   } catch (Throwable $e) {
-  //     throw new DatabaseException($e->getMessage());
-  //   }
-  // }
-  // public static function getStatesActive(): array {
-  //   try {
-  //     $sql = 
-  //     " SELECT id, name
-  //       FROM states
-  //       WHERE status = ?
-  //       ORDER BY id ASC
-  //     ";
-
-  //     $items = BaseModel::query($sql, [1], 'all');
-
-  //     if (empty($items)) {
-  //       throw new NotFoundException('Items not found');
-  //     }
-
-  //     return array_map(
-  //       fn($item) => [
-  //         'id' => (int) $item['id'],
-  //         'name' => $item['name']
-  //       ],
-  //       $items
-  //     );
-
-  //   } catch (Throwable $e) {
-  //     throw new DatabaseException($e->getMessage());
-  //   }
-  // }
-  
-  
 }
 ?>

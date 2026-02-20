@@ -8,8 +8,9 @@ class IndicatorCategoryDetailsController extends BaseController {
       $type = Request::query('type');
       
       return match ($type) {
-        'getdata'         => IndicatorCategoryDetailsService::getAllData(),
-        // 'getindicators'    => IndicatorCategoryDetailsService::getIndicatorsActive(),
+        'getalldata'    => IndicatorCategoryDetailsService::getAllData(),
+        'getdata'    => IndicatorCategoryDetailsService::getAllData(),
+        // 'getdata'    => $type,
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])

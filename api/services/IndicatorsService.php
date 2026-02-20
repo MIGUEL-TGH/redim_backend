@@ -13,7 +13,6 @@ class IndicatorsService {
       }
     }
   }
-
   private static function getById(int $id): array {
     $sql = "
       SELECT id, name, team, map, status
@@ -35,7 +34,6 @@ class IndicatorsService {
       'status' => (bool) $item['status'],
     ];
   }
-
   private static function insert(array $params): array {
     $insert = BaseModel::setInsert(self::TABLE, $params);
 
@@ -49,7 +47,6 @@ class IndicatorsService {
       'item' => self::getById((int)$insert['id'])
     ];
   }
-
   private static function update(array $params): array {
     self::updateInternal($params);
 
@@ -59,7 +56,6 @@ class IndicatorsService {
       'item' => self::getById((int)$params['id'])
     ];
   }
-
   private static function changeStatus(array $params): array {
     self::updateInternal($params);
 
@@ -69,7 +65,6 @@ class IndicatorsService {
       'status' => $params['status']
     ];
   }
-
   private static function updateInternal(array $params): void {
     $update = BaseModel::setUpdate(self::TABLE, $params);
 
@@ -79,7 +74,17 @@ class IndicatorsService {
   }
 
   //--------------------public access--------------------------------------------
-  public static function getIndicators(): array {
+  public static function setCRUD(array $data): array {
+    self::validate($data);
+
+    return match ($data['task']) {
+      'insert' => self::insert($data['params']),
+      'update' => self::update($data['params']),
+      'status' => self::changeStatus($data['params']),
+      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
+    };
+  }
+  public static function getAllData(): array {
     try {
       $sql = "
         SELECT id, name, team, map, status
@@ -108,16 +113,68 @@ class IndicatorsService {
       throw new DatabaseException($e->getMessage());
     }
   }
-  public static function setCRUD(array $data): array {
-    self::validate($data);
+  public static function getActiveData(): array {
+    try {
+      $sql = "
+        SELECT id, name, team, map, status
+        FROM " . self::TABLE . "
+        WHERE status = ?
+        ORDER BY id ASC
+      ";
 
-    return match ($data['task']) {
-      'insert' => self::insert($data['params']),
-      'update' => self::update($data['params']),
-      'status' => self::changeStatus($data['params']),
-      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
-    };
+      $items = BaseModel::query($sql, [1], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name'],
+          'team' => $item['team'],
+          'map' => $item['map'],
+          'status' => (bool) $item['status']
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
   }
+  public static function getIndicatorsWithData(): array {
+    try {
+      $sql = 
+      "SELECT DISTINCT
+        i.id, i.name
+      FROM indicators i
+      INNER JOIN indicator_categories ic
+        ON ic.indicator_id = i.id
+      INNER JOIN indicator_category_details icd
+        ON icd.category_id = ic.id
+      WHERE i.status = ?
+      ORDER BY i.name;
+      ";
 
+      $items = BaseModel::query($sql, [1], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name']
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+  }
+  //-----------------------------------------------------------------------------
 }
 ?>

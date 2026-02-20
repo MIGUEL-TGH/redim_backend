@@ -63,7 +63,7 @@ class MapController extends BaseController {
       $type = Request::query('type');
       
       return match ($type) {
-        'indicators' => MapService::getIndicators(),
+        // 'indicators' => MapService::getIndicators(),
         'states' => MapService::getStates(),
         'years'      => MapService::getYears(),
         'genders'      => MapService::getGenders(),

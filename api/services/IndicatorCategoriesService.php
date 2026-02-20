@@ -15,22 +15,17 @@ class IndicatorCategoriesService {
       $level = $data['params']['level'] ?? null;
       if ($level !== null) {
 
-        $level = trim($level);
-
-        // Permitir string vacío
-        if ($level === '') {
-          return;
-        }
+        $level = (int) $level;
 
         // Límite máximo de caracteres
-        if (mb_strlen($level) > 50) {
+        if (($level) > 50) {
           throw new ValidationException([
             'level' => 'Máximo 50 caracteres permitidos'
           ]);
         }
 
         // Validar estructura estricta: numero,numero (sin espacios)
-        if (!preg_match('/^\d+$/', $level)) {
+        if (!preg_match('/^\d+$/', (string)$level)) {
           throw new ValidationException([
             'level' => 'El formato del nivel jerárquico no cumple con el formato requerido (solo números sin espacios) [0-99]'
           ]);
@@ -38,7 +33,6 @@ class IndicatorCategoriesService {
       }
     }
   }
-
   private static function getById(int $id): array {
     $sql = 
     " SELECT 
@@ -85,7 +79,6 @@ class IndicatorCategoriesService {
       'status' => (bool) $item['status']
     ];
   }
-
   private static function insert(array $params): array {
     // -------------------------------------------------------------------------
     $tz = new DateTimeZone('America/Mexico_City');
@@ -106,7 +99,6 @@ class IndicatorCategoriesService {
       'item' => self::getById((int)$insert['id'])
     ];
   }
-
   private static function update(array $params): array {
     // -------------------------------------------------------------------------
     $parentId = isset($params['parent_id']) && (int)$params['parent_id'] > 0
@@ -123,7 +115,6 @@ class IndicatorCategoriesService {
       'item' => self::getById((int)$params['id'])
     ];
   }
-
   private static function changeStatus(array $params): array {
     self::updateInternal($params);
 
@@ -133,7 +124,6 @@ class IndicatorCategoriesService {
       'status' => (bool)$params['status']
     ];
   }
-
   private static function updateInternal(array $params): void {
     $update = BaseModel::setUpdate(self::TABLE, $params);
 
@@ -141,9 +131,72 @@ class IndicatorCategoriesService {
       throw new ValidationException([], $update['alert'] ?? 'Error en actualización');
     }
   }
-
   //--------------------public access--------------------------------------------
-  public static function getIndicatorsActive(): array {
+  public static function setCRUD(array $data): array {
+    self::validate($data);
+
+    return match ($data['task']) {
+      'insert' => self::insert($data['params']),
+      'update' => self::update($data['params']),
+      'status' => self::changeStatus($data['params']),
+      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
+    };
+  }
+  public static function getAllData(): array {
+    try {
+      $sql =
+      "SELECT 
+          ic.id,
+          ic.name,
+          
+          i.name AS indicator_name,
+          ic.indicator_id,
+
+          parent.name AS parent_name,
+          ic.parent_id,
+
+          ic.level,
+          ic.status
+
+        FROM indicator_categories AS ic
+
+        INNER JOIN indicators AS i 
+          ON i.id = ic.indicator_id
+
+        LEFT JOIN indicator_categories AS parent 
+          ON parent.id = ic.parent_id
+
+        ORDER BY ic.indicator_id, ic.level, ic.sort_order;
+      ";
+
+      $items = BaseModel::query($sql, [], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name'],
+          
+          'indicator_id' => (int) $item['indicator_id'],
+          'indicator_name' => $item['indicator_name'],
+
+          'parent_id' => (int) $item['parent_id'],
+          'parent_name' => $item['parent_name'],
+          
+          'level' => (int) $item['level'],
+          'status' => (bool) $item['status']
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+  }
+  public static function getAllDataActive(): array {
     try {
       $sql = 
       " SELECT id, name
@@ -170,97 +223,7 @@ class IndicatorCategoriesService {
       throw new DatabaseException($e->getMessage());
     }
   }
-  // public static function getStatesActive(): array {
-  //   try {
-  //     $sql = 
-  //     " SELECT id, name
-  //       FROM states
-  //       WHERE status = ?
-  //       ORDER BY id ASC
-  //     ";
-
-  //     $items = BaseModel::query($sql, [1], 'all');
-
-  //     if (empty($items)) {
-  //       throw new NotFoundException('Items not found');
-  //     }
-
-  //     return array_map(
-  //       fn($item) => [
-  //         'id' => (int) $item['id'],
-  //         'name' => $item['name']
-  //       ],
-  //       $items
-  //     );
-
-  //   } catch (Throwable $e) {
-  //     throw new DatabaseException($e->getMessage());
-  //   }
-  // }
-  public static function getIndicatorCategories(): array {
-    try {
-      $sql =
-      "SELECT 
-        ic.id,
-        ic.name,
-        
-        i.name AS indicator_name,
-        ic.indicator_id,
-
-        parent.name AS parent_name,
-        ic.parent_id,
-
-        ic.level,
-        ic.status
-
-      FROM indicator_categories AS ic
-
-      INNER JOIN indicators AS i 
-        ON i.id = ic.indicator_id
-
-      LEFT JOIN indicator_categories AS parent 
-        ON parent.id = ic.parent_id
-
-      ORDER BY ic.indicator_id, ic.level, ic.sort_order;
-      ";
-
-      $items = BaseModel::query($sql, [], 'all');
-
-      if (empty($items)) {
-        throw new NotFoundException('Items not found');
-      }
-
-      return array_map(
-        fn($item) => [
-          'id' => (int) $item['id'],
-          'name' => $item['name'],
-          
-          'indicator_id' => (int) $item['indicator_id'],
-          'indicator_name' => $item['indicator_name'],
-
-          'parent_id' => (int) $item['parent_id'],
-          'parent_name' => $item['parent_name'],
-          
-          'level' => $item['level'],
-          'status' => (bool) $item['status']
-        ],
-        $items
-      );
-
-    } catch (Throwable $e) {
-      throw new DatabaseException($e->getMessage());
-    }
-  }
-  public static function setCRUD(array $data): array {
-    self::validate($data);
-
-    return match ($data['task']) {
-      'insert' => self::insert($data['params']),
-      'update' => self::update($data['params']),
-      'status' => self::changeStatus($data['params']),
-      default => throw new ValidationException([], 'Tipo de tarea no encontrado')
-    };
-  }
-
+  
+  //-----------------------------------------------------------------------------
 }
 ?>

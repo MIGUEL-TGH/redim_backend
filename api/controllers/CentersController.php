@@ -8,8 +8,8 @@ class CentersController extends BaseController {
       $type = Request::query('type');
       
       return match ($type) {
-        'getdata'         => CentersService::getCenters(),
-        'getstates'    => CentersService::getStatesActive(),
+        'getdata'      => CentersService::getAllData(),
+        'getactive'    => CentersService::getActiveData(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])
@@ -24,7 +24,8 @@ class CentersController extends BaseController {
       $body = Request::body();
 
       return match ($type) {
-        'crud' => CentersService::setCRUD($body),
+        'crud'            => CentersService::setCRUD($body),
+        'getactivebyid'   => CentersService::getActiveDatataById($body),
         // 'crud' => $body,
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
