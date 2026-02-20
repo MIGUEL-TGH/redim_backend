@@ -27,6 +27,7 @@ class IndicatorCategoryDetailsController extends BaseController {
       return match ($type) {
         // 'crud' => IndicatorCategoryDetailsService::setCRUD($body),
         // 'crud' => $body,
+        'getactivebyid'   => CentersService::getActiveDatataById($body),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])

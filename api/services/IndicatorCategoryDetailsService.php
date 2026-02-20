@@ -217,6 +217,75 @@ class IndicatorCategoryDetailsService {
       throw new DatabaseException($e->getMessage());
     }
   }
+
+  public static function getActiveDatataById($id): array {
+    try {
+      $sql = 
+      " SELECT
+          icd.category_id AS category_id,
+          ic.name AS category_name,
+
+          icd.year_id,
+          y.name AS year_name,
+
+          icd.gender_id,
+          g.name AS gender_name,
+
+          icd.state_id,
+          s.name AS state_name,
+
+          icd.center_id,
+          COALESCE(c.name, 'Sin centro') AS center_name,
+
+          icd.id,
+          icd.PI,
+          icd.PS,
+          icd.status
+
+        FROM indicator_category_details icd
+        INNER JOIN indicator_categories ic ON ic.id = icd.category_id
+        INNER JOIN years y ON y.id = icd.year_id
+        INNER JOIN genders g ON g.id = icd.gender_id
+        INNER JOIN states s ON s.id = icd.state_id
+        LEFT JOIN centers c ON c.id = icd.center_id
+        WHERE icd.category_id = ?
+      ";
+
+      $items = BaseModel::query($sql, [$id['category_id']], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'PI' => $item['PI'],
+          'PS' => $item['PS'],
+          'status' => $item['status'],
+          
+          'category_id' => (int) $item['category_id'],
+          'category_name' => $item['category_name'],
+
+          'year_id' => (int) $item['year_id'],
+          'year_name' => $item['year_name'],
+          
+          'gender_id' => (int) $item['gender_id'],
+          'gender_name' => $item['gender_name'],
+
+          'state_id' => (int) $item['state_id'],
+          'state_name' => $item['state_name'],
+
+          'center_id' => (int) $item['center_id'],
+          'center_name' => $item['center_name'],
+        ],
+        $items
+      );
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+  }
   //-----------------------------------------------------------------------------
 }
 ?>
