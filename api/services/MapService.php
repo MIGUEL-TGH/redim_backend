@@ -19,6 +19,7 @@ class MapService {
     return " AND {$field} IN (" . implode(',', $placeholders) . ")";
   }
   //--------------------Constructor de nodos de indicadores------------------------------------------- 
+  
   private static function indexCategories(array $rows): array{
       $categories = [];
 
@@ -116,7 +117,6 @@ class MapService {
   private static function filterCategories(array $categories, array $validIds): array {
     return array_intersect_key($categories, $validIds);
   }
-
   //--------------------public access-------------------------------------------        
   public static function getCategoriesNode($indicatorId) {
     try {

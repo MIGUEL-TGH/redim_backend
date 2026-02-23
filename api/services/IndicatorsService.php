@@ -175,6 +175,92 @@ class IndicatorsService {
       throw new DatabaseException($e->getMessage());
     }
   }
+  public static function getIndicatorsWithCategories(): array {
+    try {
+      // $sql = 
+      // "SELECT DISTINCT
+      //   i.id, i.name
+      // FROM indicators i
+      // INNER JOIN indicator_categories ic
+      //   ON ic.indicator_id = i.id
+      // WHERE i.status = ? AND ic.status = ?
+      // ORDER BY i.name;
+      // ";
+
+      // $sql = 
+      // "SELECT DISTINCT
+      //   i.id,
+      //   i.name
+      // FROM indicators i
+      // INNER JOIN indicator_categories ic
+      //   ON ic.indicator_id = i.id
+      // WHERE i.status = ?
+      //   AND ic.status = ?
+      //   AND NOT EXISTS (
+      //       SELECT 1
+      //       FROM indicator_categories ic_child
+      //       WHERE ic_child.parent_id = ic.id 
+      //   )
+      // ORDER BY i.name;
+      // ";
+
+      // Todos los padres con los hijos
+      // $sql = 
+      // "SELECT
+      //   i.id,
+      //   i.name,
+      //   ic.id AS category_id,
+      //   ic.name AS category_name
+      // FROM indicators i
+      // INNER JOIN indicator_categories ic
+      //     ON ic.indicator_id = i.id
+      // WHERE i.status = ?
+      //   AND ic.status = ?
+      //   AND NOT EXISTS (
+      //       SELECT 1
+      //       FROM indicator_categories child
+      //       WHERE child.parent_id = ic.id
+      //   )
+      // ORDER BY i.name, ic.sort_order;";
+
+      $sql = 
+      "SELECT
+        i.id,
+        i.name
+      FROM indicators i
+      WHERE i.status = ?
+        AND EXISTS (
+          SELECT 1
+          FROM indicator_categories ic
+          WHERE ic.indicator_id = i.id
+            AND ic.status = ?
+            AND NOT EXISTS (
+              SELECT 1
+              FROM indicator_categories child
+              WHERE child.parent_id = ic.id
+            )
+        )
+      ORDER BY i.name;";
+
+      $items = BaseModel::query($sql, [1, 1], 'all');
+
+      if (empty($items)) {
+        throw new NotFoundException('Items not found');
+      }
+
+      return array_map(
+        fn($item) => [
+          'id' => (int) $item['id'],
+          'name' => $item['name']
+        ],
+        $items
+      );
+
+      // return $items;
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+  }
   //-----------------------------------------------------------------------------
 }
 ?>

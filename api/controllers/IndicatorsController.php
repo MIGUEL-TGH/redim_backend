@@ -11,6 +11,7 @@ class IndicatorsController extends BaseController {
         'getdata'    => IndicatorsService::getAllData(),
         'getactive'    => IndicatorsService::getActiveData(),
         'getwithdata'    => IndicatorsService::getIndicatorsWithData(),
+        'getwithcategories'    => IndicatorsService::getIndicatorsWithCategories(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])

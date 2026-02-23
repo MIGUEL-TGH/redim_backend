@@ -20,8 +20,8 @@ class StatesService {
     }
   }
   private static function getById(int $id): array {
-    $sql = "
-      SELECT s.id, s.name, s.country_id,
+    $sql = 
+    " SELECT s.id, s.name, s.country_id,
             c.name AS country_name,
             s.demonym, s.iso_code, s.status
       FROM states s
