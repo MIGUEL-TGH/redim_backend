@@ -303,7 +303,8 @@ class IndicatorCategoryDetailsService {
       $items = BaseModel::query($sql, [(int)$id['category_id']], 'all');
 
       if (!$items) {
-        throw new NotFoundException('Elementos no encontrados'); // Items not found
+        // throw new NotFoundException('Elementos no encontrados'); // Items not found
+       return []; 
       }
 
       return array_map(
