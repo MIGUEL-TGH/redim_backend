@@ -8,7 +8,8 @@ class IndicatorsService {
   //--------------------private access-------------------------------------------
   private static function validate(array $data): void {
     if (in_array($data['task'], ['insert','update'], true)) {
-      if (!preg_match("/^[\p{L}\d\s._,-]{1,250}$/u", $data['params']['name'])) {
+      // if (!preg_match("/^[\p{L}\d\s._,-]{1,250}$/u", $data['params']['name'])) {
+      if (!preg_match("/^[-\w\s_.,\/():;%&áéíóúÁÉÍÓÚñÑ]{1,250}$/", $data['params']['name'])) {
         throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el nombre del indicador');
       }
     }

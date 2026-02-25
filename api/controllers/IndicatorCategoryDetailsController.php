@@ -9,7 +9,7 @@ class IndicatorCategoryDetailsController extends BaseController {
       
       return match ($type) {
         'getalldata'    => IndicatorCategoryDetailsService::getAllData(),
-        'getdata'    => IndicatorCategoryDetailsService::getAllData(),
+        'getdata'       => IndicatorCategoryDetailsService::getAllData(),
         // 'getdata'    => $type,
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
@@ -25,9 +25,9 @@ class IndicatorCategoryDetailsController extends BaseController {
       $body = Request::body();
 
       return match ($type) {
-        // 'crud' => IndicatorCategoryDetailsService::setCRUD($body),
-        // 'getactivebyid'   => IndicatorCategoryDetailsService::getActiveDatataById($body),
+        'crud'            => IndicatorCategoryDetailsService::setCRUD($body),
         'getdatabyid'     => IndicatorCategoryDetailsService::getAllDataByID($body),
+        // 'getactivebyid'   => IndicatorCategoryDetailsService::getActiveDatataById($body),
         // 'getdatabyid' => $body,
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'

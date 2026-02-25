@@ -8,53 +8,95 @@ class IndicatorCategoryDetailsService {
   //--------------------private access-------------------------------------------
   private static function validate(array $data): void {
     if (in_array($data['task'], ['insert','update'], true)) {
-      if (!preg_match("/^[\p{L}\d\s._,-]{1,255}$/u", $data['params']['name'])) {
-        throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el nombre del indicador');
+      // ---------------------------------------------------------------------
+      foreach (['PI', 'PS'] as $field) {
+
+        if (!isset($data['params'][$field]) || $data['params'][$field] === '') {
+          throw new ValidationException(
+            [$field => 'Required field'],
+            "El campo {$field} es obligatorio"
+          );
+        }
+
+        $value = $data['params'][$field];
+
+        // 1️⃣ Solo números enteros positivos (incluye 0)
+        if (!preg_match('/^\d+$/', (string)$value)) {
+          throw new ValidationException(
+            [$field => 'Invalid format'],
+            "El campo {$field} solo permite números enteros"
+          );
+        }
+
+        // 2️⃣ Validación de rango 0 - 9999
+        $intValue = (int)$value;
+
+        if ($intValue < 0 || $intValue > 9999) {
+          throw new ValidationException(
+            [$field => 'Out of range'],
+            "El campo {$field} debe estar entre 0 y 9999"
+          );
+        }
       }
 
-      // $level = $data['params']['level'] ?? null;
-      // if ($level !== null) {
+      // ---------------------------------------------------------------------
+      $centerId = $data['params']['center_id'];
 
-      //   $level = trim($level);
+      // Permitir NULL explícito
+      if ($centerId === null) {
+        return;
+      }
 
-      //   // Permitir string vacío
-      //   if ($level === '') {
-      //     return;
-      //   }
+      // Debe ser numérico entero
+      if (!preg_match('/^\d+$/', (string)$centerId)) {
+        throw new ValidationException(
+          ['category_id' => 'Invalid format'],
+          'El category_id debe ser NULL o un entero válido'
+        );
+      }
 
-      //   // Límite máximo de caracteres
-      //   if (mb_strlen($level) > 50) {
-      //     throw new ValidationException([
-      //       'level' => 'Máximo 50 caracteres permitidos'
-      //     ]);
-      //   }
+      $intValue = (int)$centerId;
 
-      //   // Validar estructura estricta: numero,numero (sin espacios)
-      //   if (!preg_match('/^\d+$/', $level)) {
-      //     throw new ValidationException([
-      //       'level' => 'El formato del nivel jerárquico no cumple con el formato requerido (solo números sin espacios) [0-99]'
-      //     ]);
-      //   }
-      // }
+      // Validación rango INT UNSIGNED
+      if ($intValue < 0 || $intValue > 4294967295) {
+        throw new ValidationException(
+          ['category_id' => 'Out of range'],
+          'El category_id está fuera del rango permitido'
+        );
+      }
+
+      // ---------------------------------------------------------------------
+      $status = $data['params']['status'];
+
+      // Solo permitir 0 o 1 (como entero real)
+      if (!in_array($status, [0, 1], true)) {
+        throw new ValidationException(
+          ['status' => 'Invalid value'],
+          'El status solo permite los valores 0 (Inactivo) o 1 (Activo)'
+        );
+      }
     }
   }
   private static function getById(int $id): array {
     $sql = 
     " SELECT 
-        icd.id,
-        
-        y.name AS year_name,
-        icd.year_id
+          icd.id, icd.PI, icd.PS, icd.status,
+          
+          icd.category_id,  ic.name AS category_name,
+          icd.year_id,      y.name AS year_name,
+          icd.gender_id,    g.name AS gender_name,
+          icd.state_id,     s.name AS state_name,
+          icd.center_id,    COALESCE(c.name, 'Sin centro') AS center_name
 
-      FROM indicator_category_details AS icd
+        FROM indicator_category_details AS icd
 
-      INNER JOIN years AS y 
-        ON y.id = icd.year_id
-
-      WHERE ic.id = ?
+        INNER JOIN indicator_categories AS ic ON ic.id = icd.category_id
+        INNER JOIN years AS y ON y.id = icd.year_id
+        INNER JOIN genders AS g ON g.id = icd.gender_id
+        INNER JOIN states AS s ON s.id = icd.state_id
+        LEFT JOIN centers AS c ON c.id = icd.center_id
+      WHERE icd.id = ?
     ";
-
-    // -- 
 
     $item = BaseModel::query($sql, [$id], 'one');
 
@@ -64,16 +106,24 @@ class IndicatorCategoryDetailsService {
 
     return [
       'id' => (int) $item['id'],
-      'name' => $item['name'],
+      'PI' => (int) $item['PI'],
+      'PS' => (int) $item['PS'],
+      'status' => $item['status'],
       
-      'indicator_id' => (int) $item['indicator_id'],
-      'indicator_name' => $item['indicator_name'],
+      'category_id' => (int) $item['category_id'],
+      'category_name' => $item['category_name'],
 
-      'parent_id' => (int) $item['parent_id'],
-      'parent_name' => $item['parent_name'],
+      'year_id' => (int) $item['year_id'],
+      'year_name' => $item['year_name'],
       
-      'level' => $item['level'],
-      'status' => (bool) $item['status']
+      'gender_id' => (int) $item['gender_id'],
+      'gender_name' => $item['gender_name'],
+
+      'state_id' => (int) $item['state_id'],
+      'state_name' => $item['state_name'],
+
+      'center_id' => (int) $item['center_id'],
+      'center_name' => $item['center_name']
     ];
   }
   private static function insert(array $params): array {
@@ -310,8 +360,8 @@ class IndicatorCategoryDetailsService {
       return array_map(
         fn($item) => [
           'id' => (int) $item['id'],
-          'PI' => $item['PI'],
-          'PS' => $item['PS'],
+          'PI' => (int) $item['PI'],
+          'PS' => (int) $item['PS'],
           'status' => $item['status'],
           
           'category_id' => (int) $item['category_id'],
@@ -327,7 +377,7 @@ class IndicatorCategoryDetailsService {
           'state_name' => $item['state_name'],
 
           'center_id' => (int) $item['center_id'],
-          'center_name' => $item['center_name'],
+          'center_name' => $item['center_name']
         ],
         $items
       );
