@@ -39,7 +39,7 @@ class IndicatorCategoryDetailsService {
         }
       }
 
-      // ---------------------------------------------------------------------
+      // CENTER ID---------------------------------------------------------------------
       $centerId = $data['params']['center_id'];
 
       // Permitir NULL explícito
@@ -65,8 +65,8 @@ class IndicatorCategoryDetailsService {
         );
       }
 
-      // ---------------------------------------------------------------------
-      $status = $data['params']['status'];
+      // STATUS---------------------------------------------------------------------
+      $status = (int) $data['params']['status'];
 
       // Solo permitir 0 o 1 (como entero real)
       if (!in_array($status, [0, 1], true)) {
@@ -182,6 +182,9 @@ class IndicatorCategoryDetailsService {
   //--------------------public access--------------------------------------------
   public static function setCRUD(array $data): array {
     self::validate($data);
+
+    $status = (int) $data['params']['status'];
+    $data['params']['status'] = $status;
 
     return match ($data['task']) {
       'insert' => self::insert($data['params']),
