@@ -148,11 +148,11 @@ class IndicatorCategoryDetailsService {
   }
   private static function update(array $params): array {
     // -------------------------------------------------------------------------
-    // $parentId = isset($params['parent_id']) && (int)$params['parent_id'] > 0
-    // ? (int)$params['parent_id']
-    // : null;
+    $parentId = isset($params['center_id']) && (int)$params['center_id'] > 0
+    ? (int)$params['center_id']
+    : null;
 
-    // $params['parent_id'] = $parentId;
+    $params['center_id'] = $parentId;
     // -------------------------------------------------------------------------
     
     self::updateInternal($params);
