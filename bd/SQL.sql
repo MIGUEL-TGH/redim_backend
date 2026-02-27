@@ -1,5 +1,5 @@
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- 2017     10      4.1.1. Terrorismo 
+-- 2017     10      4.1.1. Terrorismo ✔✔ 
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 18, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 18, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 18, 1, NULL, 3, 0, 0, 1);
@@ -65,7 +65,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 18, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 18, 2, NULL, 32, 0, 0, 1);
 
--- 2018     10      4.1.1. Terrorismo 
+-- 2018     10      4.1.1. Terrorismo ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 19, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 19, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 19, 1, NULL, 3, 0, 0, 1);
@@ -131,7 +131,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 19, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 19, 2, NULL, 32, 0, 0, 1);
 
--- 2019     10      4.1.1. Terrorismo 
+-- 2019     10      4.1.1. Terrorismo ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 20, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 20, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 20, 1, NULL, 3, 0, 0, 1);
@@ -197,7 +197,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 20, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 20, 2, NULL, 32, 0, 0, 1);
 
--- 2020     10      4.1.1. Terrorismo 
+-- 2020     10      4.1.1. Terrorismo ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 21, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 21, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 21, 1, NULL, 3, 0, 0, 1);
@@ -263,7 +263,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 21, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 21, 2, NULL, 32, 0, 0, 1);
 
--- 2021     10      4.1.1. Terrorismo 
+-- 2021     10      4.1.1. Terrorismo ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 22, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 22, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 22, 1, NULL, 3, 0, 0, 1);
@@ -329,7 +329,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 22, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 22, 2, NULL, 32, 0, 0, 1);
 
--- 2022     10      4.1.1. Terrorismo 
+-- 2022     10      4.1.1. Terrorismo ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 23, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 23, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 23, 1, NULL, 3, 0, 0, 1);
@@ -395,7 +395,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 23, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 23, 2, NULL, 32, 0, 0, 1);
 
--- 2023     10      4.1.1. Terrorismo 
+-- 2023     10      4.1.1. Terrorismo ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 24, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 24, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 24, 1, NULL, 3, 0, 0, 1);
@@ -461,7 +461,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 24, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 24, 2, NULL, 32, 0, 0, 1);
 
--- 2024     10      4.1.1. Terrorismo 
+-- 2024     10      4.1.1. Terrorismo ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 25, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 25, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 25, 1, NULL, 3, 0, 0, 1);
@@ -528,7 +528,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (10, 25, 2, NULL, 32, 0, 0, 1);
 
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- 2011     63      4.4.1.1. Extorsión
+-- 2011     63      4.4.1.1. Extorsión ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 12, 1, NULL, 1, 3, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 12, 1, NULL, 2, 4, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 12, 1, NULL, 3, 0, 0, 1);
@@ -594,7 +594,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 12, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 12, 2, NULL, 32, 1, 0, 1);
 
--- 2012     63      4.4.1.1. Extorsión
+-- 2012     63      4.4.1.1. Extorsión ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 13, 1, NULL, 1, 2, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 13, 1, NULL, 2, 1, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 13, 1, NULL, 3, 0, 0, 1);
@@ -660,7 +660,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 13, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 13, 2, NULL, 32, 7, 0, 1);
 
--- 2013     63      4.4.1.1. Extorsión
+-- 2013     63      4.4.1.1. Extorsión ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 14, 1, NULL, 1, 4, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 14, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 14, 1, NULL, 3, 0, 0, 1);
@@ -726,7 +726,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 14, 2, NULL, 31, 2, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 14, 2, NULL, 32, 5, 0, 1);
 
--- 2014     63      4.4.1.1. Extorsión
+-- 2014     63      4.4.1.1. Extorsión ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 15, 1, NULL, 1, 5, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 15, 1, NULL, 2, 1, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 15, 1, NULL, 3, 0, 0, 1);
@@ -792,7 +792,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 15, 2, NULL, 31, 5, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 15, 2, NULL, 32, 6, 0, 1);
 
--- 2015     63      4.4.1.1. Extorsión
+-- 2015     63      4.4.1.1. Extorsión ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 16, 1, NULL, 1, 6, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 16, 1, NULL, 2, 1, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 16, 1, NULL, 3, 0, 0, 1);
@@ -858,7 +858,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 16, 2, NULL, 31, 5, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 16, 2, NULL, 32, 15, 0, 1);
 
--- 2024     63      4.4.1.1. Extorsión
+-- 2024     63      4.4.1.1. Extorsión ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 25, 1, NULL, 1, 2, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 25, 1, NULL, 2, 3, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 25, 1, NULL, 3, 0, 0, 1);
@@ -925,7 +925,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (63, 25, 2, NULL, 32, 29, 0, 1);
 
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- 2013     75      4.6.1. Feminicidio 
+-- 2013     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 14, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 14, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 14, 1, NULL, 3, 0, 0, 1);
@@ -991,7 +991,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 14, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 14, 2, NULL, 32, 1, 0, 1);
 
--- 2014     75      4.6.1. Feminicidio 
+-- 2014     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 15, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 15, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 15, 1, NULL, 3, 0, 0, 1);
@@ -1057,7 +1057,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 15, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 15, 2, NULL, 32, 0, 1, 1);
 
--- 2015     75      4.6.1. Feminicidio 
+-- 2015     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 16, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 16, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 16, 1, NULL, 3, 0, 0, 1);
@@ -1123,7 +1123,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 16, 2, NULL, 31, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 16, 2, NULL, 32, 0, 1, 1);
 
--- 2016     75      4.6.1. Feminicidio 
+-- 2016     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 17, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 17, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 17, 1, NULL, 3, 0, 0, 1);
@@ -1189,7 +1189,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 17, 2, NULL, 31, 2, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 17, 2, NULL, 32, 7, 0, 1);
 
--- 2017     75      4.6.1. Feminicidio 
+-- 2017     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 18, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 18, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 18, 1, NULL, 3, 0, 0, 1);
@@ -1255,7 +1255,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 18, 2, NULL, 31, 18, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 18, 2, NULL, 32, 10, 2, 1);
 
--- 2018     75      4.6.1. Feminicidio
+-- 2018     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 19, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 19, 1, NULL, 2, 1, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 19, 1, NULL, 3, 0, 0, 1);
@@ -1321,7 +1321,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 19, 2, NULL, 31, 24, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 19, 2, NULL, 32, 30, 2, 1);
 
--- 2019     75      4.6.1. Feminicidio 
+-- 2019     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 20, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 20, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 20, 1, NULL, 3, 0, 0, 1);
@@ -1387,7 +1387,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 20, 2, NULL, 31, 31, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 20, 2, NULL, 32, 30, 2, 1);
 
--- 2020     75      4.6.1. Feminicidio 
+-- 2020     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 21, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 21, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 21, 1, NULL, 3, 0, 0, 1);
@@ -1453,7 +1453,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 21, 2, NULL, 31, 33, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 21, 2, NULL, 32, 58, 2, 1);
 
--- 2021     75      4.6.1. Feminicidio 
+-- 2021     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 22, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 22, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 22, 1, NULL, 3, 0, 0, 1);
@@ -1519,7 +1519,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 22, 2, NULL, 31, 46, 1, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 22, 2, NULL, 32, 57, 2, 1);
 
--- 2022     75      4.6.1. Feminicidio 
+-- 2022     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 23, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 23, 1, NULL, 2, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 23, 1, NULL, 3, 0, 0, 1);
@@ -1585,7 +1585,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 23, 2, NULL, 31, 53, 1, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 23, 2, NULL, 32, 62, 1, 1);
 
--- 2023     75      4.6.1. Feminicidio 
+-- 2023     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 24, 1, NULL, 1, 0, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 24, 1, NULL, 2, 6, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 24, 1, NULL, 3, 0, 0, 1);
@@ -1651,7 +1651,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 24, 2, NULL, 31, 67, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 24, 2, NULL, 32, 77, 2, 1);
 
--- 2024     75      4.6.1. Feminicidio 
+-- 2024     75      4.6.1. Feminicidio ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 25, 1, NULL, 1, 2, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 25, 1, NULL, 2, 10, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 25, 1, NULL, 3, 0, 0, 1);
@@ -1718,7 +1718,7 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (75, 25, 2, NULL, 32, 74, 1, 1);
 
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- 2011     221      7.2. Fraude
+-- 2011     221      7.2. Fraude ✔✔
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 12, 1, NULL, 1, 4, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 12, 1, NULL, 2, 10, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 12, 1, NULL, 3, 2, 0, 1);
@@ -1784,17 +1784,863 @@
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 12, 2, NULL, 31, 33, 0, 1);
     INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 12, 2, NULL, 32, 25, 0, 1);
 
--- 2012     221      7.2. Fraude
--- 2013     221      7.2. Fraude
--- 2014     221      7.2. Fraude
--- 2015     221      7.2. Fraude
--- 2016     221      7.2. Fraude
--- 2017     221      7.2. Fraude
--- 2018     221      7.2. Fraude
--- 2019     221      7.2. Fraude
--- 2020     221      7.2. Fraude
--- 2021     221      7.2. Fraude
--- 2022     221      7.2. Fraude
--- 2023     221      7.2. Fraude
--- 2024     221      7.2. Fraude
+-- 2012     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 1, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 2, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 5, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 6, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 7, 99, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 8, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 9, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 10, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 11, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 12, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 13, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 14, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 15, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 16, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 17, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 18, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 19, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 20, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 21, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 22, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 23, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 24, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 25, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 26, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 27, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 28, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 29, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 30, 30, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 31, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 1, NULL, 32, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 1, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 2, 26, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 3, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 4, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 5, 31, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 6, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 7, 249, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 8, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 9, 55, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 10, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 11, 57, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 12, 20, 6, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 13, 41, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 14, 97, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 15, 45, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 16, 48, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 17, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 18, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 19, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 20, 52, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 21, 76, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 22, 68, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 23, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 24, 31, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 25, 218, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 26, 44, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 27, 147, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 28, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 29, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 30, 139, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 31, 33, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 13, 2, NULL, 32, 7, 0, 1);
 
+-- 2013     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 1, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 2, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 5, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 6, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 7, 96, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 8, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 9, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 10, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 11, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 12, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 13, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 14, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 15, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 16, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 17, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 18, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 19, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 20, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 21, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 22, 9, 1, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 23, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 24, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 25, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 26, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 27, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 28, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 29, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 30, 30, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 31, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 1, NULL, 32, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 1, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 2, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 3, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 4, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 5, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 6, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 7, 237, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 8, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 9, 65, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 10, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 11, 66, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 12, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 13, 41, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 14, 61, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 15, 41, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 16, 52, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 17, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 18, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 19, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 20, 73, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 21, 71, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 22, 70, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 23, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 24, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 25, 32, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 26, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 27, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 28, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 29, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 30, 137, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 31, 40, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 14, 2, NULL, 32, 16, 0, 1);
+
+-- 2014     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 1, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 2, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 3, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 4, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 5, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 6, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 7, 145, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 8, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 9, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 10, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 11, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 12, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 13, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 14, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 15, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 16, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 17, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 18, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 19, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 20, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 21, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 22, 11, 1, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 23, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 24, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 25, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 26, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 27, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 28, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 29, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 30, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 31, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 1, NULL, 32, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 1, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 2, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 3, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 4, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 5, 37, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 6, 20, 1, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 7, 615, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 8, 29, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 9, 76, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 10, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 11, 59, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 12, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 13, 56, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 14, 53, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 15, 31, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 16, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 17, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 18, 36, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 19, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 20, 71, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 21, 67, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 22, 107, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 23, 193, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 24, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 25, 143, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 26, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 27, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 28, 21, 4, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 29, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 30, 147, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 31, 47, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 15, 2, NULL, 32, 2, 0, 1);
+
+-- 2015     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 1, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 2, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 3, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 4, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 5, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 6, 39, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 7, 125, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 8, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 9, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 10, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 11, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 12, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 13, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 14, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 15, 90, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 16, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 17, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 18, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 19, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 20, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 21, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 22, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 23, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 24, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 25, 28, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 26, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 27, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 28, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 29, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 30, 31, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 31, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 1, NULL, 32, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 1, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 2, 89, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 3, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 4, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 5, 28, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 6, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 7, 589, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 8, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 9, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 10, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 11, 71, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 12, 26, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 13, 58, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 14, 46, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 15, 311, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 16, 40, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 17, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 18, 45, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 19, 33, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 20, 53, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 21, 57, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 22, 41, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 23, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 24, 56, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 25, 48, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 26, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 27, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 28, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 29, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 30, 192, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 31, 48, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 16, 2, NULL, 32, 21, 0, 1);
+
+-- 2016     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 1, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 2, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 3, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 4, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 5, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 6, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 7, 108, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 8, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 9, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 10, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 11, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 12, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 13, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 14, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 15, 54, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 16, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 17, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 18, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 19, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 20, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 21, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 22, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 23, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 24, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 25, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 26, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 27, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 28, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 29, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 30, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 31, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 1, NULL, 32, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 1, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 2, 74, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 3, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 4, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 5, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 6, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 7, 574, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 8, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 9, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 10, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 11, 62, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 12, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 13, 38, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 14, 81, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 15, 661, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 16, 55, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 17, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 18, 33, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 19, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 20, 58, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 21, 69, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 22, 55, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 23, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 24, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 25, 38, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 26, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 27, 97, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 28, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 29, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 30, 135, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 31, 30, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 17, 2, NULL, 32, 12, 0, 1);
+
+-- 2017     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 1, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 2, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 5, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 6, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 7, 83, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 8, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 9, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 10, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 11, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 12, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 13, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 14, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 15, 91, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 16, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 17, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 18, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 19, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 20, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 21, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 22, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 23, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 24, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 25, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 26, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 27, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 28, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 29, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 30, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 31, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 1, NULL, 32, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 1, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 2, 71, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 3, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 4, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 5, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 6, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 7, 554, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 8, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 9, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 10, 63, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 11, 51, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 12, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 13, 32, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 14, 84, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 15, 705, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 16, 33, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 17, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 18, 40, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 19, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 20, 56, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 21, 67, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 22, 53, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 23, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 24, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 25, 46, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 26, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 27, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 28, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 29, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 30, 99, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 31, 37, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 18, 2, NULL, 32, 35, 0, 1);
+
+-- 2018     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 1, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 2, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 4, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 5, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 6, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 7, 72, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 8, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 9, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 10, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 11, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 12, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 13, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 14, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 15, 65, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 16, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 17, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 18, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 19, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 20, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 21, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 22, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 23, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 24, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 25, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 26, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 27, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 28, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 29, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 30, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 31, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 1, NULL, 32, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 1, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 2, 66, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 3, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 5, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 6, 40, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 7, 531, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 8, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 9, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 10, 61, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 11, 34, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 12, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 13, 28, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 14, 134, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 15, 703, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 16, 29, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 17, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 18, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 19, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 20, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 21, 56, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 22, 39, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 23, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 24, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 25, 37, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 26, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 27, 26, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 28, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 29, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 30, 59, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 31, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 19, 2, NULL, 32, 126, 0, 1);
+
+-- 2019     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 1, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 2, 26, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 4, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 5, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 6, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 7, 70, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 8, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 9, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 10, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 11, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 12, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 13, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 14, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 15, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 16, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 17, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 18, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 19, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 20, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 21, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 22, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 23, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 24, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 25, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 26, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 27, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 28, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 29, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 30, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 31, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 1, NULL, 32, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 1, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 2, 64, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 4, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 5, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 6, 35, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 7, 500, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 8, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 9, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 10, 40, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 11, 35, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 12, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 13, 38, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 14, 100, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 15, 37, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 16, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 17, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 18, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 19, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 20, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 21, 42, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 22, 106, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 23, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 24, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 25, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 26, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 27, 26, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 28, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 29, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 30, 32, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 31, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 20, 2, NULL, 32, 15, 0, 1);
+
+-- 2020     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 1, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 2, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 4, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 5, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 6, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 7, 82, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 8, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 9, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 10, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 11, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 12, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 13, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 14, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 15, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 17, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 18, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 19, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 20, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 21, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 22, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 23, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 24, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 25, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 26, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 27, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 28, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 29, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 30, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 31, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 1, NULL, 32, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 1, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 2, 71, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 3, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 4, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 5, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 6, 58, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 7, 349, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 8, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 9, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 10, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 11, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 12, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 13, 39, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 14, 98, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 15, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 16, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 17, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 18, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 19, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 20, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 21, 41, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 22, 34, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 23, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 24, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 25, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 26, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 27, 31, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 28, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 29, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 30, 32, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 31, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 21, 2, NULL, 32, 27, 0, 1);
+
+-- 2021     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 1, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 2, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 3, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 5, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 6, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 7, 60, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 8, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 9, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 10, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 11, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 12, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 13, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 14, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 15, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 17, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 18, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 19, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 20, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 21, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 22, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 23, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 24, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 25, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 26, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 27, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 28, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 29, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 30, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 31, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 1, NULL, 32, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 1, 28, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 2, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 3, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 4, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 5, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 6, 56, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 7, 206, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 8, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 9, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 10, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 11, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 12, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 13, 36, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 14, 92, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 15, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 16, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 17, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 18, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 19, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 20, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 21, 40, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 22, 31, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 23, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 24, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 25, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 26, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 27, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 28, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 29, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 30, 24, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 31, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 22, 2, NULL, 32, 50, 0, 1);
+
+-- 2022     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 1, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 2, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 5, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 6, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 7, 58, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 8, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 9, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 10, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 11, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 12, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 13, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 14, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 15, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 17, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 18, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 19, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 20, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 21, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 22, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 23, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 24, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 25, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 26, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 27, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 28, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 29, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 30, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 31, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 1, NULL, 32, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 1, 21, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 2, 54, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 3, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 4, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 5, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 6, 34, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 7, 188, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 8, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 9, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 10, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 11, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 12, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 13, 32, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 14, 83, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 15, 79, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 17, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 18, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 19, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 20, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 21, 36, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 22, 81, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 23, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 24, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 25, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 26, 16, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 27, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 28, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 29, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 30, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 31, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 23, 2, NULL, 32, 18, 0, 1);
+
+-- 2023     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 1, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 2, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 5, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 6, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 7, 56, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 8, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 9, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 10, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 11, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 12, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 13, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 14, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 15, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 17, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 18, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 19, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 20, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 21, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 22, 19, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 23, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 24, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 25, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 26, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 27, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 28, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 29, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 30, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 31, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 1, NULL, 32, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 1, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 2, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 3, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 4, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 5, 7, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 6, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 7, 206, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 8, 20, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 9, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 10, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 11, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 12, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 13, 61, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 14, 88, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 15, 73, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 17, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 18, 23, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 19, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 20, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 21, 41, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 22, 81, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 23, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 24, 17, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 25, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 26, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 27, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 28, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 29, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 30, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 31, 11, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 24, 2, NULL, 32, 26, 0, 1);
+
+-- 2024     221      7.2. Fraude ✔✔
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 1, 28, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 2, 37, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 3, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 4, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 5, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 6, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 7, 50, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 8, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 9, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 10, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 11, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 12, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 13, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 14, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 15, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 17, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 18, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 19, 6, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 20, 3, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 21, 14, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 22, 12, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 23, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 24, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 25, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 26, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 27, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 28, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 29, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 30, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 31, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 1, NULL, 32, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 1, 22, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 2, 52, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 3, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 4, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 5, 18, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 6, 41, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 7, 192, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 8, 15, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 9, 2, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 10, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 11, 27, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 12, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 13, 53, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 14, 77, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 15, 42, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 16, 0, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 17, 4, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 18, 30, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 19, 36, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 20, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 21, 43, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 22, 34, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 23, 5, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 24, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 25, 13, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 26, 28, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 27, 9, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 28, 8, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 29, 1, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 30, 25, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 31, 10, 0, 1);
+    INSERT INTO indicator_category_details (category_id, year_id, gender_id, center_id, state_id, PI, PS, status) VALUES (221, 25, 2, NULL, 32, 16, 0, 1);
+
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- XXXX     XXX      X.X. XXXXXXX
