@@ -7,52 +7,36 @@ class AuthService {
 
   public function login($identifier, $password) {
     // 1. Buscar usuario
-    $rows = UserModel::findByEmailOrUsername($identifier);
+    $user = UserModel::findByEmailOrUsername($identifier);
     
-    if (empty($rows)) {
+    if (!$user) {
       throw new ApiException("Credenciales incorrectas.", 401);
     }
-
-    // Tomamos los datos principales del usuario desde la primera fila devuelta
-    $user = $rows[0];
 
     // 2. Verificar estatus
     if ($user['status'] == 0) {
       throw new ApiException("El usuario se encuentra inactivo.", 403);
     }
 
-    // 3. Verificar contraseña
+    // 3. Verificar contraseña (asumiendo que al registrar usaste password_hash())
     if (!password_verify($password, $user['password'])) {
       throw new ApiException("Credenciales incorrectas.", 401);
     }
 
-    // 4. Procesar y agrupar los permisos
-    $permissions = [];
-    foreach ($rows as $row) {
-      // Solo agregamos si el módulo no es nulo (por si el rol no tiene permisos)
-      if (!empty($row['module'])) {
-        $permissions[] = [
-          'module' => $row['module'],
-          'permission' => $row['permission_type']
-        ];
-      }
-    }
-
-    // 5. Generar Payload para el JWT (Estructura plana, como solicitaste)
+    // 4. Generar Payload para el JWT
     $payload = [
       'iss' => "ninez-primero-api",
       'iat' => time(),
       'exp' => time() + (60 * 60 * 24), // Expira en 24 horas
       'data' => [
         'id' => $user['id'],
-        'name' => $user['name'],
+        'username' => $user['username'],
         'email' => $user['email'],
-        'role' => $user['role_name'],
-        'permissions' => $permissions,
+        'name' => $user['name']
       ]
     ];
 
-    // 6. Generar y retornar el token y datos básicos
+    // 5. Generar y retornar el token y datos básicos
     $token = AuthModel::generateJWT($payload);
 
     return [
@@ -60,11 +44,9 @@ class AuthService {
       'user' => [
         'id' => $user['id'],
         'name' => $user['name'],
-        'username' => $user['username'],
-        'role' => $user['role_name'] // Opcional: útil para que el front lo sepa sin decodificar el JWT
+        'username' => $user['username']
       ]
     ];
-
   }
 
   // NUEVO MÉTODO: Registrar usuario

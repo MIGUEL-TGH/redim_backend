@@ -4,30 +4,9 @@ require_once 'BaseModel.php';
 class UserModel extends BaseModel {
   
   // Permite buscar a un usuario por correo o por nombre de usuario
-  public static function findByEmailOrUsername_V1($identifier) {
+  public static function findByEmailOrUsername($identifier) {
     $sql = "SELECT * FROM users WHERE email = :id OR username = :id LIMIT 1";
     return self::query($sql, ['id' => $identifier], 'one');
-  }
-
-  // Modificado para traer usuario, rol y permisos
-  public static function findByEmailOrUsername($identifier) {
-    $sql = "SELECT 
-                u.id, 
-                u.name, 
-                u.email, 
-                u.username,
-                u.password, 
-                u.status,
-                r.name AS role_name,
-                rp.module,
-                rp.permission_type
-            FROM users u
-            INNER JOIN roles r ON u.role_id = r.id
-            LEFT JOIN role_permissions rp ON r.id = rp.role_id
-            WHERE u.email = :id OR u.username = :id";
-            
-    // Cambiamos 'one' por 'all' porque ahora devuelve múltiples filas
-    return self::query($sql, ['id' => $identifier], 'all'); 
   }
 
   // Insertar usuarios

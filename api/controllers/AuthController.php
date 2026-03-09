@@ -44,13 +44,13 @@ class AuthController extends BaseController {
       // Puedes requerir que te envíen un "master_key" en el JSON que coincida con uno en tu .env
       if (empty($body['master_key']) || $body['master_key'] !== $_ENV['MASTER_KEY']) {
         throw new ApiException("No tienes autorización para registrar usuarios.", 403);
-        
       }
 
       // Respuesta temporal para probar que todo pasa
       // return [
       //   "success" => true,
-      //   "message" => "Todas las validaciones pasaron. Master Key correcta: " . $_ENV['MASTER_KEY']
+      //   "message" => "Todas las validaciones pasaron. Master Key correcta: " . $_ENV['MASTER_KEY'],
+      //   "data" => $body
       // ];
 
       // 4. Ejecutar el registro
