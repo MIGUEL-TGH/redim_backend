@@ -59,5 +59,26 @@ class AuthController extends BaseController {
     });
   }
 
+  public static function refresh() {
+    self::handle(function() {
+      // 1. Obtener los headers de la petición
+      $headers = getallheaders();
+      
+      // Buscar el header de Authorization (soporte para diferentes servidores)
+      $authHeader = $headers['Authorization'] ?? $headers['authorization'] ?? '';
+
+      // 2. Validar que exista el Bearer token
+      if (empty($authHeader) || !preg_match('/Bearer\s(\S+)/', $authHeader, $matches)) {
+        throw new ApiException("Token no proporcionado o formato inválido.", 401);
+      }
+
+      $token = $matches[1];
+
+      // 3. Pasar el token al servicio para su renovación
+      $authService = new AuthService();
+      return $authService->refresh($token);
+    });
+  }
+  
 }
 ?>

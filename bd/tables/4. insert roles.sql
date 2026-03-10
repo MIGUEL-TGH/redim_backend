@@ -26,7 +26,6 @@ INSERT INTO role_permissions (role_id, module, permission_type) VALUES
 
 
 
-
 -- --------------------------------------------------------------------------------------------------------------
 
 -- user:admin   password: MiPasswordSeguro123

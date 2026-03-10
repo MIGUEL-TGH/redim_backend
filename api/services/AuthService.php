@@ -42,7 +42,9 @@ class AuthService {
     $payload = [
       'iss' => "ninez-primero-api",
       'iat' => time(),
-      'exp' => time() + (60 * 60 * 24), // Expira en 24 horas
+      // 'exp' => time() + (60 * 60 * 24), // Expira en 24 horas
+      // 'exp' => time() + (60 * 60 ), // Expira en 1 hora
+      'exp' => time() + (60 * 3), // Expira en 1 hora
       'data' => [
         'id' => $user['id'],
         'name' => $user['name'],
@@ -67,7 +69,6 @@ class AuthService {
 
   }
 
-  // NUEVO MÉTODO: Registrar usuario
   public function register($data) {
     // 1. Verificar si el correo ya está registrado
     $existingEmail = UserModel::findByEmailOrUsername($data['email']);
@@ -92,6 +93,87 @@ class AuthService {
       "success" => true,
       "message" => "Usuario registrado exitosamente."
     ];
+  }
+
+  public function refresh($token) {
+    // 1. Decodificar y verificar la firma del token actual
+    // Asegúrate de que AuthModel::verifyJWT lance una excepción si la firma es inválida
+    try {
+      $decoded = AuthModel::verifyJWT($token);
+    } catch (Exception $e) {
+      throw new ApiException("Token inválido o alterado.", 401);
+    }
+
+    // 2. Extraer el identificador (usamos el email guardado en el token)
+    $identifier = $decoded->data->email;
+
+    // 3. Volver a consultar la BD. Esto es vital por seguridad:
+    // ¿Qué tal si el administrador desactivó a este usuario hace 10 minutos?
+    $rows = UserModel::findByEmailOrUsername($identifier);
+    
+    if (empty($rows)) {
+      throw new ApiException("El usuario ya no existe.", 401);
+    }
+
+    $user = $rows[0];
+
+    if ($user['status'] == 0) {
+      throw new ApiException("El usuario ha sido desactivado.", 403);
+    }
+
+    // 4. Reconstruir los permisos (por si le asignaron o quitaron accesos)
+    $permissions = [];
+    foreach ($rows as $row) {
+      if (!empty($row['module'])) {
+        $permissions[] = [
+          'module' => $row['module'],
+          'permission' => $row['permission_type']
+        ];
+      }
+    }
+
+    // 5. Generar Nuevo Payload extendiendo la vida otra hora más
+    $payload = [
+      'iss' => "ninez-primero-api",
+      'iat' => time(),
+      // 'exp' => time() + (60 * 60), // Nueva hora de vida a partir de ahora
+      'exp' => time() + (60 * 3), // Nueva hora de vida a partir de ahora
+      'data' => [
+        'id' => $user['id'],
+        'name' => $user['name'],
+        'email' => $user['email'],
+        'role' => $user['role_name'],
+        'permissions' => $permissions,
+      ]
+    ];
+
+    // 6. Generar el nuevo token
+    $newToken = AuthModel::generateJWT($payload);
+
+    return [
+      'token' => $newToken,
+      'message' => 'Token renovado exitosamente',
+      'user' => [
+        'id' => $user['id'],
+        'name' => $user['name'],
+        'username' => $user['username'],
+        'role' => $user['role_name'] // Opcional: útil para que el front lo sepa sin decodificar el JWT
+      ]
+    ];
+
+    // return [
+    //   'success' => true,
+    //   'message' => 'Token renovado exitosamente',
+    //   'result' => [
+    //     'token' => $newToken,
+    //     'user' => [
+    //       'id' => $user['id'],
+    //       'name' => $user['name'],
+    //       'username' => $user['username'],
+    //       'role' => $user['role_name']
+    //     ]
+    //   ]
+    // ];
   }
 
 }
