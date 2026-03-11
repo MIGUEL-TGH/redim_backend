@@ -44,7 +44,7 @@ class AuthService {
       'iat' => time(),
       // 'exp' => time() + (60 * 60 * 24), // Expira en 24 horas
       // 'exp' => time() + (60 * 60 ), // Expira en 1 hora
-      'exp' => time() + (60 * 3), // Expira en 1 hora
+      'exp' => time() + (60 * 60), // Expira en 1 hora
       'data' => [
         'id' => $user['id'],
         'name' => $user['name'],
@@ -137,7 +137,7 @@ class AuthService {
       'iss' => "ninez-primero-api",
       'iat' => time(),
       // 'exp' => time() + (60 * 60), // Nueva hora de vida a partir de ahora
-      'exp' => time() + (60 * 3), // Nueva hora de vida a partir de ahora
+      'exp' => time() + (60 * 60), // Nueva hora de vida a partir de ahora
       'data' => [
         'id' => $user['id'],
         'name' => $user['name'],

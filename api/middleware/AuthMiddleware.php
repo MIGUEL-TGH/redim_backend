@@ -28,7 +28,8 @@ class AuthMiddleware {
     $token = $matches[1];
 
     // 4. Validar el token. Si es inválido, parseJWT lanzará una excepción
-    $decodedData = AuthModel::parseJWT($token);
+    // $decodedData = AuthModel::parseJWT($token);
+    $decodedData = AuthModel::verifyJWT($token);
 
     // 5. Retornamos la información del token por si el controlador necesita saber quién es el usuario logueado
     return clone $decodedData; 
