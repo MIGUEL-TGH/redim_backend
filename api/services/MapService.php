@@ -118,11 +118,16 @@ class MapService {
     return array_intersect_key($categories, $validIds);
   }
   //--------------------public access-------------------------------------------        
-  public static function getCategoriesNode($indicatorId) {
+  public static function getCategoriesNode ($IDs) {
     try {
       $result = [];
+      // $indicatorId = $IDs['indicator_ids'];
+      $rawIds = isset($IDs['indicator_ids']) ? $IDs['indicator_ids'] : [];
+      $indicatorId = array_map('intval', $rawIds);
 
       // 1️⃣ Traer TODAS las categorías (sin filtrar por datos aún)
+
+      // =========================================== CONSTRUIR SQL ===========================================
       $sql = 
         "SELECT
           i.id   AS indicator_id,
@@ -138,18 +143,43 @@ class MapService {
         INNER JOIN indicator_categories ic
           ON ic.indicator_id = i.id
         WHERE
-          i.status = ?
-          AND ic.status = ?
-          AND i.id = ?
-        ORDER BY
-          i.id,
-          ic.level,
-          ic.sort_order,
-          ic.name;
+          i.status = 1
+          AND ic.status = 1
       ";
 
-      $rows = BaseModel::query($sql, [1, 1, $indicatorId], 'all');
+      $params = [];
+      if (!empty($indicatorId)) {
+        $sql .= self::buildInClause('i.id', $indicatorId, $params);
+      }
+
+      // $sql .= " 
+      //  ORDER BY
+      //   i.id,
+      //   ic.level,
+      //   ic.sort_order,
+      //   ic.name;
+      // ";
+
+      $sql .= " 
+       ORDER BY
+        CAST(SUBSTRING_INDEX(category_name, '.', 1) AS UNSIGNED);
+      ";
+
+
+      // ORDER BY CAST(SUBSTRING_INDEX(i.name, '.', 1) AS UNSIGNED);
+
+      // ==================================================================================================
+
+      // return $sql;
+
+
+      // $rows = BaseModel::query($sql, [1, 1, $params], 'all');
+      $rows = BaseModel::query($sql, $params, 'all');
+
+      // return $rows;
       
+      
+
       // 2️⃣ Indexar categorías
       $categories = self::indexCategories($rows);
       

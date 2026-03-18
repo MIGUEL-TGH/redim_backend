@@ -155,7 +155,7 @@ class IndicatorsService {
       INNER JOIN indicator_category_details icd
         ON icd.category_id = ic.id
       WHERE i.status = ?
-      ORDER BY i.name;
+      ORDER BY CAST(SUBSTRING_INDEX(i.name, '.', 1) AS UNSIGNED);
       ";
 
       $items = BaseModel::query($sql, [1], 'all');
