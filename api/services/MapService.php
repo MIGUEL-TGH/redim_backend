@@ -312,21 +312,33 @@ class MapService {
   }
   public static function getData($data) {
     $params = [];
+    // $query = "SELECT
+    //     icd.category_id AS category_id,
+    //     ic.name AS category_name,
+
+    //     icd.year_id,
+    //     y.name AS year_name,
+
+    //     icd.gender_id,
+    //     g.name AS gender_name,
+
+    //     icd.state_id,
+    //     s.name AS state_name,
+
+    //     icd.PI,
+    //     icd.PS
+    //   FROM indicator_category_details icd
+    //   INNER JOIN indicator_categories ic ON ic.id = icd.category_id
+    //   INNER JOIN years y ON y.id = icd.year_id
+    //   INNER JOIN genders g ON g.id = icd.gender_id
+    //   INNER JOIN states s ON s.id = icd.state_id
+    //   WHERE icd.status = 1
+    // ";
+
     $query = "SELECT
-        icd.category_id AS category_id,
-        ic.name AS category_name,
-
-        icd.year_id,
-        y.name AS year_name,
-
-        icd.gender_id,
-        g.name AS gender_name,
-
-        icd.state_id,
-        s.name AS state_name,
-
-        icd.PI,
-        icd.PS
+        y.name AS year,
+        SUM(icd.PI) AS PI,
+        SUM(icd.PS) AS PS
       FROM indicator_category_details icd
       INNER JOIN indicator_categories ic ON ic.id = icd.category_id
       INNER JOIN years y ON y.id = icd.year_id
@@ -352,6 +364,9 @@ class MapService {
       $query .= self::buildInClause('icd.state_id', $data['state_id'], $params);
     }
 
+    $query .= " GROUP BY y.id, y.name ";    
+    $query .= " ORDER BY y.name ASC ";
+
     // return $query;
     // -------------------------------------------------------------------------------------------------
     try {
@@ -366,67 +381,6 @@ class MapService {
 
     return $items;
   }
-  //-----------------------------------------------------------------------------
-  // public static function getIndicatorCategoriesv1($indicatorId) { // Borrar despues
-  //   try {
-  //     // $sql = 
-  //     //   "SELECT ic.id, ic.name AS title, ic.parent_id
-  //     //   FROM indicator_categories ic
-  //     //   WHERE ic.indicator_id = ? 
-  //     //       AND ic.status = ?
-  //     //   ORDER BY ic.name ASC;
-  //     // ";
 
-  //     // $items = BaseModel::query($sql, [$indicatorId, 1], 'all');
-    
-  //     $sql = 
-  //       "SELECT ic.id, ic.name AS title, ic.parent_id
-  //       FROM indicator_categories ic
-  //       INNER JOIN indicator_category_details icd
-  //       ON icd.category_id = ic.id
-  //       WHERE ic.indicator_id = ? 
-  //           AND ic.status = ?
-  //       ORDER BY ic.name ASC;
-  //     ";
-
-  //     $items = BaseModel::query($sql, [$indicatorId, 1], 'all');
-    
-  //   } catch (Throwable $e) {
-  //     throw new DatabaseException($e->getMessage());
-  //   }
-    
-  //   if (empty($items)) {
-  //     throw new NotFoundException('¡items not found!');
-  //   }
-
-  //   return $items;
-  // }
-
-  // public static function getIndicators() { // Borrar despues
-  //   $sql = 
-  //     "SELECT DISTINCT
-  //       i.id, i.name AS title
-  //     FROM indicators i
-  //     INNER JOIN indicator_categories ic
-  //       ON ic.indicator_id = i.id
-  //     INNER JOIN indicator_category_details icd
-  //       ON icd.category_id = ic.id
-  //     WHERE i.status = ?
-  //     ORDER BY i.name;
-  //   ";
-
-  //   try {
-  //     // $items = BaseModel::query($sql, [1, 1], 'all');
-  //     $items = BaseModel::query($sql, [1], 'all');
-  //   } catch (Throwable $e) {
-  //     throw new DatabaseException($e->getMessage());
-  //   }
-
-  //   if (empty($items)) {
-  //     throw new NotFoundException('¡items not found!');
-  //   }
-
-  //   return $items;
-  // }
 }
 ?>
