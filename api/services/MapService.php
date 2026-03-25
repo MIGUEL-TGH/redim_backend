@@ -26,10 +26,14 @@ class MapService {
       foreach ($rows as $row) {
           $id = (int)$row['category_id'];
 
+          // Limpia el nombre: elimina números, puntos y espacios al inicio del texto
+          $cleanTitle = preg_replace('/^[\d\.]+\s*/', '', $row['category_name']);
+          
           if (!isset($categories[$id])) {
               $categories[$id] = [
                   'id'        => $id,
-                  'title'     => $row['category_name'],
+                  // 'title'     => $row['category_name'],
+                  'title'     => $cleanTitle,
                   'parent_id' => $row['parent_id'] !== null ? (int)$row['parent_id'] : null,
                   'children'  => []
               ];
@@ -121,12 +125,12 @@ class MapService {
   public static function getCategoriesNode ($IDs) {
     try {
       $result = [];
-      // $indicatorId = $IDs['indicator_ids'];
+      // Validar que la variable exista  
       $rawIds = isset($IDs['indicator_ids']) ? $IDs['indicator_ids'] : [];
+      // Transforma datos a numero enteros ejemplo: "15" -> 15   "15 manzanas" -> 15    "hola" -> 0   15.8 --> 15
       $indicatorId = array_map('intval', $rawIds);
 
       // 1️⃣ Traer TODAS las categorías (sin filtrar por datos aún)
-
       // =========================================== CONSTRUIR SQL ===========================================
       $sql = 
         "SELECT
@@ -152,33 +156,16 @@ class MapService {
         $sql .= self::buildInClause('i.id', $indicatorId, $params);
       }
 
-      // $sql .= " 
-      //  ORDER BY
-      //   i.id,
-      //   ic.level,
-      //   ic.sort_order,
-      //   ic.name;
-      // ";
-
       $sql .= " 
        ORDER BY
         CAST(SUBSTRING_INDEX(category_name, '.', 1) AS UNSIGNED);
       ";
 
-
-      // ORDER BY CAST(SUBSTRING_INDEX(i.name, '.', 1) AS UNSIGNED);
-
+      // return $sql;
       // ==================================================================================================
 
-      // return $sql;
-
-
-      // $rows = BaseModel::query($sql, [1, 1, $params], 'all');
       $rows = BaseModel::query($sql, $params, 'all');
-
       // return $rows;
-      
-      
 
       // 2️⃣ Indexar categorías
       $categories = self::indexCategories($rows);
