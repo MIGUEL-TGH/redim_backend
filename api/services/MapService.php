@@ -215,14 +215,8 @@ class MapService {
   }
   public static function getStates() {
     try {
-      // $sql = 
-      //   "SELECT s.id, s.name AS title
-      //   FROM states s
-      //   WHERE s.status = ? AND s.country_id = ?
-      //   ORDER BY s.name ASC;
-      // ";
       $sql = 
-      " SELECT DISTINCT icd.state_id AS id, s.name AS title
+      " SELECT DISTINCT icd.state_id AS id, s.name AS title, s.iso_code
         FROM indicator_category_details icd
         INNER JOIN states s ON s.id = icd.state_id
         WHERE icd.status = ?  
