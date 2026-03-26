@@ -1,13 +1,9 @@
 <?php
 define('BASE_PATH', __DIR__);
-// composer require firebase/php-jwt
-// require_once 'vendor/autoload.php';
-// require_once BASE_PATH . '/../vendor/autoload.php'; // Ajusta la ruta a vendor según donde esté la carpeta en tu proyecto
-require_once BASE_PATH . '/vendor/autoload.php'; // Ajusta la ruta a vendor según donde esté la carpeta en tu proyecto
+
+require_once BASE_PATH . '/vendor/autoload.php';
 
 // 2. Inicializar dotenv para leer el archivo .env
-// Asumiendo que el .env está en redim_backend/ (un nivel arriba de api/)
-// composer require vlucas/phpdotenv
 $dotenv = Dotenv\Dotenv::createImmutable(BASE_PATH . '/../');
 $dotenv->load();
 

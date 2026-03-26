@@ -4,7 +4,7 @@ require_once BASE_PATH . '/models/AuthModel.php';
 // require_once BASE_PATH . '/core/exceptions/ApiException.php';
 
 class AuthService {
-
+  
   public function login($identifier, $password) {
     // 1. Buscar usuario
     $rows = UserModel::findByEmailOrUsername($identifier);
@@ -39,12 +39,11 @@ class AuthService {
     }
 
     // 5. Generar Payload para el JWT (Estructura plana, como solicitaste)
+    $expMinutes = isset($_ENV['JWT_EXP_MINUTES']) ? (int)$_ENV['JWT_EXP_MINUTES'] : 5;
     $payload = [
       'iss' => "ninez-primero-api",
       'iat' => time(),
-      // 'exp' => time() + (60 * 60 * 24), // Expira en 24 horas
-      // 'exp' => time() + (60 * 60 ), // Expira en 1 hora
-      'exp' => time() + (60 * 60), // Expira en 1 hora
+      'exp' => time() + (60 * $expMinutes),
       'data' => [
         'id' => $user['id'],
         'name' => $user['name'],
@@ -133,11 +132,11 @@ class AuthService {
     }
 
     // 5. Generar Nuevo Payload extendiendo la vida otra hora más
+    $expMinutes = isset($_ENV['JWT_EXP_MINUTES']) ? (int)$_ENV['JWT_EXP_MINUTES'] : 5;
     $payload = [
       'iss' => "ninez-primero-api",
       'iat' => time(),
-      // 'exp' => time() + (60 * 60), // Nueva hora de vida a partir de ahora
-      'exp' => time() + (60 * 60), // Nueva hora de vida a partir de ahora
+      'exp' => time() + (60 * $expMinutes), // Nueva hora de vida a partir de ahora
       'data' => [
         'id' => $user['id'],
         'name' => $user['name'],
