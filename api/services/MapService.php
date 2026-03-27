@@ -347,10 +347,10 @@ class MapService {
     }
 
     $query .= " GROUP BY {$groupByCols} ";
-    $query .= " ORDER BY {$orderByCols} ";
-  
-    // $query .= " GROUP BY y.id, y.name ";    
-    // $query .= " ORDER BY y.name ASC ";
+
+    if (!empty($orderByCols)) {
+      $query .= " ORDER BY {$orderByCols} ";
+    }
 
     // return $query;
     // -------------------------------------------------------------------------------------------------
