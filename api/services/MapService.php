@@ -293,28 +293,82 @@ class MapService {
   }
   public static function getData($data) {
     $params = [];
-    // $query = "SELECT
-    //     icd.category_id AS category_id,
-    //     ic.name AS category_name,
 
-    //     icd.year_id,
-    //     y.name AS year_name,
+    $groupByType = $data['group_by'] ?? 'year'; // Variante agrupada por años por defecto
 
-    //     icd.gender_id,
-    //     g.name AS gender_name,
+    $selectCols = "y.name AS year, SUM(icd.PI) AS PI, SUM(icd.PS) AS PS";
+    $groupByCols = "y.id, y.name";
+    $orderByCols = "y.name ASC";
 
-    //     icd.state_id,
-    //     s.name AS state_name,
+    // Selección dinámica del agrupamiento según la modalidad solicitada
+    switch ($groupByType) {
+      case 'gender':
+        $selectCols = "y.name AS year, g.name AS gender, SUM(icd.PI) AS PI, SUM(icd.PS) AS PS";
+        $groupByCols = "y.id, y.name, g.id, g.name";
+        $orderByCols = "";
+        break;
+      case 'state':
+        $selectCols = "s.name AS state, SUM(icd.PI) AS PI, SUM(icd.PS) AS PS";
+        $groupByCols = "s.id, s.name";
+        $orderByCols = "";
+        break;
+      case 'center':
+        $selectCols = "c.name AS center, SUM(icd.PI) AS PI, SUM(icd.PS) AS PS";
+        $groupByCols = "c.id, c.name";
+        $orderByCols = "";
+        // Requiere: LEFT JOIN centers c ON c.id = icd.center_id
+        break;
+    }
 
-    //     icd.PI,
-    //     icd.PS
-    //   FROM indicator_category_details icd
-    //   INNER JOIN indicator_categories ic ON ic.id = icd.category_id
-    //   INNER JOIN years y ON y.id = icd.year_id
-    //   INNER JOIN genders g ON g.id = icd.gender_id
-    //   INNER JOIN states s ON s.id = icd.state_id
-    //   WHERE icd.status = 1
-    // ";
+    $query = "SELECT {$selectCols}
+      FROM indicator_category_details icd
+      INNER JOIN indicator_categories ic ON ic.id = icd.category_id
+      INNER JOIN years y ON y.id = icd.year_id
+      INNER JOIN genders g ON g.id = icd.gender_id
+      INNER JOIN states s ON s.id = icd.state_id
+      WHERE icd.status = 1
+    ";
+
+    // Construcción dinámica de filtros
+    if (!empty($data['category_id'])) {
+      $query .= self::buildInClause('icd.category_id', $data['category_id'], $params);
+    }
+    
+    if (!empty($data['year_id'])) {
+      $query .= self::buildInClause('icd.year_id', $data['year_id'], $params);
+    }
+
+    if (!empty($data['gender_id'])) {
+      $query .= self::buildInClause('icd.gender_id', $data['gender_id'], $params);
+    }
+
+    if (!empty($data['state_id'])) {
+      $query .= self::buildInClause('icd.state_id', $data['state_id'], $params);
+    }
+
+    $query .= " GROUP BY {$groupByCols} ";
+    $query .= " ORDER BY {$orderByCols} ";
+  
+    // $query .= " GROUP BY y.id, y.name ";    
+    // $query .= " ORDER BY y.name ASC ";
+
+    // return $query;
+    // -------------------------------------------------------------------------------------------------
+    try {
+      $items = BaseModel::query($query, $params, 'all');
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+    
+    if (empty($items)) {
+      throw new NotFoundException('¡items not found!');
+    }
+
+    return $items;
+  }
+  // ===================================================================================================================================
+  public static function getData_V1($data) {
+    $params = [];
 
     $query = "SELECT
         y.name AS year,
