@@ -34,5 +34,38 @@ class AuthMiddleware {
     // 5. Retornamos la información del token por si el controlador necesita saber quién es el usuario logueado
     return clone $decodedData; 
   }
+
+  public static function authorize($module, $requiredLevel = 'read-only') {
+    // 1. Primero autenticamos para asegurar que el token es válido
+    $decodedData = self::authenticate();
+    $user = $decodedData->data;
+
+    $hasAccess = false;
+    $userPermissionLevel = null;
+
+    // 2. Buscamos el módulo dentro del arreglo de permisos del usuario
+    if (isset($user->permissions) && is_array($user->permissions)) {
+      foreach ($user->permissions as $perm) {
+        if ($perm->module === $module) {
+          $hasAccess = true;
+          $userPermissionLevel = $perm->permission;
+          break;
+        }
+      }
+    }
+
+    // 3. Validar si ni siquiera tiene el módulo asignado
+    if (!$hasAccess) {
+      throw new ApiException("Acceso denegado. No tienes permisos para acceder al módulo: {$module}", 403);
+    }
+
+    // 4. Validar el nivel de permiso (Si la ruta exige read-write, y el usuario tiene read-only)
+    if ($requiredLevel === 'read-write' && $userPermissionLevel !== 'read-write') {
+      throw new ApiException("Acceso denegado. Solo tienes permisos de lectura para realizar esta acción.", 403);
+    }
+
+    // 5. Si pasa todas las validaciones, retornamos los datos del usuario para el controlador
+    return $decodedData;
+  }
 }
 ?>

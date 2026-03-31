@@ -213,84 +213,84 @@ class MapService {
 
     return $result;
   }
-  public static function getStates() {
-    try {
-      $sql = 
-      " SELECT DISTINCT icd.state_id AS id, s.name AS title, s.iso_code
-        FROM indicator_category_details icd
-        INNER JOIN states s ON s.id = icd.state_id
-        WHERE icd.status = ?  
-        ORDER BY s.name ASC;
-      ";
-      $items = BaseModel::query($sql, [1], 'all');
+  // public static function getStates() {
+  //   try {
+  //     $sql = 
+  //     " SELECT DISTINCT icd.state_id AS id, s.name AS title, s.iso_code
+  //       FROM indicator_category_details icd
+  //       INNER JOIN states s ON s.id = icd.state_id
+  //       WHERE icd.status = ?  
+  //       ORDER BY s.name ASC;
+  //     ";
+  //     $items = BaseModel::query($sql, [1], 'all');
     
-    } catch (Throwable $e) {
-      throw new DatabaseException($e->getMessage());
-    }
+  //   } catch (Throwable $e) {
+  //     throw new DatabaseException($e->getMessage());
+  //   }
     
-    if (empty($items)) {
-      throw new NotFoundException('¡items not found!');
-    }
+  //   if (empty($items)) {
+  //     throw new NotFoundException('¡items not found!');
+  //   }
 
-    return $items;
-  }
-  public static function getYears() {
-    try {
-      // $sql = 
-      //   "SELECT y.id, y.name AS title
-      //   FROM years y
-      //   WHERE y.status = ?
-      //   ORDER BY y.name DESC;
-      // ";
+  //   return $items;
+  // }
+  // public static function getYears() {
+  //   try {
+  //     // $sql = 
+  //     //   "SELECT y.id, y.name AS title
+  //     //   FROM years y
+  //     //   WHERE y.status = ?
+  //     //   ORDER BY y.name DESC;
+  //     // ";
 
-      $sql = 
-        "SELECT DISTINCT icd.year_id AS id, y.name AS title
-        FROM indicator_category_details icd
-        INNER JOIN years y ON y.id = icd.year_id
-        WHERE icd.status = ?  
-        ORDER BY icd.year_id DESC;
-      ";
+  //     $sql = 
+  //       "SELECT DISTINCT icd.year_id AS id, y.name AS title
+  //       FROM indicator_category_details icd
+  //       INNER JOIN years y ON y.id = icd.year_id
+  //       WHERE icd.status = ?  
+  //       ORDER BY icd.year_id DESC;
+  //     ";
 
-      $items = BaseModel::query($sql, [1], 'all');
+  //     $items = BaseModel::query($sql, [1], 'all');
     
-    } catch (Throwable $e) {
-      throw new DatabaseException($e->getMessage());
-    }
+  //   } catch (Throwable $e) {
+  //     throw new DatabaseException($e->getMessage());
+  //   }
     
-    if (empty($items)) {
-      throw new NotFoundException('¡items not found!');
-    }
+  //   if (empty($items)) {
+  //     throw new NotFoundException('¡items not found!');
+  //   }
 
-    return $items;
-  }
-  public static function getGenders() {
-    try {
-      // $sql = 
-      //   "SELECT g.id, g.name AS title
-      //   FROM genders g
-      //   WHERE g.status = ?
-      //   ORDER BY g.name ASC;
-      // ";
-      $sql = 
-      "SELECT DISTINCT icd.gender_id AS id, g.name AS title
-        FROM indicator_category_details icd
-        INNER JOIN genders g ON g.id = icd.gender_id
-        WHERE icd.status = ?  
-        ORDER BY g.name DESC;
+  //   return $items;
+  // }
+  // public static function getGenders() {
+  //   try {
+  //     // $sql = 
+  //     //   "SELECT g.id, g.name AS title
+  //     //   FROM genders g
+  //     //   WHERE g.status = ?
+  //     //   ORDER BY g.name ASC;
+  //     // ";
+  //     $sql = 
+  //     "SELECT DISTINCT icd.gender_id AS id, g.name AS title
+  //       FROM indicator_category_details icd
+  //       INNER JOIN genders g ON g.id = icd.gender_id
+  //       WHERE icd.status = ?  
+  //       ORDER BY g.name DESC;
       
-      ";
-      $items = BaseModel::query($sql, [1], 'all');
+  //     ";
+  //     $items = BaseModel::query($sql, [1], 'all');
     
-    } catch (Throwable $e) {
-      throw new DatabaseException($e->getMessage());
-    }
+  //   } catch (Throwable $e) {
+  //     throw new DatabaseException($e->getMessage());
+  //   }
     
-    if (empty($items)) {
-      throw new NotFoundException('¡items not found!');
-    }
+  //   if (empty($items)) {
+  //     throw new NotFoundException('¡items not found!');
+  //   }
 
-    return $items;
-  }
+  //   return $items;
+  // }
   public static function getData($data) {
     $params = [];
 

@@ -1,6 +1,7 @@
 <?php
   require_once 'controllers/GendersController.php';
 
-  $router->add('GET',  '/redim_backend/api/genders', [GendersController::class, 'get']);
-  $router->add('POST', '/redim_backend/api/genders', [GendersController::class, 'post']);
+  $basePath = isset($_ENV['API_BASE_PATH']) ? $_ENV['API_BASE_PATH'] : '/api';
+  $router->add('GET',  $basePath . '/genders', [GendersController::class, 'get']);
+  $router->add('POST', $basePath . '/genders', [GendersController::class, 'post']);
 ?>

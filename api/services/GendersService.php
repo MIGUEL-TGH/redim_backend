@@ -138,6 +138,27 @@ class GendersService {
       throw new DatabaseException($e->getMessage());
     }
   }
+  public static function getDataBySelector(): array {
+    try {
+      $sql = 
+      "SELECT DISTINCT icd.gender_id AS id, g.name AS title
+        FROM indicator_category_details icd
+        INNER JOIN genders g ON g.id = icd.gender_id
+        WHERE icd.status = ?  
+        ORDER BY g.name DESC;
+      ";
+      $items = BaseModel::query($sql, [1], 'all');
+    
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+    
+    if (empty($items)) {
+      throw new NotFoundException('¡items not found!');
+    }
+
+    return $items;
+  }
   //-----------------------------------------------------------------------------
 }
 ?>

@@ -262,6 +262,27 @@ class IndicatorsService {
       throw new DatabaseException($e->getMessage());
     }
   }
+
+  public static function getDataBySelector() {
+    try {
+      $sql = 
+      " SELECT id, name
+        FROM " . self::TABLE . "
+        WHERE status = ?
+        ORDER BY id ASC
+      ";
+      $items = BaseModel::query($sql, [1], 'all');
+    
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+    
+    if (empty($items)) {
+      throw new NotFoundException('¡items not found!');
+    }
+
+    return $items;
+  }
   //-----------------------------------------------------------------------------
 }
 ?>

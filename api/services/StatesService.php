@@ -184,6 +184,27 @@ class StatesService {
       throw new DatabaseException($e->getMessage());
     }
   }
+  public static function getDataBySelector() {
+    try {
+      $sql = 
+      " SELECT DISTINCT icd.state_id AS id, s.name AS title, s.iso_code
+        FROM indicator_category_details icd
+        INNER JOIN states s ON s.id = icd.state_id
+        WHERE icd.status = ?  
+        ORDER BY s.name ASC;
+      ";
+      $items = BaseModel::query($sql, [1], 'all');
+    
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+    
+    if (empty($items)) {
+      throw new NotFoundException('¡items not found!');
+    }
+
+    return $items;
+  }
   //-----------------------------------------------------------------------------
 }
 ?>

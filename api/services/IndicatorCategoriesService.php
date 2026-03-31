@@ -132,7 +132,6 @@ class IndicatorCategoriesService {
     }
   }
   //--------------------private access Constructor de nodos de indicadores-------------------------------------------
-  //--------------------------------------------------------------- 
   private static function getCategories($indicatorId): array {
       $sql = 
         "SELECT
@@ -218,10 +217,14 @@ class IndicatorCategoriesService {
       foreach ($rows as $row) {
           $id = (int)$row['category_id'];
 
+          // Limpia el nombre: elimina números, puntos y espacios al inicio del texto
+          $cleanTitle = preg_replace('/^[\d\.]+\s*/', '', $row['category_name']);
+
           if (!isset($categories[$id])) {
               $categories[$id] = [
                   'id'        => $id,
-                  'title'     => $row['category_name'],
+                  // 'title'     => $row['category_name'],
+                  'title'     => $cleanTitle,
                   'parent_id' => $row['parent_id'] !== null ? (int)$row['parent_id'] : null,
                   'children'  => []
               ];
@@ -298,6 +301,23 @@ class IndicatorCategoriesService {
   private static function filterCategories(array $categories, array $validIds): array {
     return array_intersect_key($categories, $validIds);
   }
+  // ============================================================================================================================================
+  private static function buildInClause(string $field, array $values, array &$params): string {
+    if (empty($values)) {
+      return '';
+    }
+
+    $safeField = str_replace('.', '_', $field);
+    $placeholders = [];
+    foreach ($values as $index => $value) {
+      $key = "{$safeField}_{$index}";
+      $placeholders[] = ":{$key}";
+      $params[$key] = $value;
+    }
+
+    return " AND {$field} IN (" . implode(',', $placeholders) . ")";
+  }
+
 
   //--------------------public access--------------------------------------------
   public static function setCRUD(array $data): array {
@@ -391,8 +411,101 @@ class IndicatorCategoriesService {
       throw new DatabaseException($e->getMessage());
     }
   }
-  
-  public static function getCategoriesNode($indicatorId) {
+  public static function getCategoriesNode ($IDs) {
+    try {
+      $result = [];
+      // Validar que la variable exista  
+      $rawIds = isset($IDs['indicator_ids']) ? $IDs['indicator_ids'] : [];
+      // Transforma datos a numero enteros ejemplo: "15" -> 15   "15 manzanas" -> 15    "hola" -> 0   15.8 --> 15
+      $indicatorId = array_map('intval', $rawIds);
+
+      // 1️⃣ Traer TODAS las categorías (sin filtrar por datos aún)
+      // =========================================== CONSTRUIR SQL ===========================================
+      $sql = 
+        "SELECT
+          i.id   AS indicator_id,
+          i.name AS indicator_name,
+
+          ic.id        AS category_id,
+          ic.parent_id,
+          ic.name      AS category_name,
+          ic.level,
+          ic.sort_order
+
+        FROM indicators i
+        INNER JOIN indicator_categories ic
+          ON ic.indicator_id = i.id
+        WHERE
+          i.status = 1
+          AND ic.status = 1
+      ";
+
+      $params = [];
+      if (!empty($indicatorId)) {
+        $sql .= self::buildInClause('i.id', $indicatorId, $params);
+      }
+
+      $sql .= " 
+       ORDER BY
+        CAST(SUBSTRING_INDEX(category_name, '.', 1) AS UNSIGNED);
+      ";
+
+      // return $sql;
+      // ==================================================================================================
+
+      $rows = BaseModel::query($sql, $params, 'all');
+      // return $rows;
+
+      // 2️⃣ Indexar categorías
+      $categories = self::indexCategories($rows);
+      
+      // 3️⃣ Categorías que sí tienen datos reales
+      $categoriesWithData = self::fetchCategoryIdsWithData();
+
+      // 4️⃣ Incluir padres necesarios
+      $validCategoryIds = self::includeParentCategories(
+        $categories,
+        $categoriesWithData
+      );
+
+      // 5️⃣ Filtrar categorías válidas
+      $filteredCategories = self::filterCategories(
+        $categories,
+        $validCategoryIds
+      );
+
+      // 6️⃣ Construir árbol
+      $categoryTree = self::buildCategoryTree($filteredCategories);
+
+      // 7️⃣ Indicadores
+      // $indicators = self::indexIndicators($rows);
+      // $categoryToIndicatorMap = self::mapCategoryToIndicator($rows);
+
+      // 8️⃣ Asignar árbol a indicadores
+      // $dataNode = self::assignTreeToIndicators(
+      //   $indicators,
+      //   $categoryTree,
+      //   $categoryToIndicatorMap
+      // );
+
+      // $result = $dataNode;
+      $result = $categoryTree;
+
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+    
+    if (empty($result)) {
+      // throw new NotFoundException('¡items not found hola!');
+      return [];
+    }
+
+    return $result;
+  }
+
+  // ============================================================================================================================================
+
+  public static function getCategoriesNode_v1($indicatorId) {
     try {
       $result = [];
 

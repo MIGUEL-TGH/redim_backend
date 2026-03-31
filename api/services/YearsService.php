@@ -137,7 +137,29 @@ class YearsService {
     } catch (Throwable $e) {
       throw new DatabaseException($e->getMessage());
     }
-  }  
+  }
+  public static function getDataBySelector() {
+    try {
+      $sql = 
+        "SELECT DISTINCT icd.year_id AS id, y.name AS title
+        FROM indicator_category_details icd
+        INNER JOIN years y ON y.id = icd.year_id
+        WHERE icd.status = ?  
+        ORDER BY icd.year_id DESC;
+      ";
+
+      $items = BaseModel::query($sql, [1], 'all');
+    
+    } catch (Throwable $e) {
+      throw new DatabaseException($e->getMessage());
+    }
+    
+    if (empty($items)) {
+      throw new NotFoundException('¡items not found!');
+    }
+
+    return $items;
+  }
   //-----------------------------------------------------------------------------
 }
 ?>

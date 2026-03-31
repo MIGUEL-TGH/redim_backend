@@ -1,36 +1,26 @@
 <?php
-// require_once __DIR__ . '/../services/StatesService.php';
-// require_once __DIR__ . '/../services/StatesService.php';
 require_once BASE_PATH . '/middleware/AuthMiddleware.php';
 require_once BASE_PATH . '/services/StatesService.php';
 
 class StatesController extends BaseController {
   public static function get() {
     self::handle(function () {
-      
-      // $type = Request::query('type');
-      
-      // return match ($type) {
-      //   'getdata'         => StatesService::getAllData(),
-      //   'getactive'    => StatesService::getActiveData(),
-      //   default      => throw new ValidationException([
-      //     'type' => 'Invalid type parameter'
-      //   ])
-      // };
-      $type = isset($_GET['type']) ? $_GET['type'] : 'default';
+      $type = Request::query('type') ?? 'default';
 
       switch ($type) {
-        case 'public_data':
-          // 🔓 No llamamos al middleware
-          return ["mensaje" => "Cualquiera puede ver esto"];
-
+        // 🔒 Protegido ============================================================================================================
         case 'getdata':
-          // 🔒 Protegido
-          $usuario = AuthMiddleware::authenticate();
+          // $userLogueado = AuthMiddleware::authenticate();
+          $userLogueado = AuthMiddleware::authorize('states', 'read-only');
           return StatesService::getAllData();
-          // return $usuario;
-          // return ["mensaje" => "Hola " . $usuario->data->name . ", esta es tu información privada"];
-          
+        case 'getactive':
+          $userLogueado = AuthMiddleware::authorize('states', 'read-only');
+          return StatesService::getActiveData();
+        // 🔓 Público, sin AuthMiddleware ==========================================================================================
+        case 'getdatabysector':
+          return StatesService::getDataBySelector();
+        case 'public_data':
+          return ["mensaje" => "Cualquiera puede ver esto"];
         default:
           throw new ApiException("Operación GET no válida.", 400);
       }
@@ -39,20 +29,28 @@ class StatesController extends BaseController {
 
   public static function post() {
     self::handle(function () {
-
-      // Obtenemos el tipo de operación de la URL (?type=...)
-      $type = Request::query('type');
+      $type = Request::query('type') ?? 'default';
       $body = Request::body();
 
-      // 3. Evaluamos qué acción se quiere realizar
       switch ($type) {
-        case 'crud':
-          AuthMiddleware::authenticate();
+        case 'crud': // 🔒 Protegido
+          $userLogueado = AuthMiddleware::authorize('states', 'read-write');
           return StatesService::setCRUD($body);
         case 'getactivebyid':
-          AuthMiddleware::authenticate();
-          return StatesService::getActiveDataById($body);
+
+          // AuthMiddleware::authenticate();
+          // return StatesService::getActiveDataById($body);
           
+          return [
+            "success" => true,
+            "message" => 'Ruta protegida accedida correctamente. ¡Aquí están los estados activos para el country_id proporcionado!',
+            "result" => [
+              ["id" => 1, "name" => "Puebla", "country_id" => $body['country_id']],
+              ["id" => 2, "name" => "Jalisco", "country_id" => $body['country_id']]
+            ]
+          ];
+
+
         case 'getactivebyid_public':
           // 🔓 RUTA PÚBLICA: No llamamos a AuthMiddleware
           
@@ -101,7 +99,6 @@ class StatesController extends BaseController {
           // throw new ApiException("Tipo de operación no válida.", 400);
           throw new ValidationException(["type" => "Tipo de operación no válida o ausente."], "Error de petición");
       }
-
 
     });
   }
