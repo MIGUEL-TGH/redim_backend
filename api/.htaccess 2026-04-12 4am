@@ -1,12 +1,9 @@
 # =====================================================
 # 1. CONFIGURACIONES GENERALES Y SEGURIDAD BÁSICA
 # =====================================================
-# Evita que se listen los directorios si no hay index.php
-Options -Indexes
-# Evita conflictos de negociación de contenido
-Options -MultiViews
-# Oculta la versión del servidor en páginas de error (Seguridad)
-ServerSignature Off
+Options -Indexes        # Evita que se listen los directorios si no hay index.php
+Options -MultiViews     # Evita conflictos de negociación de contenido
+# ServerSignature Off     # Oculta la versión del servidor en páginas de error (Seguridad)
 
 # Bloquea el acceso público a archivos ocultos (ej: .env, .git, etc.)
 <FilesMatch "^\.">
@@ -16,8 +13,7 @@ ServerSignature Off
 # =====================================================
 # 2. MANEJO DE CABECERAS DE AUTORIZACIÓN
 # =====================================================
-# La forma oficial y moderna para FastCGI/FPM
-CGIPassAuth On
+CGIPassAuth On          # La forma oficial y moderna para FastCGI/FPM
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -30,10 +26,7 @@ CGIPassAuth On
     # =====================================================
     # 3. ENRUTAMIENTO PRINCIPAL DE LA API (FRONT CONTROLLER)
     # =====================================================
-    # Si lo que se pide NO es un archivo real...
-    RewriteCond %{REQUEST_FILENAME} !-f
-    # Y NO es un directorio real...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    # Redirige todo silenciosamente a index.php para que el Router de PHP lo maneje
-    RewriteRule ^(.*)$ index.php [QSA,L]
+    RewriteCond %{REQUEST_FILENAME} !-f     # Si lo que se pide NO es un archivo real...
+    RewriteCond %{REQUEST_FILENAME} !-d     # Y NO es un directorio real...
+    RewriteRule ^(.*)$ index.php [QSA,L]    # Redirige todo silenciosamente a index.php para que el Router de PHP lo maneje
 </IfModule>

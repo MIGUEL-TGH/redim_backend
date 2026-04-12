@@ -2,7 +2,7 @@
 require_once BASE_PATH . '/models/UserModel.php';
 require_once BASE_PATH . '/models/AuthModel.php';
 // require_once BASE_PATH . '/core/exceptions/ApiException.php';
-
+ 
 class AuthService {
   
   public function login($identifier, $password) {

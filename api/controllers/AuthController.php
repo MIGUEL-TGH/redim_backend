@@ -79,6 +79,6 @@ class AuthController extends BaseController {
       return $authService->refresh($token);
     });
   }
-  
+    
 }
 ?>

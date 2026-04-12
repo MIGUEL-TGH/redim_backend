@@ -1,0 +1,23 @@
+# 1. Configuraciones generales
+Options -Indexes
+Options -MultiViews
+
+# 2. Permitir paso de cabeceras de Autorización en servidores modernos (FastCGI/FPM)
+CGIPassAuth On
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 3. Rescatar el Token ANTES de redireccionar (Para servidores antiguos/compartidos)
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+    
+    # Opción alternativa por si la anterior falla
+    SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+    # 4. Enrutamiento principal de la API (Redirigir a index.php)
+    # Ignorar si es un archivo o directorio real
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

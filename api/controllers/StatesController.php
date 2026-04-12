@@ -36,7 +36,7 @@ class StatesController extends BaseController {
         case 'crud': // 🔒 Protegido
           $userLogueado = AuthMiddleware::authorize('states', 'read-write');
           return StatesService::setCRUD($body);
-        case 'getactivebyid':
+        case 'getactivebyid': // TEST
 
           // AuthMiddleware::authenticate();
           // return StatesService::getActiveDataById($body);
@@ -71,7 +71,7 @@ class StatesController extends BaseController {
           //   ]
           // ];
 
-        case 'create':
+        case 'create':  // TEST
           // 🔒 RUTA PRIVADA: Llamamos al guardia de seguridad
           $userLogueado = AuthMiddleware::authenticate();
           
@@ -80,7 +80,8 @@ class StatesController extends BaseController {
           return [
             "success" => true,
             "message" => "Ruta protegida accedida correctamente. ¡Estado creado!",
-            "realizado_por" => $userLogueado->data->username,
+            // "realizado_por" => $userLogueado,
+            "realizado_por" => $userLogueado->data->name,
             "email_contacto" => $userLogueado->data->email,
             "datos_recibidos" => $body
           ];
@@ -89,7 +90,7 @@ class StatesController extends BaseController {
           //   "message" => "Estado creado correctamente por " . $userLogueado->data->username
           // ];
 
-        case 'update':
+        case 'update':  // TEST
           // 🔒 RUTA PRIVADA: También protegida
           AuthMiddleware::authenticate();
           
