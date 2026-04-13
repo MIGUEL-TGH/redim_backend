@@ -1,5 +1,5 @@
 <?php
-require_once BASE_PATH . '/middleware/AuthMiddleware.php';
+// require_once BASE_PATH . '/middleware/AuthMiddleware.php';
 require_once BASE_PATH . '/services/StatesService.php';
 
 class StatesController extends BaseController {

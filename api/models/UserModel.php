@@ -24,10 +24,10 @@ class UserModel extends BaseModel {
             FROM users u
             INNER JOIN roles r ON u.role_id = r.id
             LEFT JOIN role_permissions rp ON r.id = rp.role_id
-            WHERE u.email = :id OR u.username = :id";
+            WHERE u.email = :identifier OR u.username = :identifier";
             
     // Cambiamos 'one' por 'all' porque ahora devuelve múltiples filas
-    return self::query($sql, ['id' => $identifier], 'all'); 
+    return self::query($sql, ['identifier' => $identifier], 'all'); 
   }
 
   // Insertar usuarios
@@ -45,6 +45,18 @@ class UserModel extends BaseModel {
       'password' => $data['password'],
       'status' => isset($data['status']) ? $data['status'] : 1
     ], 'insert');
+
+    return true;
+  }
+
+  // Actualizar contraseña del usuario
+  public static function update_password($user_id, $new_password) {
+    $params = [ 
+      'id' => $user_id, 
+      'password' => $new_password 
+    ];
+    
+    self::setUpdate('users', $params);
 
     return true;
   }

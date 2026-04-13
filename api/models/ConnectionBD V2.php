@@ -15,11 +15,17 @@
             $InfoBD = ConnectionBD::InfoBD();
             extract($InfoBD);
 
-            $link = new PDO( "mysql:host=".$host."; dbname=".$bd, $user, $pass );
+            $link = new PDO( "mysql:host=".$host."; dbname=".$bd, $user, $pass );            
+            // $link = new PDO(
+            //    "mysql:host=localhost; dbname=".ConnectionBD::InfoBD()['bd'],
+            //    ConnectionBD::InfoBD()['user'],
+            //    ConnectionBD::InfoBD()['pass']
+            // );
+
             $link->exec("set names utf8");
 
          }catch(PDOException $e){
-            throw new DatabaseException("Fallo en PDO: " . $e->getMessage());
+            die("Error: ".$e->$getMessage());
          }
          return $link;
       }

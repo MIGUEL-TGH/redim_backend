@@ -67,37 +67,25 @@ class AuthController extends BaseController {
       $authService = new AuthService();
       return $authService->refresh($userLogueado->data);
 
-    });
-  }
 
-  public static function update_my_profile_password() {
-    self::handle(function() {
+      // return $userLogueado->data;
+      // return ['message' => 'Actualizando el metodo de generacion de tokens'];
+      // 1. Obtener los headers de la petición
+      // $headers = getallheaders();
+      
+      // // Buscar el header de Authorization (soporte para diferentes servidores)
+      // $authHeader = $headers['Authorization'] ?? $headers['authorization'] ?? '';
 
-      $body = Request::body();
+      // // 2. Validar que exista el Bearer token
+      // if (empty($authHeader) || !preg_match('/Bearer\s(\S+)/', $authHeader, $matches)) {
+      //   throw new ApiException("Token no proporcionado o formato inválido.", 401);
+      // }
 
-      if (empty($body['current']) || empty($body['new']) || empty($body['confirm'])) {
-        throw new ValidationException(
-          ["campos" => "3 datos son obligatorios"], 
-          "Error de validación"
-        );
-      }
+      // $token = $matches[1];
 
-      $current = $body['current'];
-      $new = $body['new'];
-      $confirm = $body['confirm'];
-
-      if ($new != $confirm) {
-        throw new ValidationException(
-          ["campos" => "La nueva contraseña y la confirmacion de la nueva contraseña no coinciden"], 
-          "Error de validación"
-        );
-      }
-
-      $userLogueado = AuthMiddleware::authenticate();
-      $email = $userLogueado->data->email;
-
-      $authService = new AuthService();
-      return $authService->update_my_profile_password($current, $new, $email);
+      // // 3. Pasar el token al servicio para su renovación
+      // $authService = new AuthService();
+      // return $authService->refresh($token);
     });
   }
     

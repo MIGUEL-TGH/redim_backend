@@ -1,4 +1,5 @@
 <?php
+  // abstract class ApiException extends Exception {
   class ApiException extends Exception {
 
     protected int $status;

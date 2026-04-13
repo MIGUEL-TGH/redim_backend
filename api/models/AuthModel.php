@@ -8,17 +8,6 @@
       return JWT::encode($data, $_ENV['JWT_SECRET'], 'HS256');
     }
 
-    // public static function parseJWT($token) {
-    //   try {
-    //     $decoded = JWT::decode($token, new Key($_ENV['JWT_SECRET'], 'HS256'));
-    //     return $decoded; 
-    //   } catch (\Firebase\JWT\ExpiredException $e) {
-    //     throw new ApiException("El token ha expirado. Por favor, inicie sesión de nuevo.", 401);
-    //   } catch (\Exception $e) {
-    //     throw new ApiException("Token inválido o no autorizado.", 401);
-    //   }
-    // }
-
     public static function verifyJWT($token) {
       try {
         // Al instanciar Key, Firebase\JWT verifica automáticamente la firma y la caducidad

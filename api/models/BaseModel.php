@@ -1,5 +1,5 @@
 <?php
-// falta aplicar SRP (Single Responsibility Principle)
+// Falta aplicar SRP (Single Responsibility Principle)
 require_once "ConnectionBD.php";
 class BaseModel {
   // Nuevos -------------------------------------------------------------------------------

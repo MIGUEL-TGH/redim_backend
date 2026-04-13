@@ -13,4 +13,7 @@
   // Ruta para registrar (crear) un usuario
   $router->add('POST', $basePath . '/auth/register', [AuthController::class, 'register']);
 
+  // Ruta para actualizar contraseña
+  $router->add('POST', $basePath . '/auth/update_my_profile_password', [AuthController::class, 'update_my_profile_password']);
+
 ?>

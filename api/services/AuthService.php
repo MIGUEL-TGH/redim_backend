@@ -8,14 +8,12 @@ class AuthService {
   public function login($identifier, $password) {
     // 1. Buscar usuario
     $rows = UserModel::findByEmailOrUsername($identifier);
-    
     if (empty($rows)) {
       throw new ApiException("Credenciales incorrectas.", 401);
     }
 
     // Tomamos los datos principales del usuario desde la primera fila devuelta
     $user = $rows[0];
-
     // 2. Verificar estatus
     if ($user['status'] == 0) {
       throw new ApiException("El usuario se encuentra inactivo.", 403);
@@ -58,12 +56,13 @@ class AuthService {
 
     return [
       'token' => $token,
-      'user' => [
-        'id' => $user['id'],
-        'name' => $user['name'],
-        'username' => $user['username'],
-        'role' => $user['role_name'] // Opcional: útil para que el front lo sepa sin decodificar el JWT
-      ]
+      'message' => 'Token generado exitosamente',
+      // 'user' => [
+      //   'id' => $user['id'],
+      //   'name' => $user['name'],
+      //   'username' => $user['username'],
+      //   'role' => $user['role_name'] // Opcional: útil para que el front lo sepa sin decodificar el JWT
+      // ]
     ];
 
   }
@@ -94,7 +93,7 @@ class AuthService {
     ];
   }
 
-  public function refresh($token) {
+  public function refresh_V1($token) {
     // 1. Decodificar y verificar la firma del token actual
     // Asegúrate de que AuthModel::verifyJWT lance una excepción si la firma es inválida
     try {
@@ -173,6 +172,101 @@ class AuthService {
     //     ]
     //   ]
     // ];
+  }
+
+  public function refresh($user_data) {
+
+    // 1. Extraer el identificador (usamos el email guardado en el token)
+    $identifier = $user_data->email;
+
+    // 2. Volver a consultar la BD. Esto es vital por seguridad:
+    // ¿Qué tal si el administrador desactivó a este usuario hace 10 minutos?
+    $rows = UserModel::findByEmailOrUsername($identifier);
+    
+    if (empty($rows)) {
+      throw new ApiException("El usuario ya no existe.", 401);
+    }
+
+    $user = $rows[0];
+
+    if ($user['status'] == 0) {
+      throw new ApiException("El usuario ha sido desactivado.", 403);
+    }
+
+    // 3. Reconstruir los permisos (por si le asignaron o quitaron accesos)
+    $permissions = [];
+    foreach ($rows as $row) {
+      if (!empty($row['module'])) {
+        $permissions[] = [
+          'module' => $row['module'],
+          'permission' => $row['permission_type']
+        ];
+      }
+    }
+
+    // 4. Generar Nuevo Payload extendiendo la vida otra hora más
+    $expMinutes = isset($_ENV['JWT_EXP_MINUTES']) ? (int)$_ENV['JWT_EXP_MINUTES'] : 5;
+    $payload = [
+      'iss' => "ninez-primero-api",
+      'iat' => time(),
+      'exp' => time() + (60 * $expMinutes), // Nueva hora de vida a partir de ahora
+      'data' => [
+        'id' => $user['id'],
+        'name' => $user['name'],
+        'email' => $user['email'],
+        'role' => $user['role_name'],
+        'permissions' => $permissions,
+      ]
+    ];
+
+    // 5. Generar el nuevo token
+    $newToken = AuthModel::generateJWT($payload);
+
+    return [
+      'token' => $newToken,
+      'message' => 'Token renovado exitosamente',
+      // 'user' => [
+      //   'id' => $user['id'],
+      //   'name' => $user['name'],
+      //   'username' => $user['username'],
+      //   'role' => $user['role_name'] // Opcional: útil para que el front lo sepa sin decodificar el JWT
+      // ]
+    ];
+  }
+  
+  public function update_my_profile_password($current, $new, $email) {
+    // 1. Buscar usuario
+    $rows = UserModel::findByEmailOrUsername($email);
+    if (empty($rows)) {
+      throw new ApiException("Credenciales incorrectas.", 401);
+    }
+
+    // Tomamos los datos principales del usuario desde la primera fila devuelta
+    $user = $rows[0];
+    // 2. Verificar estatus
+    if ($user['status'] == 0) {
+      throw new ApiException("El usuario se encuentra inactivo.", 403);
+    }
+
+    // 3. Verificar contraseña actual
+    if (!password_verify($current, $user['password'])) {
+      // throw new ApiException("Credenciales incorrectas.", 401);
+      return ['message' => 'contraseña actual incorrecta'];
+    }
+    
+    // 3. Encriptar la contraseña nueva de forma segura
+    // PASSWORD_BCRYPT genera un hash de 60 caracteres (por eso en la BD usamos VARCHAR 255)
+    $new = password_hash($new, PASSWORD_BCRYPT);
+
+    // 4. Guardar en la base de datos
+    UserModel::update_password($user['id'], $new);
+
+    return [
+      "success" => true,
+      "message" => "Contraseña actualizado exitosamente."
+    ];
+
+
   }
 
 }
