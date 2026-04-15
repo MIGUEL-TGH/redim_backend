@@ -45,6 +45,13 @@ class StatesService {
       'status' => (bool) $item['status'],
     ];
   }
+  private static function updateInternal(array $params): void {
+    $update = BaseModel::setUpdate(self::TABLE, $params);
+
+    if ($update['status'] !== 200) {
+      throw new ValidationException([], $update['alert'] ?? 'Error en actualización');
+    }
+  }
   private static function insert(array $params): array {
     $insert = BaseModel::setInsert(self::TABLE, $params);
 
@@ -78,13 +85,7 @@ class StatesService {
       'status' => (bool)$params['status']
     ];
   }
-  private static function updateInternal(array $params): void {
-    $update = BaseModel::setUpdate(self::TABLE, $params);
 
-    if ($update['status'] !== 200) {
-      throw new ValidationException([], $update['alert'] ?? 'Error en actualización');
-    }
-  }
 
   //--------------------public access--------------------------------------------
   public static function setCRUD(array $data): array {
@@ -206,5 +207,5 @@ class StatesService {
     return $items;
   }
   //-----------------------------------------------------------------------------
-}
+} 
 ?>
