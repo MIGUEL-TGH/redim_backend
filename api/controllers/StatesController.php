@@ -7,6 +7,8 @@ class StatesController extends BaseController {
     self::handle(function () {
       $type = Request::query('type') ?? 'default';
 
+      // return ['message_states' => $type];
+
       switch ($type) {
         // 🔒 Protegido ============================================================================================================
         case 'getdata':

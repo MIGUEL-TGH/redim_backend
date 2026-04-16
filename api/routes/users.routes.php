@@ -1,13 +1,12 @@
 <?php
-  // require_once BASE_PATH . '/controllers/UsersController.php';
   require_once 'controllers/UsersController.php';
 
   $basePath = isset($_ENV['API_BASE_PATH']) ? $_ENV['API_BASE_PATH'] : '/api';
 
-  $router->add('GET', $basePath . '/states', [StatesController::class, 'get']);
-  $router->add('POST', $basePath . '/states', [StatesController::class, 'post']);
+  $router->add('GET', $basePath . '/users', [UsersController::class, 'get']);
+  $router->add('POST', $basePath . '/users', [UsersController::class, 'post']);
 
-
+  // ===========================================================================================
   // // Obtener todos los usuarios
   // $router->get('/users', ['UsersController', 'getAll']);
 

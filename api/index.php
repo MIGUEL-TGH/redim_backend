@@ -31,6 +31,7 @@ require_once 'routes/states.routes.php';
 require_once 'routes/centers.routes.php';
 require_once 'routes/indicator.categories.routes.php';
 require_once 'routes/indicator.category.details.routes.php';
+require_once 'routes/users.routes.php';
 
 $router->dispatch();
 
