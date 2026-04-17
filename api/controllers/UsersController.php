@@ -6,11 +6,17 @@ class UsersController extends BaseController {
     self::handle(function () {
       $type = Request::query('type') ?? 'default';
 
+      // $userLogueado = AuthMiddleware::authenticate();
+      // $userLogueado = AuthMiddleware::authorize('users', 'read-only');
+
       switch ($type) {
         // 🔒 Protegido ============================================================================================================
         case 'getdata':
-          // $userLogueado = AuthMiddleware::authorize('users', 'read-only');
+          AuthMiddleware::authenticate();
           return UsersService::getAllData();
+        case 'getroles':
+          AuthMiddleware::authenticate();
+          return UsersService::getRolesBySelector();
         // case 'getactive':
         //   $userLogueado = AuthMiddleware::authorize('users', 'read-only');
         //   return StatesService::getActiveData();

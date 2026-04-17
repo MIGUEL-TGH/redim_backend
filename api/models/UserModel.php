@@ -19,16 +19,16 @@ class UserModel extends BaseModel {
 
   // =============================================================================================
   // Obtener todos los usuarios para la tabla (DataTable)
-  public static function getAll() {
-    $sql = "SELECT 
-                u.id, u.name, u.email, u.username, u.status, 
-                u.role_id, r.name AS role_name
-            FROM users u
-            LEFT JOIN roles r ON u.role_id = r.id
-            ORDER BY u.id DESC";
+  // public static function getAll() {
+  //   $sql = "SELECT 
+  //               u.id, u.name, u.email, u.username, u.status, 
+  //               u.role_id, r.name AS role_name
+  //           FROM users u
+  //           LEFT JOIN roles r ON u.role_id = r.id
+  //           ORDER BY u.id DESC";
             
-    return self::query($sql, [], 'all');
-  }
+  //   return self::query($sql, [], 'all');
+  // }
 
   // Validar si el correo o usuario ya existen (evitar duplicados)
   public static function checkDuplicate($email, $username, $excludeId = null) {
