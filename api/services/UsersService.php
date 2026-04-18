@@ -1,7 +1,7 @@
 <?php
 require_once BASE_PATH . '/models/UserModel.php';
 // composer require setasign/fpdf
-require_once BASE_PATH . '/vendor/fpdf/fpdf.php'; // Ajusta la ruta a tu librería FPDF
+require_once BASE_PATH . '/vendor/setasign/fpdf/fpdf.php'; // Ajusta la ruta a tu librería FPDF
 
 class UsersService {
   // ==========================================================================================================
@@ -41,58 +41,6 @@ class UsersService {
     }
     return $password;
   }
-  // private static function generateUserPDF($name, $username, $rawPassword): string {
-  //   $pdf = new FPDF();
-  //   $pdf->AddPage();
-  //   $pdf->SetFont('Arial', 'B', 16);
-    
-  //   // Título
-  //   $pdf->Cell(0, 10, utf8_decode('REDIM - Niñez Primero'), 0, 1, 'C');
-  //   $pdf->SetFont('Arial', 'B', 14);
-  //   $pdf->Cell(0, 10, utf8_decode('Carta Responsiva de Credenciales de Acceso'), 0, 1, 'C');
-  //   $pdf->Ln(10);
-    
-  //   // Cuerpo
-  //   $pdf->SetFont('Arial', '', 12);
-  //   $texto = "Por medio de la presente, se hace entrega de las credenciales de acceso al sistema \"Niñez Primero\". El usuario se compromete a hacer un uso responsable y confidencial de esta información, la cual es intransferible.";
-  //   $pdf->MultiCell(0, 10, utf8_decode($texto));
-  //   $pdf->Ln(10);
-    
-  //   // Datos de la cuenta
-  //   $pdf->SetFont('Arial', 'B', 12);
-  //   $pdf->Cell(50, 10, 'Nombre Completo:', 0, 0);
-  //   $pdf->SetFont('Arial', '', 12);
-  //   $pdf->Cell(0, 10, utf8_decode($name), 0, 1);
-    
-  //   $pdf->SetFont('Arial', 'B', 12);
-  //   $pdf->Cell(50, 10, 'Usuario (Username):', 0, 0);
-  //   $pdf->SetFont('Arial', '', 12);
-  //   $pdf->Cell(0, 10, utf8_decode($username), 0, 1);
-    
-  //   $pdf->SetFont('Arial', 'B', 12);
-  //   $pdf->Cell(50, 10, 'Contrasena Temporal:', 0, 0);
-  //   $pdf->SetFont('Arial', '', 12);
-  //   $pdf->Cell(0, 10, utf8_decode($rawPassword), 0, 1);
-    
-  //   $pdf->Ln(30);
-    
-  //   // Sección de Firmas
-  //   $pdf->Cell(90, 10, '_________________________', 0, 0, 'C');
-  //   $pdf->Cell(90, 10, '_________________________', 0, 1, 'C');
-  //   $pdf->Cell(90, 10, utf8_decode('Firma del Usuario'), 0, 0, 'C');
-  //   $pdf->Cell(90, 10, utf8_decode('Recursos Humanos'), 0, 1, 'C');
-    
-  //   // Guardar archivo en el servidor
-  //   // Asegúrate de que la carpeta "uploads/pdfs/" tenga permisos de escritura
-  //   $fileName = 'Responsiva_' . preg_replace('/[^a-zA-Z0-9]/', '_', $username) . '_' . time() . '.pdf';
-  //   $filePath = BASE_PATH . '/public/uploads/pdfs/' . $fileName;
-    
-  //   $pdf->Output('F', $filePath);
-    
-  //   // Retornamos la URL pública para descargar desde Vue
-  //   return '/uploads/pdfs/' . $fileName; 
-  // }
-
   private static function generateUserPDF($name, $username, $rawPassword): string {
     // 1. Establecer la zona horaria correcta para que la hora sea exacta (ajusta si tu servidor está en otra región)
     date_default_timezone_set('America/Mexico_City');
@@ -145,21 +93,21 @@ class UsersService {
     // Guardar archivo en el servidor
     // Asegúrate de que la carpeta "uploads/pdfs/" tenga permisos de escritura
     $fileName = 'Responsiva_' . preg_replace('/[^a-zA-Z0-9]/', '_', $username) . '_' . time() . '.pdf';
-    $filePath = BASE_PATH . '/public/uploads/pdfs/' . $fileName;
+    $filePath = BASE_PATH . '/multimedia/pdfs/' . $fileName;
     
     $pdf->Output('F', $filePath);
     
     // Retornamos la URL pública para descargar desde Vue
-    return '/uploads/pdfs/' . $fileName; 
+    return '/multimedia/pdfs/' . $fileName;
   }
   private static function getById(int $id): array {
     $sql = 
-    " SELECT s.id, s.name, s.country_id,
-            c.name AS country_name,
-            s.demonym, s.iso_code, s.status
-      FROM states s
-      LEFT JOIN countries c ON s.country_id = c.id
-      WHERE s.id = ?
+    " SELECT 
+          u.id, u.name, u.email, u.username, u.status, 
+          u.role_id, r.name AS role_name
+      FROM users u
+      LEFT JOIN roles r ON u.role_id = r.id
+      WHERE u.id = ?
     ";
 
     $item = BaseModel::query($sql, [$id], 'one');
@@ -171,10 +119,10 @@ class UsersService {
     return [
       'id' => (int) $item['id'],
       'name' => $item['name'],
-      'country_id' => (int) $item['country_id'],
-      'country_name' => $item['country_name'],
-      'demonym' => $item['demonym'],
-      'iso_code' => $item['iso_code'],
+      'email' => $item['email'],
+      'username' => $item['username'],
+      'role_id' => $item['role_id'],
+      'role_name' => $item['role_name'],
       'status' => (bool) $item['status'],
     ];
   }
@@ -186,24 +134,34 @@ class UsersService {
     }
   }
   private static function insert(array $params): array {
-    $insert = BaseModel::setInsert(self::TABLE, $params);
+    // 1. Evitar correos o usernames duplicados
+    $duplicate = UserModel::checkDuplicate($params['email'], $params['username']);
+    if ($duplicate) {
+      throw new ValidationException(["input" => "email / username"], "Error de validación: El correo o nombre de usuario ya están en uso.");
+    }
 
+    // 2. Encriptarla para guardarla en la BD
+    $rawPassword = self::generateRandomPassword();
+    $params['password'] = password_hash($rawPassword, PASSWORD_BCRYPT);
+
+    // 3. Generas el nuevo PDF
+    $pdfUrl = self::generateUserPDF($params['name'], $params['username'], $rawPassword);
+
+    // ========================================================================================================================================
+    // 4. Guardar en base de datos
+    $insert = BaseModel::setInsert(self::TABLE, $params);
     if ($insert['status'] !== 200) {
       throw new ValidationException([], $insert['alert'] ?? 'Error');
     }
 
-    // return [
-    //   'task' => 'saved_item',          // El mixin lee esto para hacer el unshift en la tabla
-    //   'item' => $usuarioRecienCreado,  // Los datos del usuario para pintar en la tabla
-    //   'message' => 'Usuario registrado exitosamente',
-    //   'pdf_url' => $pdfUrl             // <-- Nuestro dato extra para UsersView.vue
-    // ];
-
     return [
       'task' => 'saved_item',
       // 'id' => $insert['id']
-      'item' => self::getById((int)$insert['id'])
+      'item' => self::getById((int)$insert['id']),
+      'message' => 'Usuario registrado exitosamente',
+      'pdf_url' => $pdfUrl
     ];
+
   }
   private static function update(array $params): array {
     self::updateInternal($params);
@@ -290,6 +248,13 @@ class UsersService {
     self::validate($data);
 
     // ==============================================================================
+
+    // return [
+    //   'task' => 'saved_item En desarrollo de nuevas funcionalidades',
+    //   'item' => $data
+    // ];
+
+    // ==============================================================================
     // reseteo de contraseña
     // En UsersService.php -> resetPassword($data)
     // $rawPassword = self::generateRandomPassword();
@@ -320,21 +285,21 @@ class UsersService {
   //   return UserModel::getAll();
   // }
 
-//   public function create($data) {
-//       // 1. Evitar correos o usernames duplicados
-//       $duplicate = UserModel::checkDuplicate($data['email'], $data['username']);
-//       if ($duplicate) {
-//           throw new ValidationException(["campos" => "El correo o nombre de usuario ya están en uso."], "Error de validación");
-//       }
+  public function create($data) {
+      // 1. Evitar correos o usernames duplicados
+      $duplicate = UserModel::checkDuplicate($data['email'], $data['username']);
+      if ($duplicate) {
+          throw new ValidationException(["campos" => "El correo o nombre de usuario ya están en uso."], "Error de validación");
+      }
 
-//       // 2. Encriptar la contraseña
-//       $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+      // 2. Encriptar la contraseña
+      $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
 
-//       // 3. Guardar en base de datos
-//       UserModel::create($data);
+      // 3. Guardar en base de datos
+      UserModel::create($data);
 
-//       return ['message' => 'Usuario registrado exitosamente'];
-//   }
+      return ['message' => 'Usuario registrado exitosamente'];
+  }
 
 //   public function update($id, $data) {
 //       // 1. Evitar que le roben el correo a otro usuario existente

@@ -35,12 +35,13 @@ class UsersController extends BaseController {
     self::handle(function () {
       $type = Request::query('type') ?? 'default';
       $body = Request::body();
-      return ['message' => 'En desarrollo'];
+      // return ['message' => 'En desarrollo'];
   
       switch ($type) {
-        // case 'crud': // 🔒 Protegido
-          // $userLogueado = AuthMiddleware::authorize('users', 'read-write');
-          // return StatesService::setCRUD($body);
+        case 'crud': // 🔒 Protegido
+          AuthMiddleware::authorize('users', 'read-write');
+          return UsersService::setCRUD($body);
+
         case 'getactivebyid': // TEST
 
           // AuthMiddleware::authenticate();
