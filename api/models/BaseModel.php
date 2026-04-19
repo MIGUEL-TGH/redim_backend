@@ -80,26 +80,32 @@ class BaseModel {
         throw new DatabaseException("Error ejecutando INSERT en la tabla '{$table}': " . $e->getMessage());
     }
   }
-  public static function setUpdate($table, $id, $params) {
+  //  public static function setUpdate($table, $id, $params) {
+  public static function setUpdate($table, $params) {
     $columns = [];
     $set = "";
-    
+
+    if(!isset($params['id'])){ 
+      throw new ValidationException(["input" => "id"], "Error de validación: Identificador no encontrado.");
+    }
+
     foreach (array_keys($params) as $Key => $value){
-        array_push($columns, $value);
-        if($value != 'id'){ $set .= $value." = :". $value.","; }
+      array_push($columns, $value);
+      if($value != 'id'){ $set .= $value." = :". $value.","; }
     } 
 
     $sql_set = substr($set, 0, -1);
         
     // 1. Error de validación estructural (400)
     if(empty(ConnectionBD::getTable($table, $columns))){
-        throw new ApiException("La tabla o las columnas proporcionadas no existen.", 400); 
+      throw new ApiException("La tabla o las columnas proporcionadas no existen.", 400); 
     }
 
     // 2. Error de registro no encontrado (404)
+    $id = $params['id'];
     $FindID = BaseModel::getDataFind($table, 'id', $id);
     if($FindID == null){
-        throw new NotFoundException("El registro especificado no fue encontrado."); 
+      throw new NotFoundException("El registro especificado no fue encontrado."); 
     }
              
     $sql = "UPDATE $table SET $sql_set WHERE id = :$id";
@@ -108,19 +114,19 @@ class BaseModel {
 
     foreach ($params as $Key => $value){
       if($Key != 'id'){
-          $stmt->bindParam(":".$Key, $params[$Key], PDO::PARAM_STR);
+        $stmt->bindParam(":".$Key, $params[$Key], PDO::PARAM_STR);
       }
     }
     $stmt->bindParam(":".$id, $id, PDO::PARAM_STR);
 
     // 3. Ejecución de PDO envuelta en Try/Catch
     try {
-        $stmt->execute();
-        
-        return array(
-          "status"=> 200,
-          "comment" => "El proceso se realizó con éxito"
-        );
+      $stmt->execute();
+      
+      return array(
+        "status"=> 200,
+        "comment" => "El proceso se realizó con éxito"
+      );
         
     } catch(PDOException $e) {
       throw new DatabaseException("Error ejecutando UPDATE en la tabla '{$table}': " . $e->getMessage());

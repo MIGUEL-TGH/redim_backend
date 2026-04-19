@@ -41,7 +41,7 @@ class UsersService {
     }
     return $password;
   }
-  private static function generateUserPDF($name, $username, $rawPassword): string {
+  private static function generateUserPDF($name, $username, $rawPassword): array {
     // 1. Establecer la zona horaria correcta para que la hora sea exacta (ajusta si tu servidor está en otra región)
     date_default_timezone_set('America/Mexico_City');
     $fechaHora = date('d/m/Y H:i:s'); // Formato: Día/Mes/Año Hora:Minuto:Segundo
@@ -91,14 +91,16 @@ class UsersService {
     $pdf->Cell(90, 10, utf8_decode('Recursos Humanos'), 0, 1, 'C');
     
     // Guardar archivo en el servidor
-    // Asegúrate de que la carpeta "uploads/pdfs/" tenga permisos de escritura
     $fileName = 'Responsiva_' . preg_replace('/[^a-zA-Z0-9]/', '_', $username) . '_' . time() . '.pdf';
-    $filePath = BASE_PATH . '/multimedia/pdfs/' . $fileName;
+    $filePath = BASE_PATH . '/multimedia/pdfs/users/' . $fileName;
     
     $pdf->Output('F', $filePath);
     
-    // Retornamos la URL pública para descargar desde Vue
-    return '/multimedia/pdfs/' . $fileName;
+    return [
+      // 'url' => 'multimedia/pdfs/users/' . $fileName,
+      'fileName' => $fileName,
+      'newFileName' => $username . '.pdf'
+    ];
   }
   private static function getById(int $id): array {
     $sql = 
@@ -137,7 +139,7 @@ class UsersService {
     // 1. Evitar correos o usernames duplicados
     $duplicate = UserModel::checkDuplicate($params['email'], $params['username']);
     if ($duplicate) {
-      throw new ValidationException(["input" => "email / username"], "Error de validación: El correo o nombre de usuario ya están en uso.");
+      throw new ValidationException(["input" => "email / username"], "Error de validación: El correo o nombre de usuario ya están en uso por otra persona.");
     }
 
     // 2. Encriptarla para guardarla en la BD
@@ -145,7 +147,7 @@ class UsersService {
     $params['password'] = password_hash($rawPassword, PASSWORD_BCRYPT);
 
     // 3. Generas el nuevo PDF
-    $pdfUrl = self::generateUserPDF($params['name'], $params['username'], $rawPassword);
+    $pdfData = self::generateUserPDF($params['name'], $params['username'], $rawPassword);
 
     // ========================================================================================================================================
     // 4. Guardar en base de datos
@@ -154,21 +156,28 @@ class UsersService {
       throw new ValidationException([], $insert['alert'] ?? 'Error');
     }
 
+    // 5. Retornar la información
     return [
       'task' => 'saved_item',
-      // 'id' => $insert['id']
-      'item' => self::getById((int)$insert['id']),
+      // 'data_insert' => $insert,
+      'item' => self::getById((int)$insert['lastInsertId']),
       'message' => 'Usuario registrado exitosamente',
-      'pdf_url' => $pdfUrl
+      'pdf_data' => $pdfData
     ];
 
   }
   private static function update(array $params): array {
+    // 1. Evitar correos o usernames duplicados
+    $duplicate = UserModel::checkDuplicate($params['email'], $params['username'], $params['id']);
+    if ($duplicate) {
+      throw new ValidationException(["input" => "email / username"], "Error de validación: El correo o nombre de usuario ya están en uso por otra persona.");
+    }
+
+    // 2. Actualizar datos del usuario
     self::updateInternal($params);
 
     return [
       'task' => 'updated_item',
-      // 'id' => $params['id']
       'item' => self::getById((int)$params['id'])
     ];
   }
@@ -181,6 +190,28 @@ class UsersService {
       // 'status' => $params['status']
       'id' => (int)$params['id'],
       'status' => (bool)$params['status']
+    ];
+  }
+  private static function resetPassword(array $params): array {
+
+    // 1. Encriptarla para guardarla en la BD
+    $rawPassword = self::generateRandomPassword();
+    $params['password'] = password_hash($rawPassword, PASSWORD_BCRYPT);
+
+    // 2. Generas el nuevo PDF
+    $pdfData = self::generateUserPDF($params['name'], $params['username'], $rawPassword);
+
+    // 3. Actualizar datos del usuario
+    $newParams = [
+      'id' => $params['id'],
+      'password' => $params['password']
+    ];
+    self::updateInternal($newParams);
+
+    return [
+      'task' => 'updated_item',
+      'item' => self::getById((int)$params['id']),
+      'pdf_data' => $pdfData
     ];
   }
   // ==========================================================================================================
@@ -247,76 +278,36 @@ class UsersService {
   public static function setCRUD(array $data): array {
     self::validate($data);
 
-    // ==============================================================================
-
-    // return [
-    //   'task' => 'saved_item En desarrollo de nuevas funcionalidades',
-    //   'item' => $data
-    // ];
-
-    // ==============================================================================
-    // reseteo de contraseña
-    // En UsersService.php -> resetPassword($data)
-    // $rawPassword = self::generateRandomPassword();
-    // // ... actualizas en base de datos la contraseña hasheada ...
-
-    // // Generas el nuevo PDF
-    // $pdfUrl = self::generateUserPDF($usuario['name'], $usuario['username'], $rawPassword);
-
-    // return [
-    //     'task' => 'updated_item', // O cualquier task vacía si no requieres repintar la tabla
-    //     'message' => 'Contraseña reseteada. Imprima la nueva responsiva.',
-    //     'pdf_url' => $pdfUrl
-    // ];
-
-    // ==============================================================================
-
     return match ($data['task']) {
       'insert' => self::insert($data['params']),
       'update' => self::update($data['params']),
       'status' => self::changeStatus($data['params']),
+      'password' => self::resetPassword($data['params']),
       default => throw new ValidationException([], 'Tipo de tarea no encontrado')
     };
   }
+  public static function downloadPDF(array $data): array {
+    // 1. Validar si el archivo existe
+    $filepath = __DIR__ . '/../multimedia/pdfs/users/' . $data['filename'];
+    if (!file_exists($filepath)) {
+      throw new NotFoundException("El archivo no existe");
+    }
 
-  // ==========================================================================================================
+    // return [
+    //   'message' => 'Service-->downloadPDF()'
+    // ];
 
-  // public function getAll() {
-  //   return UserModel::getAll();
-  // }
+    // 2. PHP envía las cabeceras simulando ser un archivo
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: attachment; filename="'.basename($filepath).'"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($filepath));
 
-  public function create($data) {
-      // 1. Evitar correos o usernames duplicados
-      $duplicate = UserModel::checkDuplicate($data['email'], $data['username']);
-      if ($duplicate) {
-          throw new ValidationException(["campos" => "El correo o nombre de usuario ya están en uso."], "Error de validación");
-      }
-
-      // 2. Encriptar la contraseña
-      $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
-
-      // 3. Guardar en base de datos
-      UserModel::create($data);
-
-      return ['message' => 'Usuario registrado exitosamente'];
+    // 3. Imprime el contenido del PDF y termina el script
+    readfile($filepath);
+    exit;
   }
-
-//   public function update($id, $data) {
-//       // 1. Evitar que le roben el correo a otro usuario existente
-//       $duplicate = UserModel::checkDuplicate($data['email'], $data['username'], $id);
-//       if ($duplicate) {
-//           throw new ValidationException(["campos" => "El correo o nombre de usuario ya están en uso por otra persona."], "Error de validación");
-//       }
-
-//       UserModel::update($id, $data);
-
-//       return ['message' => 'Datos de usuario actualizados'];
-//   }
-
-//   public function changeStatus($id, $status) {
-//       // Validación de seguridad adicional si es necesaria
-//       UserModel::updateStatus($id, $status);
-      
-//       return ['message' => 'Estatus actualizado correctamente', 'status' => $status];
-//   }
 }

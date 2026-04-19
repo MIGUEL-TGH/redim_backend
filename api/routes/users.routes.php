@@ -7,6 +7,9 @@
   $router->add('POST', $basePath . '/users', [UsersController::class, 'post']);
 
   // ===========================================================================================
+
+
+
   // // Obtener todos los usuarios
   // $router->get('/users', ['UsersController', 'getAll']);
 

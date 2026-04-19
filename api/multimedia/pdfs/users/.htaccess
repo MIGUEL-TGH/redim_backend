@@ -1,0 +1,12 @@
+# Bloquear el acceso web directo a todos los archivos en esta carpeta
+
+# Para servidores modernos (Apache 2.4+)
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+# Para servidores antiguos (Apache 2.2 - como respaldo)
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+</IfModule>

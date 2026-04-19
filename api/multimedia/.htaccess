@@ -1,0 +1,17 @@
+# Permitir acceso público y configurar CORS para archivos estáticos
+
+<IfModule mod_headers.c>
+    # 1. Permitir que cualquier página web (origen) lea estos archivos
+    Header set Access-Control-Allow-Origin "*"
+    
+    # 2. Especificar qué métodos están permitidos (GET para leer, OPTIONS para la petición de prueba del navegador)
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    
+    # 3. Si tu frontend usa Axios y manda tokens por defecto, Apache debe aceptarlos aunque no los use para estos archivos
+    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Authorization"
+</IfModule>
+
+# Responder con éxito a las peticiones OPTIONS (Preflight)
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
