@@ -1,7 +1,7 @@
 <?php
-require_once BASE_PATH . '/models/UserModel.php';
 // composer require setasign/fpdf
-require_once BASE_PATH . '/vendor/setasign/fpdf/fpdf.php'; // Ajusta la ruta a tu librería FPDF
+require_once BASE_PATH . '/models/UserModel.php';
+require_once BASE_PATH . '/vendor/setasign/fpdf/fpdf.php';
 
 class UsersService {
   // ==========================================================================================================
