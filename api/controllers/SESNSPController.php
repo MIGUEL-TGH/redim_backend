@@ -1,8 +1,8 @@
 <?php
 // require_once BASE_PATH . '/middleware/AuthMiddleware.php';
-require_once BASE_PATH . '/services/StatesService.php';
+require_once BASE_PATH . '/services/SESNSPService.php';
 
-class StatesController extends BaseController {
+class SESNSPController extends BaseController {
   public static function get() {
     self::handle(function () {
       $type = Request::query('type') ?? 'default';
@@ -13,14 +13,14 @@ class StatesController extends BaseController {
         // 🔒 Protegido ============================================================================================================
         case 'getdata':
           // $userLogueado = AuthMiddleware::authenticate();
-          $userLogueado = AuthMiddleware::authorize('states', 'read-only');
-          return StatesService::getAllData();
+          // $userLogueado = AuthMiddleware::authorize('states', 'read-only');
+          return SESNSPService::getAllData();
         case 'getactive':
           // $userLogueado = AuthMiddleware::authorize('states', 'read-only');
-          return StatesService::getActiveData();
+          return SESNSPService::getActiveData();
         // 🔓 Público, sin AuthMiddleware ==========================================================================================
         case 'getdatabysector':
-          return StatesService::getDataBySelector();
+          return SESNSPService::getDataBySelector();
         case 'public_data':
           return ["mensaje" => "Cualquiera puede ver esto"];
         default:
@@ -37,11 +37,11 @@ class StatesController extends BaseController {
       switch ($type) {
         case 'crud': // 🔒 Protegido
           $userLogueado = AuthMiddleware::authorize('states', 'read-write');
-          return StatesService::setCRUD($body);
+          return SESNSPService::setCRUD($body);
         case 'getactivebyid': // TEST
 
           // AuthMiddleware::authenticate();
-          // return StatesService::getActiveDataById($body);
+          // return SESNSPService::getActiveDataById($body);
           
           return [
             "success" => true,
@@ -60,7 +60,7 @@ class StatesController extends BaseController {
             throw new ValidationException(['type' => 'El country_id es requerido.'], '400');
           }
           
-          return StatesService::getActiveDataById($body);
+          return SESNSPService::getActiveDataById($body);
 
           // Simulamos la consulta a tu modelo
           // $states = StateModel::getActiveByCountry($body['country_id']);
