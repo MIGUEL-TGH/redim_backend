@@ -8,25 +8,56 @@ class SESNSPService {
   //--------------------private access-------------------------------------------
   private static function validate(array $data): void {
     if (in_array($data['task'], ['insert','update'], true)) {
-      if (!preg_match("/^[\p{L}\d\s._,-]{1,250}$/u", $data['params']['name'])) {
-        throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el nombre del indicador');
+      // if (!preg_match("/^[\p{L}\d\s._,-]{1,250}$/u", $data['params']['name'])) {
+      //   throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el nombre del indicador');
+      // }
+      // if (!preg_match("/^[\p{L}\d\s._,-]{1,50}$/u", $data['params']['demonym'])) {
+      //   throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el gentilicio');
+      // }
+      // if (!preg_match("/^[\p{L}\d\s._,-]{1,3}$/u", $data['params']['iso_code'])) {
+      //   throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el código ISO');
+      // }
+
+      // ====================================================================================================================
+      foreach (['woman', 'man'] as $field) {
+
+        if (!isset($data['params'][$field]) || $data['params'][$field] === '') {
+          throw new ValidationException(
+            [$field => 'Required field'],
+            "El campo {$field} es obligatorio"
+          );
+        }
+
+        $value = $data['params'][$field];
+
+        // 1️⃣ Solo números enteros positivos (incluye 0)
+        if (!preg_match('/^\d+$/', (string)$value)) {
+          throw new ValidationException(
+            [$field => 'Invalid format'],
+            "El campo {$field} solo permite números enteros"
+          );
+        }
+
+        // 2️⃣ Validación de rango 0 - 9999
+        $intValue = (int)$value;
+
+        if ($intValue < 0 || $intValue > 9999) {
+          throw new ValidationException(
+            [$field => 'Out of range'],
+            "El campo {$field} debe estar entre 0 y 9999"
+          );
+        }
       }
-      if (!preg_match("/^[\p{L}\d\s._,-]{1,50}$/u", $data['params']['demonym'])) {
-        throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el gentilicio');
-      }
-      if (!preg_match("/^[\p{L}\d\s._,-]{1,3}$/u", $data['params']['iso_code'])) {
-        throw new ValidationException(['type' => 'Invalid type parameter'], 'Formato inválido en el código ISO');
-      }
+
     }
   }
   private static function getById(int $id): array {
     $sql = 
-    " SELECT s.id, s.name, s.country_id,
-            c.name AS country_name,
-            s.demonym, s.iso_code, s.status
-      FROM states s
-      LEFT JOIN countries c ON s.country_id = c.id
-      WHERE s.id = ?
+    " SELECT se.id, se.woman, se.man, se.state_id AS state_id, s.name AS state_name, se.status
+        FROM sesnsp se
+        LEFT JOIN `states` s ON se.state_id = s.id
+        -- ORDER BY se.id ASC
+      WHERE se.id = ?
     ";
 
     $item = BaseModel::query($sql, [$id], 'one');
@@ -36,13 +67,21 @@ class SESNSPService {
     }
 
     return [
+      // 'id' => (int) $item['id'],
+      // 'name' => $item['name'],
+      // 'country_id' => (int) $item['country_id'],
+      // 'country_name' => $item['country_name'],
+      // 'demonym' => $item['demonym'],
+      // 'iso_code' => $item['iso_code'],
+      // 'status' => (bool) $item['status'],
+      
       'id' => (int) $item['id'],
-      'name' => $item['name'],
-      'country_id' => (int) $item['country_id'],
-      'country_name' => $item['country_name'],
-      'demonym' => $item['demonym'],
-      'iso_code' => $item['iso_code'],
-      'status' => (bool) $item['status'],
+      'woman' => $item['woman'],
+      'man' => $item['man'],
+
+      'state_id' => $item['state_id'],
+      'state_name' => $item['state_name'],
+      'status' => (bool) $item['status']
     ];
   }
   private static function updateInternal(array $params): void {
@@ -52,7 +91,28 @@ class SESNSPService {
       throw new ValidationException([], $update['alert'] ?? 'Error en actualización');
     }
   }
+
+  private static function checkDuplicate($stateID, $excludeId = null) {
+    $sql = "SELECT id FROM sesnsp WHERE (state_id = :state_id)";
+    $params = ['state_id' => $stateID];
+    
+    if ($excludeId) {
+        $sql .= " AND id != :id";
+        $params['id'] = $excludeId;
+    }
+    
+    // return self::query($sql, $params, 'one');
+    return BaseModel::query($sql, $params, 'one');
+  }
+
   private static function insert(array $params): array {
+    // 1. Evitar estado duplicados
+    $duplicate = self::checkDuplicate($params['state_id']);
+    if ($duplicate) {
+      throw new ValidationException(["input" => "state"], "Error de validación: El estado ya existe.");
+    }
+
+    // 2. Guardar en base de datos   
     $insert = BaseModel::setInsert(self::TABLE, $params);
 
     if ($insert['status'] !== 200) {
@@ -61,9 +121,9 @@ class SESNSPService {
 
     return [
       'task' => 'saved_item',
-      // 'id' => $insert['id']
-      'item' => self::getById((int)$insert['id'])
+      'item' => self::getById((int)$insert['lastInsertId'])
     ];
+  
   }
   private static function update(array $params): array {
     self::updateInternal($params);
@@ -86,7 +146,6 @@ class SESNSPService {
     ];
   }
 
-
   //--------------------public access--------------------------------------------
   public static function setCRUD(array $data): array {
     self::validate($data);
@@ -100,9 +159,8 @@ class SESNSPService {
   }
   public static function getAllData(): array {
     try {
-
       $sql = 
-      "SELECT se.id, se.woman, se.man, se.state_id AS state_id, s.name AS state_name
+      "SELECT se.id, se.woman, se.man, se.state_id AS state_id, s.name AS state_name, se.status
         FROM sesnsp se
         LEFT JOIN `states` s ON se.state_id = s.id
         ORDER BY se.id ASC
@@ -110,26 +168,27 @@ class SESNSPService {
 
       $items = BaseModel::query($sql, [], 'all');
 
-      if (empty($items)) {
-        throw new NotFoundException('Items not found');
-      }
-
-      return array_map(
-        fn($item) => [
-          'id' => (int) $item['id'],
-          'woman' => $item['woman'],
-          'man' => $item['man'],
-
-          'state_id' => $item['state_id'],
-          // 'state_name' => $item['states_name']
-          'state_name' => $item['state_name']
-        ],
-        $items
-      );
-
     } catch (Throwable $e) {
       throw new DatabaseException($e->getMessage());
     }
+
+    if (empty($items)) {
+      throw new NotFoundException('Elementos no encontrados');
+    }
+
+    return array_map(
+      fn($item) => [
+        'id' => (int) $item['id'],
+        'woman' => $item['woman'],
+        'man' => $item['man'],
+
+        'state_id' => $item['state_id'],
+        'state_name' => $item['state_name'],
+        'status' => (bool) $item['status']
+      ],
+      $items
+    );
+
   }
   public static function getActiveData(): array {
     try {

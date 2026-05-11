@@ -15,6 +15,7 @@ class SESNSPController extends BaseController {
           // $userLogueado = AuthMiddleware::authenticate();
           // $userLogueado = AuthMiddleware::authorize('states', 'read-only');
           return SESNSPService::getAllData();
+          // return [];
         case 'getactive':
           // $userLogueado = AuthMiddleware::authorize('states', 'read-only');
           return SESNSPService::getActiveData();
@@ -36,7 +37,7 @@ class SESNSPController extends BaseController {
 
       switch ($type) {
         case 'crud': // 🔒 Protegido
-          $userLogueado = AuthMiddleware::authorize('states', 'read-write');
+          // $userLogueado = AuthMiddleware::authorize('states', 'read-write');
           return SESNSPService::setCRUD($body);
         case 'getactivebyid': // TEST
 
