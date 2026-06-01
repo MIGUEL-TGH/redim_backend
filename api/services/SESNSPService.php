@@ -193,10 +193,11 @@ class SESNSPService {
   public static function getActiveData(): array {
     try {
       $sql = 
-      " SELECT id, name
-        FROM states
-        WHERE status = ?
-        ORDER BY id ASC
+      " SELECT se.id, s.name AS name, se.woman, se.man, se.state_id AS cve_ent
+        FROM sesnsp se
+        LEFT JOIN `states` s ON se.state_id = s.id
+        WHERE se.status = ?
+        ORDER BY s.id ASC;
       ";
 
       $items = BaseModel::query($sql, [1], 'all');
@@ -208,7 +209,11 @@ class SESNSPService {
       return array_map(
         fn($item) => [
           'id' => (int) $item['id'],
-          'name' => $item['name']
+          'name' => $item['name'],
+          'woman' => (int) $item['woman'],
+          'man' => (int) $item['man'],
+          'cve_ent' => (int) $item['cve_ent']
+
         ],
         $items
       );

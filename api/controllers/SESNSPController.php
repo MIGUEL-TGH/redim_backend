@@ -3,23 +3,25 @@
 require_once BASE_PATH . '/services/SESNSPService.php';
 
 class SESNSPController extends BaseController {
+
+  private const MODULE = 'sesnsp';
+  // $userAuthenticate = AuthMiddleware::authenticate();
+  // $userAuthorize = AuthMiddleware::authorize(self::MODULE, 'read-only');
+  // $userAuthorize = AuthMiddleware::authorize(self::MODULE, 'read-write');
+
   public static function get() {
     self::handle(function () {
       $type = Request::query('type') ?? 'default';
 
       // return ['message_states' => $type];
-
       switch ($type) {
         // 🔒 Protegido ============================================================================================================
         case 'getdata':
-          // $userLogueado = AuthMiddleware::authenticate();
-          // $userLogueado = AuthMiddleware::authorize('states', 'read-only');
+          $userAuthenticate = AuthMiddleware::authenticate();
           return SESNSPService::getAllData();
-          // return [];
-        case 'getactive':
-          // $userLogueado = AuthMiddleware::authorize('states', 'read-only');
-          return SESNSPService::getActiveData();
         // 🔓 Público, sin AuthMiddleware ==========================================================================================
+        case 'getactive':
+          return SESNSPService::getActiveData();
         case 'getdatabysector':
           return SESNSPService::getDataBySelector();
         case 'public_data':
@@ -37,7 +39,7 @@ class SESNSPController extends BaseController {
 
       switch ($type) {
         case 'crud': // 🔒 Protegido
-          // $userLogueado = AuthMiddleware::authorize('states', 'read-write');
+          $userAuthorize = AuthMiddleware::authorize(self::MODULE, 'read-write');
           return SESNSPService::setCRUD($body);
         case 'getactivebyid': // TEST
 
@@ -78,8 +80,6 @@ class SESNSPController extends BaseController {
           // 🔒 RUTA PRIVADA: Llamamos al guardia de seguridad
           $userLogueado = AuthMiddleware::authenticate();
           
-          // Si el código llega a esta línea, el token es válido.
-          // Aquí iría tu lógica para insertar un nuevo estado en la BD.
           return [
             "success" => true,
             "message" => "Ruta protegida accedida correctamente. ¡Estado creado!",
