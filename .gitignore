@@ -1,0 +1,9 @@
+# Variables de entorno con credenciales -- NO subir a git
+.env
+
+# Logs de errores
+php_error_log
+api/php_error_log
+
+# Respaldos locales
+*.bak
