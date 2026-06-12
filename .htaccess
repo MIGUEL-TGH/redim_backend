@@ -1,0 +1,21 @@
+# =====================================================
+# Seguridad basica de la RAIZ del proyecto redim_backend
+# =====================================================
+Options -Indexes
+Options -MultiViews
+ServerSignature Off
+
+# Bloquea el acceso por web a archivos ocultos (.env, .env.*.bak, .git, .htaccess*, .gitignore, etc.)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Bloquea respaldos y archivos sensibles que el servidor entregaria como texto plano
+<FilesMatch "\.(bak|bundle|sql|example|dist|log|ini)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquea el log de errores de PHP (sin extension)
+<Files "php_error_log">
+    Require all denied
+</Files>

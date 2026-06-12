@@ -3,6 +3,7 @@
       static public function InfoBD(){
          $infoBD = array(
          'host' => $_ENV['DB_HOST'],
+         'port' => $_ENV['DB_PORT'] ?? '3306',
          'user' => $_ENV['DB_USER'],
          'pass' => $_ENV['DB_PASS'],
          'bd'   => $_ENV['DB_NAME']
@@ -15,7 +16,7 @@
             $InfoBD = ConnectionBD::InfoBD();
             extract($InfoBD);
 
-            $link = new PDO( "mysql:host=".$host."; dbname=".$bd, $user, $pass );
+            $link = new PDO( "mysql:host=".$host.";port=".$port.";dbname=".$bd, $user, $pass );
             $link->exec("set names utf8");
 
          }catch(PDOException $e){

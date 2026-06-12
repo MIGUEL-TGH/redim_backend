@@ -1,6 +1,14 @@
 <?php
 require_once "ConnectionBD.php";
 class BaseModel {
+  // Valida que un nombre de tabla/columna solo tenga caracteres seguros (defensa contra inyeccion por identificadores)
+  private static function assertIdentifier($name) {
+    if (!preg_match('/^[A-Za-z0-9_]+$/', (string)$name)) {
+      throw new ApiException("Identificador no valido: '{$name}'", 400);
+    }
+    return $name;
+  }
+
   public static function query($sql, $params = [], $fetch = 'all') {
     try {
         $stmt = ConnectionBD::CNN()->prepare($sql);
@@ -17,6 +25,8 @@ class BaseModel {
     }
   }
   public static function getDataFind($table, $param, $value) {
+    self::assertIdentifier($table);
+    self::assertIdentifier($param);
     // 1. Validar que la tabla exista (Error de desarrollo/negocio -> 400)
     if(empty(ConnectionBD::getTable($table, ['*']))) {
         throw new ApiException("La tabla '{$table}' no existe en la base de datos.", 400);
@@ -38,11 +48,13 @@ class BaseModel {
     }
   }
   public static function setInsert($table, $params) {
+    self::assertIdentifier($table);
     $columns = [];
     $placeholders = [];
     
     // Separamos las llaves (columnas) y creamos los placeholders dinámicos
     foreach (array_keys($params) as $key) {
+        self::assertIdentifier($key);
         array_push($columns, $key);
         array_push($placeholders, ":" . $key);
     } 
@@ -82,6 +94,7 @@ class BaseModel {
   }
   //  public static function setUpdate($table, $id, $params) {
   public static function setUpdate($table, $params) {
+    self::assertIdentifier($table);
     $columns = [];
     $set = "";
 
@@ -90,6 +103,7 @@ class BaseModel {
     }
 
     foreach (array_keys($params) as $Key => $value){
+      self::assertIdentifier($value);
       array_push($columns, $value);
       if($value != 'id'){ $set .= $value." = :". $value.","; }
     } 
