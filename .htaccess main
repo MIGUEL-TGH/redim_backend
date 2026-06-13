@@ -1,0 +1,35 @@
+# =====================================================
+# .htaccess de PRODUCCION  ->  https://ninezprimero.aularedim.net/
+# En el servidor, renombrar este archivo a:  .htaccess
+# =====================================================
+
+# ===== 1. SEGURIDAD =====
+Options -Indexes
+Options -MultiViews
+ServerSignature Off
+
+# Bloquea archivos ocultos por web (.env, .env.*.bak, .git, .htaccess*, .gitignore, etc.)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Bloquea respaldos y archivos sensibles que el servidor entregaria como texto plano
+<FilesMatch "\.(bak|bundle|sql|example|dist|log|ini)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquea el log de errores de PHP (no tiene extension)
+<Files "php_error_log">
+    Require all denied
+</Files>
+
+# ===== 2. RUTEO DEL FRONTEND (SPA Vue compilado con: npm run build) =====
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Si NO es un archivo o directorio real, lo manda a index.html (router de Vue)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
