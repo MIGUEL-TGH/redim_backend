@@ -1,0 +1,5 @@
+[2026-06-16 02:40:33] ERROR DB (DatabaseException): Error ejecutando consulta SQL (query): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'se.status' in 'where clause' | Archivo: C:\xampp_8_1_25\htdocs\redim_backend\api\services\SESNSPService.php | Línea: 222
+[2026-06-16 02:44:21] ERROR DB (DatabaseException): Error ejecutando consulta SQL (query): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'se.status' in 'where clause' | Archivo: C:\xampp_8_1_25\htdocs\redim_backend\api\services\SESNSPService.php | Línea: 222
+[2026-06-16 02:54:50] ERROR DB (DatabaseException): Items not found | Archivo: C:\xampp_8_1_25\htdocs\redim_backend\api\services\SESNSPService.php | Línea: 222
+[2026-06-16 02:54:59] ERROR DB (DatabaseException): Items not found | Archivo: C:\xampp_8_1_25\htdocs\redim_backend\api\services\SESNSPService.php | Línea: 222
+[2026-06-16 03:00:44] ERROR DB (DatabaseException): Items not found | Archivo: C:\xampp_8_1_25\htdocs\redim_backend\api\services\SESNSPService.php | Línea: 222
