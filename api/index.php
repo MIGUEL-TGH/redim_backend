@@ -36,6 +36,18 @@ require_once 'routes/sesnsp.routes.php';
 require_once 'routes/cnsipee.routes.php';
 require_once 'routes/visits.routes.php';
 
+// Módulos de contenido administrable (vistas públicas)
+require_once 'routes/voces_videos.routes.php';
+require_once 'routes/voces_podcasts.routes.php';
+require_once 'routes/voces_testimonials.routes.php';
+require_once 'routes/recursos_study_categories.routes.php';
+require_once 'routes/recursos_studies.routes.php';
+require_once 'routes/recursos_downloads.routes.php';
+require_once 'routes/tv_videos.routes.php';
+require_once 'routes/tv_social_buttons.routes.php';
+require_once 'routes/miradas_works.routes.php';
+require_once 'routes/miradas_contest_links.routes.php';
+
 $router->dispatch();
 
 ?>
