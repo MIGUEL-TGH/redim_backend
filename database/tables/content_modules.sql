@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS voces_podcasts (
 
 CREATE TABLE IF NOT EXISTS miradas_works (
   id          INT AUTO_INCREMENT PRIMARY KEY,
-  section     ENUM('carousel','gallery') NOT NULL DEFAULT 'gallery',
+  section     ENUM('personajes','gallery') NOT NULL DEFAULT 'gallery',
   title       VARCHAR(250) DEFAULT NULL,
   author_name VARCHAR(150) DEFAULT NULL,
   age         INT DEFAULT NULL,
@@ -132,18 +132,66 @@ CREATE TABLE IF NOT EXISTS recursos_downloads (
   updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- ===================================  ACTUAMOS  ===================================================
+-- 3 tablas independientes (no comparten datos entre sí):
+--   1) actuamos_acciones      -> Carrusel pasarela "Acciones" (parte superior de la vista)
+--   2) actuamos_state_posts   -> Panel del mapa interactivo (Veracruz / CDMX / Michoacán),
+--                                 discriminado por la columna `state` (mismo patrón que
+--                                 `section` en miradas_works)
+--   3) actuamos_internacional -> Carrusel pasarela "Incidencia internacional" (fondo degradado)
+
+CREATE TABLE IF NOT EXISTS actuamos_acciones (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  platform    ENUM('instagram','youtube','facebook','tiktok','linkedin') NOT NULL,
+  image_url   VARCHAR(255) DEFAULT NULL,
+  title       VARCHAR(300) NOT NULL,
+  date_label  VARCHAR(100) DEFAULT NULL,
+  url         VARCHAR(500) NOT NULL,
+  sort_order  INT NOT NULL DEFAULT 0,
+  status      TINYINT(1) NOT NULL DEFAULT 1,
+  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS actuamos_state_posts (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  state       ENUM('veracruz','cdmx','michoacan') NOT NULL,
+  platform    ENUM('instagram','youtube','facebook','tiktok','linkedin') NOT NULL,
+  image_url   VARCHAR(255) DEFAULT NULL,
+  title       VARCHAR(300) NOT NULL,
+  url         VARCHAR(500) NOT NULL,
+  sort_order  INT NOT NULL DEFAULT 0,
+  status      TINYINT(1) NOT NULL DEFAULT 1,
+  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS actuamos_internacional (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  platform    ENUM('instagram','youtube','facebook','tiktok','linkedin') NOT NULL,
+  image_url   VARCHAR(255) DEFAULT NULL,
+  title       VARCHAR(300) NOT NULL,
+  url         VARCHAR(500) NOT NULL,
+  sort_order  INT NOT NULL DEFAULT 0,
+  status      TINYINT(1) NOT NULL DEFAULT 1,
+  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- ===================================  PERMISOS  ===================================================
 -- Un módulo por grupo. Administrador (role_id=1) read-write, Consultor (role_id=2) read-only.
 -- Idempotente: limpia estos módulos antes de insertar.
 
-DELETE FROM role_permissions WHERE module IN ('voces','miradas','tv','recursos');
+DELETE FROM role_permissions WHERE module IN ('voces','miradas','tv','recursos','actuamos');
 
 INSERT INTO role_permissions (role_id, module, permission_type) VALUES
 (1, 'voces',    'read-write'),
 (1, 'miradas',  'read-write'),
 (1, 'tv',       'read-write'),
 (1, 'recursos', 'read-write'),
+(1, 'actuamos', 'read-write'),
 (2, 'voces',    'read-only'),
 (2, 'miradas',  'read-only'),
 (2, 'tv',       'read-only'),
-(2, 'recursos', 'read-only');
+(2, 'recursos', 'read-only'),
+(2, 'actuamos', 'read-only');

@@ -47,6 +47,10 @@ require_once 'routes/tv_videos.routes.php';
 require_once 'routes/tv_social_buttons.routes.php';
 require_once 'routes/miradas_works.routes.php';
 require_once 'routes/miradas_contest_links.routes.php';
+require_once 'routes/actuamos_gallery.routes.php';
+require_once 'routes/actuamos_acciones.routes.php';
+require_once 'routes/actuamos_state_posts.routes.php';
+require_once 'routes/actuamos_internacional.routes.php';
 
 $router->dispatch();
 

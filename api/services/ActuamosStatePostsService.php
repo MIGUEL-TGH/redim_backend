@@ -3,31 +3,33 @@ declare(strict_types=1);
 require_once "models/BaseModel.php";
 require_once BASE_PATH . '/core/FileUpload.php';
 
-class RecursosDownloadsService {
-  private const TABLE = 'recursos_downloads';
-  private const FILE_DIR = 'recursos/downloads';
-  private const FILE_EXT = ['pdf','jpg','png','webp'];
-  private const MAX_BYTES = 20971520; // 20 MB (PDFs)
+class ActuamosStatePostsService {
+  private const TABLE = 'actuamos_state_posts';
+  private const IMG_DIR = 'actuamos/states';
+  private const IMG_EXT = ['jpg','png','webp','gif'];
+  private const PLATFORMS = ['instagram','youtube','facebook','tiktok','linkedin'];
+  private const STATES = ['veracruz','cdmx','michoacan'];
 
   private static function validate(array $data): void {
     if (in_array($data['task'], ['insert','update'], true)) {
       $p = $data['params'];
-      if (empty($p['title']) || mb_strlen((string)$p['title']) > 250) {
-        throw new ValidationException(['title' => 'Título requerido (máx. 250)']);
+      if (!empty($p['platform']) && !in_array($p['platform'], self::PLATFORMS, true)) {
+        throw new ValidationException(['platform' => 'Plataforma inválida']);
+      }
+      if (!empty($p['state']) && !in_array($p['state'], self::STATES, true)) {
+        throw new ValidationException(['state' => 'Estado inválido']);
       }
     }
   }
 
-  private static function prepareParams(array $params, ?string $oldFile = null): array {
-    if (array_key_exists('file_url', $params)) {
-      $incoming = $params['file_url'];
-      $saved = FileUpload::saveBase64($incoming ?? null, self::FILE_DIR, self::FILE_EXT, self::MAX_BYTES);
-      // Borra el archivo anterior siempre que el valor final cambie: subida
-      // nueva, cambio a URL externa, o eliminación (campo vacío).
-      if ($oldFile && $oldFile !== $saved) {
-        FileUpload::delete($oldFile);
+  private static function prepareParams(array $params, ?string $oldImage = null): array {
+    if (array_key_exists('image_url', $params)) {
+      $incoming = $params['image_url'];
+      $saved = FileUpload::saveBase64($incoming ?? null, self::IMG_DIR, self::IMG_EXT);
+      if ($oldImage && $oldImage !== $saved) {
+        FileUpload::delete($oldImage);
       }
-      $params['file_url'] = $saved;
+      $params['image_url'] = $saved;
     }
     return $params;
   }
@@ -35,16 +37,22 @@ class RecursosDownloadsService {
   private static function mapItem(array $i): array {
     return [
       'id' => (int) $i['id'],
+      'state' => $i['state'],
+      'platform' => $i['platform'],
+      'image_url' => $i['image_url'],
       'title' => $i['title'],
-      'subtitle' => $i['subtitle'],
-      'file_url' => $i['file_url'],
+      'url' => $i['url'],
       'sort_order' => (int) $i['sort_order'],
       'status' => (bool) $i['status'],
     ];
   }
 
+  private static function cols(): string {
+    return "id, state, platform, image_url, title, url, sort_order, status";
+  }
+
   private static function getById(int $id): array {
-    $item = BaseModel::query("SELECT id, title, subtitle, file_url, sort_order, status FROM " . self::TABLE . " WHERE id = ?", [$id], 'one');
+    $item = BaseModel::query("SELECT " . self::cols() . " FROM " . self::TABLE . " WHERE id = ?", [$id], 'one');
     if (!$item) throw new NotFoundException('Item not found');
     return self::mapItem($item);
   }
@@ -58,7 +66,7 @@ class RecursosDownloadsService {
 
   private static function update(array $params): array {
     $current = self::getById((int)$params['id']);
-    $params = self::prepareParams($params, $current['file_url'] ?? null);
+    $params = self::prepareParams($params, $current['image_url'] ?? null);
     self::updateInternal($params);
     return ['task' => 'updated_item', 'item' => self::getById((int)$params['id'])];
   }
@@ -85,7 +93,7 @@ class RecursosDownloadsService {
 
   public static function getAllData(): array {
     try {
-      $items = BaseModel::query("SELECT id, title, subtitle, file_url, sort_order, status FROM " . self::TABLE . " ORDER BY sort_order ASC, id ASC", [], 'all');
+      $items = BaseModel::query("SELECT " . self::cols() . " FROM " . self::TABLE . " ORDER BY state ASC, sort_order ASC, id ASC", [], 'all');
       return array_map(fn($i) => self::mapItem($i), $items);
     } catch (Throwable $e) {
       throw new DatabaseException($e->getMessage());
@@ -94,7 +102,7 @@ class RecursosDownloadsService {
 
   public static function getActiveData(): array {
     try {
-      $items = BaseModel::query("SELECT id, title, subtitle, file_url, sort_order, status FROM " . self::TABLE . " WHERE status = ? ORDER BY sort_order ASC, id ASC", [1], 'all');
+      $items = BaseModel::query("SELECT " . self::cols() . " FROM " . self::TABLE . " WHERE status = ? ORDER BY state ASC, sort_order ASC, id ASC", [1], 'all');
       return array_map(fn($i) => self::mapItem($i), $items);
     } catch (Throwable $e) {
       throw new DatabaseException($e->getMessage());

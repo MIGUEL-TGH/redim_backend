@@ -25,8 +25,9 @@ class VocesTestimonialsService {
     if (array_key_exists('image_url', $params)) {
       $incoming = $params['image_url'];
       $saved = FileUpload::saveBase64($incoming ?? null, self::IMG_DIR, self::IMG_EXT);
-      // Si se subió archivo nuevo (data URI) y había uno anterior distinto, borrarlo
-      if ($oldImage && is_string($incoming) && strncmp($incoming, 'data:', 5) === 0) {
+      // Borra la imagen anterior siempre que el valor final cambie: subida
+      // nueva, cambio a URL externa, o eliminación (campo vacío).
+      if ($oldImage && $oldImage !== $saved) {
         FileUpload::delete($oldImage);
       }
       $params['image_url'] = $saved;

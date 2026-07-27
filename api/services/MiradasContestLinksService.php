@@ -1,9 +1,13 @@
 <?php
 declare(strict_types=1);
 require_once "models/BaseModel.php";
+require_once BASE_PATH . '/core/FileUpload.php';
 
 class MiradasContestLinksService {
   private const TABLE = 'miradas_contest_links';
+  private const FILE_DIR = 'miradas/contest_links';
+  private const FILE_EXT = ['pdf'];
+  private const MAX_BYTES = 20971520; // 20 MB (PDFs)
 
   private static function validate(array $data): void {
     if (in_array($data['task'], ['insert','update'], true)) {
@@ -14,11 +18,26 @@ class MiradasContestLinksService {
     }
   }
 
+  private static function prepareParams(array $params, ?string $oldFile = null): array {
+    if (array_key_exists('file_url', $params)) {
+      $incoming = $params['file_url'];
+      $saved = FileUpload::saveBase64($incoming ?? null, self::FILE_DIR, self::FILE_EXT, self::MAX_BYTES);
+      // Borra el archivo anterior siempre que el valor final cambie: subida
+      // nueva, cambio a URL externa, o eliminación (campo vacío).
+      if ($oldFile && $oldFile !== $saved) {
+        FileUpload::delete($oldFile);
+      }
+      $params['file_url'] = $saved;
+    }
+    return $params;
+  }
+
   private static function mapItem(array $i): array {
     return [
       'id' => (int) $i['id'],
       'label' => $i['label'],
       'action' => $i['action'],
+      'file_url' => $i['file_url'],
       'parent_id' => isset($i['parent_id']) ? (int) $i['parent_id'] : null,
       'parent_label' => $i['parent_label'] ?? null,
       'sort_order' => (int) $i['sort_order'],
@@ -27,7 +46,7 @@ class MiradasContestLinksService {
   }
 
   private static function selectSql(string $where = ''): string {
-    return "SELECT l.id, l.label, l.action, l.parent_id, p.label AS parent_label, l.sort_order, l.status
+    return "SELECT l.id, l.label, l.action, l.file_url, l.parent_id, p.label AS parent_label, l.sort_order, l.status
             FROM " . self::TABLE . " l
             LEFT JOIN " . self::TABLE . " p ON l.parent_id = p.id
             {$where}
@@ -36,7 +55,7 @@ class MiradasContestLinksService {
 
   private static function getById(int $id): array {
     $item = BaseModel::query(
-      "SELECT l.id, l.label, l.action, l.parent_id, p.label AS parent_label, l.sort_order, l.status
+      "SELECT l.id, l.label, l.action, l.file_url, l.parent_id, p.label AS parent_label, l.sort_order, l.status
        FROM " . self::TABLE . " l
        LEFT JOIN " . self::TABLE . " p ON l.parent_id = p.id
        WHERE l.id = ?", [$id], 'one');
@@ -45,12 +64,15 @@ class MiradasContestLinksService {
   }
 
   private static function insert(array $params): array {
+    $params = self::prepareParams($params);
     $insert = BaseModel::setInsert(self::TABLE, $params);
     if ($insert['status'] !== 200) throw new ValidationException([], 'Error al guardar');
     return ['task' => 'saved_item', 'item' => self::getById((int)$insert['lastInsertId'])];
   }
 
   private static function update(array $params): array {
+    $current = self::getById((int)$params['id']);
+    $params = self::prepareParams($params, $current['file_url'] ?? null);
     self::updateInternal($params);
     return ['task' => 'updated_item', 'item' => self::getById((int)$params['id'])];
   }

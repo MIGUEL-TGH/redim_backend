@@ -11,7 +11,7 @@ class MiradasWorksService {
   private static function validate(array $data): void {
     if (in_array($data['task'], ['insert','update'], true)) {
       $p = $data['params'];
-      if (!empty($p['section']) && !in_array($p['section'], ['carousel','gallery'], true)) {
+      if (!empty($p['section']) && !in_array($p['section'], ['personajes','gallery'], true)) {
         throw new ValidationException(['section' => 'Sección inválida']);
       }
     }
@@ -21,7 +21,7 @@ class MiradasWorksService {
     if (array_key_exists('image_url', $params)) {
       $incoming = $params['image_url'];
       $saved = FileUpload::saveBase64($incoming ?? null, self::IMG_DIR, self::IMG_EXT);
-      if ($oldImage && is_string($incoming) && strncmp($incoming, 'data:', 5) === 0) {
+      if ($oldImage && $oldImage !== $saved) {
         FileUpload::delete($oldImage);
       }
       $params['image_url'] = $saved;
