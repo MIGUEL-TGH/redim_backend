@@ -3,24 +3,10 @@ declare(strict_types=1);
 require_once "models/BaseModel.php";
 require_once BASE_PATH . '/core/FileUpload.php';
 
-class ActuamosStatePostsService {
-  private const TABLE = 'actuamos_state_posts';
+class MapaStatePostsService {
+  private const TABLE = 'mapa_state_posts';
   private const IMG_DIR = 'actuamos/states';
   private const IMG_EXT = ['jpg','png','webp','gif'];
-  private const PLATFORMS = ['instagram','youtube','facebook','tiktok','linkedin'];
-  private const STATES = ['veracruz','cdmx','michoacan'];
-
-  private static function validate(array $data): void {
-    if (in_array($data['task'], ['insert','update'], true)) {
-      $p = $data['params'];
-      if (!empty($p['platform']) && !in_array($p['platform'], self::PLATFORMS, true)) {
-        throw new ValidationException(['platform' => 'Plataforma inválida']);
-      }
-      if (!empty($p['state']) && !in_array($p['state'], self::STATES, true)) {
-        throw new ValidationException(['state' => 'Estado inválido']);
-      }
-    }
-  }
 
   private static function prepareParams(array $params, ?string $oldImage = null): array {
     if (array_key_exists('image_url', $params)) {
@@ -37,8 +23,7 @@ class ActuamosStatePostsService {
   private static function mapItem(array $i): array {
     return [
       'id' => (int) $i['id'],
-      'state' => $i['state'],
-      'platform' => $i['platform'],
+      'state_id' => (int) $i['state_id'],
       'image_url' => $i['image_url'],
       'title' => $i['title'],
       'url' => $i['url'],
@@ -48,7 +33,7 @@ class ActuamosStatePostsService {
   }
 
   private static function cols(): string {
-    return "id, state, platform, image_url, title, url, sort_order, status";
+    return "id, state_id, image_url, title, url, sort_order, status";
   }
 
   private static function getById(int $id): array {
@@ -82,7 +67,6 @@ class ActuamosStatePostsService {
   }
 
   public static function setCRUD(array $data): array {
-    self::validate($data);
     return match ($data['task']) {
       'insert' => self::insert($data['params']),
       'update' => self::update($data['params']),
@@ -93,7 +77,7 @@ class ActuamosStatePostsService {
 
   public static function getAllData(): array {
     try {
-      $items = BaseModel::query("SELECT " . self::cols() . " FROM " . self::TABLE . " ORDER BY state ASC, sort_order ASC, id ASC", [], 'all');
+      $items = BaseModel::query("SELECT " . self::cols() . " FROM " . self::TABLE . " ORDER BY state_id ASC, sort_order ASC, id ASC", [], 'all');
       return array_map(fn($i) => self::mapItem($i), $items);
     } catch (Throwable $e) {
       throw new DatabaseException($e->getMessage());
@@ -102,7 +86,7 @@ class ActuamosStatePostsService {
 
   public static function getActiveData(): array {
     try {
-      $items = BaseModel::query("SELECT " . self::cols() . " FROM " . self::TABLE . " WHERE status = ? ORDER BY state ASC, sort_order ASC, id ASC", [1], 'all');
+      $items = BaseModel::query("SELECT " . self::cols() . " FROM " . self::TABLE . " WHERE status = ? ORDER BY state_id ASC, sort_order ASC, id ASC", [1], 'all');
       return array_map(fn($i) => self::mapItem($i), $items);
     } catch (Throwable $e) {
       throw new DatabaseException($e->getMessage());

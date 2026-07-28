@@ -1,17 +1,17 @@
 <?php
 require_once BASE_PATH . '/middleware/AuthMiddleware.php';
-require_once __DIR__ . '/../services/ActuamosStatePostsService.php';
+require_once __DIR__ . '/../services/MapaStatePostsService.php';
 
-class ActuamosStatePostsController extends BaseController {
+class MapaStatePostsController extends BaseController {
   public static function get() {
     self::handle(function () {
       $type = Request::query('type') ?? 'default';
       switch ($type) {
         case 'getdata':
           AuthMiddleware::authorize('actuamos', 'read-only');
-          return ActuamosStatePostsService::getAllData();
+          return MapaStatePostsService::getAllData();
         case 'getactive':
-          return ActuamosStatePostsService::getActiveData();
+          return MapaStatePostsService::getActiveData();
         default:
           throw new ValidationException(['type' => 'Invalid type parameter']);
       }
@@ -25,7 +25,7 @@ class ActuamosStatePostsController extends BaseController {
       switch ($type) {
         case 'crud':
           AuthMiddleware::authorize('actuamos', 'read-write');
-          return ActuamosStatePostsService::setCRUD($body);
+          return MapaStatePostsService::setCRUD($body);
         default:
           throw new ValidationException(['type' => 'Invalid type parameter']);
       }

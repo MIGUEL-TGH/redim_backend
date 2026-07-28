@@ -7,16 +7,6 @@ class ActuamosAccionesService {
   private const TABLE = 'actuamos_acciones';
   private const IMG_DIR = 'actuamos/acciones';
   private const IMG_EXT = ['jpg','png','webp','gif'];
-  private const PLATFORMS = ['instagram','youtube','facebook','tiktok','linkedin'];
-
-  private static function validate(array $data): void {
-    if (in_array($data['task'], ['insert','update'], true)) {
-      $p = $data['params'];
-      if (!empty($p['platform']) && !in_array($p['platform'], self::PLATFORMS, true)) {
-        throw new ValidationException(['platform' => 'Plataforma inválida']);
-      }
-    }
-  }
 
   private static function prepareParams(array $params, ?string $oldImage = null): array {
     if (array_key_exists('image_url', $params)) {
@@ -33,7 +23,6 @@ class ActuamosAccionesService {
   private static function mapItem(array $i): array {
     return [
       'id' => (int) $i['id'],
-      'platform' => $i['platform'],
       'image_url' => $i['image_url'],
       'title' => $i['title'],
       'date_label' => $i['date_label'],
@@ -44,7 +33,7 @@ class ActuamosAccionesService {
   }
 
   private static function cols(): string {
-    return "id, platform, image_url, title, date_label, url, sort_order, status";
+    return "id, image_url, title, date_label, url, sort_order, status";
   }
 
   private static function getById(int $id): array {
@@ -78,7 +67,6 @@ class ActuamosAccionesService {
   }
 
   public static function setCRUD(array $data): array {
-    self::validate($data);
     return match ($data['task']) {
       'insert' => self::insert($data['params']),
       'update' => self::update($data['params']),

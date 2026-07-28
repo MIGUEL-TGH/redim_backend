@@ -133,16 +133,13 @@ CREATE TABLE IF NOT EXISTS recursos_downloads (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ===================================  ACTUAMOS  ===================================================
--- 3 tablas independientes (no comparten datos entre sí):
+-- 2 tablas independientes (no comparten datos entre sí):
 --   1) actuamos_acciones      -> Carrusel pasarela "Acciones" (parte superior de la vista)
---   2) actuamos_state_posts   -> Panel del mapa interactivo (Veracruz / CDMX / Michoacán),
---                                 discriminado por la columna `state` (mismo patrón que
---                                 `section` en miradas_works)
---   3) actuamos_internacional -> Carrusel pasarela "Incidencia internacional" (fondo degradado)
+--   2) actuamos_internacional -> Carrusel pasarela "Incidencia internacional" (fondo degradado)
+-- La tercera vive agrupada con el resto de tablas del mapa: ver `mapa_state_posts` más abajo.
 
 CREATE TABLE IF NOT EXISTS actuamos_acciones (
   id          INT AUTO_INCREMENT PRIMARY KEY,
-  platform    ENUM('instagram','youtube','facebook','tiktok','linkedin') NOT NULL,
   image_url   VARCHAR(255) DEFAULT NULL,
   title       VARCHAR(300) NOT NULL,
   date_label  VARCHAR(100) DEFAULT NULL,
@@ -153,24 +150,28 @@ CREATE TABLE IF NOT EXISTS actuamos_acciones (
   updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS actuamos_state_posts (
+-- Panel del mapa interactivo (Veracruz / CDMX / Michoacán), discriminado por `state_id`
+-- (FK a `states`, mismo patrón que `centers.state_id`)
+CREATE TABLE IF NOT EXISTS mapa_state_posts (
   id          INT AUTO_INCREMENT PRIMARY KEY,
-  state       ENUM('veracruz','cdmx','michoacan') NOT NULL,
-  platform    ENUM('instagram','youtube','facebook','tiktok','linkedin') NOT NULL,
+  state_id    INT NOT NULL,
   image_url   VARCHAR(255) DEFAULT NULL,
   title       VARCHAR(300) NOT NULL,
   url         VARCHAR(500) NOT NULL,
   sort_order  INT NOT NULL DEFAULT 0,
   status      TINYINT(1) NOT NULL DEFAULT 1,
   created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  KEY state_id (state_id),
+  CONSTRAINT mapa_state_posts_ibfk_1 FOREIGN KEY (state_id) REFERENCES states (id) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS actuamos_internacional (
   id          INT AUTO_INCREMENT PRIMARY KEY,
-  platform    ENUM('instagram','youtube','facebook','tiktok','linkedin') NOT NULL,
+  channel     VARCHAR(100) NOT NULL,
   image_url   VARCHAR(255) DEFAULT NULL,
   title       VARCHAR(300) NOT NULL,
+  date_label  VARCHAR(100) DEFAULT NULL,
   url         VARCHAR(500) NOT NULL,
   sort_order  INT NOT NULL DEFAULT 0,
   status      TINYINT(1) NOT NULL DEFAULT 1,
