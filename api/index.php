@@ -40,7 +40,6 @@ require_once 'routes/visits.routes.php';
 require_once 'routes/voces_videos.routes.php';
 require_once 'routes/voces_podcasts.routes.php';
 require_once 'routes/voces_testimonials.routes.php';
-require_once 'routes/recursos_study_categories.routes.php';
 require_once 'routes/recursos_studies.routes.php';
 require_once 'routes/recursos_downloads.routes.php';
 require_once 'routes/tv_videos.routes.php';
@@ -51,6 +50,13 @@ require_once 'routes/actuamos_gallery.routes.php';
 require_once 'routes/actuamos_acciones.routes.php';
 require_once 'routes/mapa_state_posts.routes.php';
 require_once 'routes/actuamos_internacional.routes.php';
+require_once 'routes/history_categories.routes.php';
+require_once 'routes/history_category_details.routes.php';
+require_once 'routes/help_contacts.routes.php';
+require_once 'routes/help_settings.routes.php';
+require_once 'routes/transparencia_sections.routes.php';
+require_once 'routes/transparencia_docs.routes.php';
+require_once 'routes/state_descriptions.routes.php';
 
 $router->dispatch();
 

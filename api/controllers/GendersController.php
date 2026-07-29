@@ -21,6 +21,8 @@ class GendersController extends BaseController {
           $userLogueado = AuthMiddleware::authorize('genders', 'read-only');
           return GendersService::getAllData();
         // 🔓 Público, sin AuthMiddleware ==========================================================================================
+        case 'getactive':
+          return GendersService::getActiveData();
         case 'getdatabysector':
           return GendersService::getDataBySelector();
         default:

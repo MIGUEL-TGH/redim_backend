@@ -20,6 +20,8 @@ class YearsController extends BaseController {
           $userLogueado = AuthMiddleware::authorize('years', 'read-only');
           return YearsService::getAllData();
         // 🔓 Público, sin AuthMiddleware ==========================================================================================
+        case 'getactive':
+          return YearsService::getActiveData();
         case 'getdatabysector':
           return YearsService::getDataBySelector();
         default:

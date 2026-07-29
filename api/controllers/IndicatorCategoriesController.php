@@ -53,6 +53,8 @@ class IndicatorCategoriesController extends BaseController {
         // 🔓 Público, sin AuthMiddleware ==========================================================================================
         case 'categoriesnode':
           return IndicatorCategoriesService::getCategoriesNode($body);
+        case 'getactivenode':
+          return IndicatorCategoriesService::getActiveCategoriesNode($body);
         default:
           throw new ApiException("Operación GET no válida.", 400);
       }

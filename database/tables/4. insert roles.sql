@@ -6,9 +6,10 @@ INSERT INTO roles (name, description) VALUES
 
 -- 2. role_permissions
 -- Asignar permisos al Administrador (role_id = 1) - Acceso read-write
-INSERT INTO role_permissions (role_id, module, permission_type) VALUES 
+INSERT INTO role_permissions (role_id, module, permission_type) VALUES
 (1, 'indicators', 'read-write'),
 (1, 'indicator_categories', 'read-write'),
+(1, 'indicator_category_details', 'read-write'),
 (1, 'centers', 'read-write'),
 (1, 'states', 'read-write'),
 (1, 'countries', 'read-write'),
@@ -16,9 +17,10 @@ INSERT INTO role_permissions (role_id, module, permission_type) VALUES
 (1, 'years', 'read-write');
 
 -- Asignar permisos al Consultor (role_id = 2) - Acceso read-only
-INSERT INTO role_permissions (role_id, module, permission_type) VALUES 
+INSERT INTO role_permissions (role_id, module, permission_type) VALUES
 (2, 'indicators', 'read-only'),
 (2, 'indicator_categories', 'read-only'),
+(2, 'indicator_category_details', 'read-only'),
 (2, 'centers', 'read-only'),
 (2, 'states', 'read-only');
 -- Nota: Al consultor no le dimos acceso a countries, genders ni years. 

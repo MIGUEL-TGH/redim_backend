@@ -26,6 +26,8 @@ class IndicatorsController extends BaseController {
         // 🔓 Público, sin AuthMiddleware ==========================================================================================
         case 'getwithdata':
           return IndicatorsService::getIndicatorsWithData();
+        case 'getwithcategories':
+          return IndicatorsService::getIndicatorsWithCategories();
         case 'getdatabysector':
         return IndicatorsService::getDataBySelector();
           // case 'getactive':

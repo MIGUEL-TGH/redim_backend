@@ -2,22 +2,8 @@
 require_once __DIR__ . '/../services/IndicatorCategoryDetailsService.php';
 
 class IndicatorCategoryDetailsController extends BaseController {
-  public static function get() {
-    self::handle(function () {
-      
-      $type = Request::query('type');
-      
-      return match ($type) {
-        'getalldata'    => IndicatorCategoryDetailsService::getAllData(),
-        'getdata'       => IndicatorCategoryDetailsService::getAllData(),
-        // 'getdata'    => $type,
-        default      => throw new ValidationException([
-          'type' => 'Invalid type parameter'
-        ])
-      };
-    });
-  }
-
+  // No hay endpoint GET sin filtro: la tabla tiene ~95,000 registros y
+  // siempre debe consultarse acotada por categoría (ver post() -> getdatabyid).
   public static function post() {
     self::handle(function () {
 
@@ -25,10 +11,14 @@ class IndicatorCategoryDetailsController extends BaseController {
       $body = Request::body();
 
       return match ($type) {
-        'crud'            => IndicatorCategoryDetailsService::setCRUD($body),
-        'getdatabyid'     => IndicatorCategoryDetailsService::getAllDataByID($body),
-        // 'getactivebyid'   => IndicatorCategoryDetailsService::getActiveDatataById($body),
-        // 'getdatabyid' => $body,
+        'crud' => (function () use ($body) {
+          AuthMiddleware::authorize('indicator_category_details', 'read-write');
+          return IndicatorCategoryDetailsService::setCRUD($body);
+        })(),
+        'getdatabyid' => (function () use ($body) {
+          AuthMiddleware::authorize('indicator_category_details', 'read-only');
+          return IndicatorCategoryDetailsService::getAllDataByID($body);
+        })(),
         default      => throw new ValidationException([
           'type' => 'Invalid type parameter'
         ])
