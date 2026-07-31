@@ -75,7 +75,9 @@ class BaseModel {
 
         // Bindear parámetros de forma segura
         foreach ($params as $key => $value){
-            $stmt->bindValue(":" . $key, $value);
+            // PDO castea bool false a '' con PARAM_STR (el default), lo que
+            // rompe columnas enteras en MySQL con sql_mode estricto.
+            $stmt->bindValue(":" . $key, is_bool($value) ? (int)$value : $value);
         }
 
         $stmt->execute();
@@ -128,10 +130,13 @@ class BaseModel {
 
     foreach ($params as $Key => $value){
       if($Key != 'id'){
-        $stmt->bindParam(":".$Key, $params[$Key], PDO::PARAM_STR);
+        // PDO castea bool false a '' con PARAM_STR, lo que rompe columnas
+        // enteras en MySQL con sql_mode estricto (ver PARAM_STR default en setInsert).
+        $bindValue = is_bool($value) ? (int)$value : $value;
+        $stmt->bindValue(":".$Key, $bindValue, PDO::PARAM_STR);
       }
     }
-    $stmt->bindParam(":".$id, $id, PDO::PARAM_STR);
+    $stmt->bindValue(":".$id, $id, PDO::PARAM_STR);
 
     // 3. Ejecución de PDO envuelta en Try/Catch
     try {
